@@ -1,0 +1,692 @@
+Running mongod with env db
+LOG_DIR: /scratch/zl430/fiftyone/randomized/35147728_217
+RND_PT: 55462
+about to fork child process, waiting until server is ready for connections.
+forked process: 211866
+child process started successfully, parent exiting
+
+Running pytorch with env coco
+Migrating database to v0.23.2
+2024-03-11 17:07:43,079 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Config (path: configs/mislabel_bbox_yolo_v3.py): {'model_config': '../mmdetection/configs/yolo/yolov3_d53_mstrain-608_273e_coco.py', 'model_checkpoint': '../mmdetection/checkpoints/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8.pth', 'dataset_name': 'itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco', 'images_path': '../coco/val2017', 'labels_path': '../coco/annotations/instances_val2017.json', 'gt_samples': 5000, 'attack_samples': 200, 'shuffle': True, 'seed': 24982, 'replace_dataset': True, 'compute_map': False, 'cuda': 0, 'launch_app': False, 'itr': 200, 'max_norm': None, 'min_iou': 0.3, 'min_score': 0.3, 'non_overlap': True, 'attack_bbox': 'predictions', 'adversarial_target': 'mislabel', 'perturb_fun': 'perturb_inside', 'arbitrary_bbox': False, 'criteria_dt': {'target_max_conf': None, 'perturb_min_size': None, 'bbox_max_dist': None}, 'result_dir': './data/randomized/results', 'dataset_dir': './data/randomized/datasets', 'cache_dir': './data/randomized/caches', 'log_dir': './data/randomized/logs', 'img_dir': './data/randomized/images', 'viz_pgd': False, 'log_level': 'DEBUG', 'backward_loss': 'get_yolo_v3_mislabel_loss', 'log_name': 'itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3'}
+2024-03-11 17:07:43,079 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - {
+    "batcher_static_size": 100,
+    "batcher_target_latency": 0.2,
+    "batcher_target_size_bytes": 1048576,
+    "bulk_write_batch_size": 100000,
+    "database_admin": true,
+    "database_dir": "/home/zl430/.fiftyone/var/lib/mongo",
+    "database_name": "fiftyone",
+    "database_uri": "mongodb://127.0.0.1:55462/",
+    "database_validation": true,
+    "dataset_zoo_dir": "/home/zl430/fiftyone",
+    "dataset_zoo_manifest_paths": null,
+    "default_app_address": "localhost",
+    "default_app_port": 5151,
+    "default_batch_size": null,
+    "default_batcher": "latency",
+    "default_dataset_dir": "/home/zl430/fiftyone",
+    "default_image_ext": ".jpg",
+    "default_ml_backend": "torch",
+    "default_sequence_idx": "%06d",
+    "default_video_ext": ".mp4",
+    "desktop_app": false,
+    "do_not_track": false,
+    "logging_level": "INFO",
+    "max_process_pool_workers": null,
+    "max_thread_pool_workers": null,
+    "model_zoo_dir": "/home/zl430/fiftyone/__models__",
+    "model_zoo_manifest_paths": null,
+    "module_path": null,
+    "operator_timeout": 600,
+    "plugins_cache_enabled": false,
+    "plugins_dir": "/home/zl430/fiftyone/__plugins__",
+    "requirement_error_level": 0,
+    "show_progress_bars": true,
+    "timezone": null
+}
+Importing samples...
+   0% ||----|    1/4912 [2.0ms elapsed, 9.6s remaining, 512.4 samples/s]                                                                            10% |/----|  511/4912 [151.4ms elapsed, 1.3s remaining, 3.4K samples/s]                                                                             40% |██---| 1975/4912 [388.1ms elapsed, 577.2ms remaining, 5.1K samples/s]                                                                                65% |███\-| 3178/4912 [577.3ms elapsed, 315.0ms remaining, 5.5K samples/s]                                                                                91% |████|| 4450/4912 [732.8ms elapsed, 76.1ms remaining, 6.1K samples/s]                                                                                100% |█████| 4912/4912 [904.2ms elapsed, 0s remaining, 5.4K samples/s]                                                                                    100% |█████| 4912/4912 [904.4ms elapsed, 0s remaining, 5.4K samples/s]      
+Import complete
+2024-03-11 17:07:45,931 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Imported cache_name='./data/randomized/caches/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8'!
+2024-03-11 17:07:45,938 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Name:        itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 4912
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+2024-03-11 17:07:45,955 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - dataset.name='itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco'
+load checkpoint from local path: ../mmdetection/checkpoints/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8.pth
+2024-03-11 17:07:47,553 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - YOLOV3(
+  (backbone): Darknet(
+    (conv1): ConvModule(
+      (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (conv_res_block1): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block2): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block3): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res4): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res5): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res6): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res7): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block4): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res4): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res5): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res6): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res7): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block5): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+  )
+  init_cfg={'type': 'Pretrained', 'checkpoint': 'open-mmlab://darknet53'}
+  (neck): YOLOV3Neck(
+    (detect1): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (conv1): ConvModule(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (detect2): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(768, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (conv2): ConvModule(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (detect3): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+  )
+  (bbox_head): YOLOV3Head(
+    (loss_cls): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_conf): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_xy): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_wh): MSELoss()
+    (convs_bridge): ModuleList(
+      (0): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (1): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (2): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (convs_pred): ModuleList(
+      (0): Conv2d(1024, 255, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(512, 255, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(256, 255, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+  init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'convs_pred'}}
+)
+2024-03-11 17:07:47,559 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - classes=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
+2024-03-11 17:07:47,564 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - lower_bound.squeeze()=tensor([0., 0., 0.], device='cuda:0'), upper_bound.squeeze()=tensor([1., 1., 1.], device='cuda:0'), normalized_range.squeeze()=tensor([1., 1., 1.], device='cuda:0')
+2024-03-11 17:07:47,564 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - eval
+2024-03-11 17:07:47,564 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Dataset:     itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 3790
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+2024-03-11 17:07:47,596 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - len(min_correct_slice)=3790
+2024-03-11 17:07:47,597 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Starting attack itr=200, lr.squeeze()=tensor([0.0050, 0.0050, 0.0050], device='cuda:0')
+2024-03-11 17:08:02,864 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:08:17,334 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:08:45,825 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:09:58,931 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:11:11,609 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:12:37,419 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:15:58,473 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:16:41,913 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:17:24,353 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:18:35,827 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:18:35,837 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:19:04,436 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:19:04,449 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:19:33,291 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:20:01,895 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:20:01,914 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:20:29,886 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:20:44,367 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:21:12,852 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:21:12,864 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:23:53,089 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:25:33,514 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:27:28,554 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:27:28,568 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:28:57,227 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:29:55,307 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:30:10,307 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:31:52,148 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:32:07,055 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:32:52,342 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:33:24,242 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:34:42,451 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:34:42,463 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:36:00,423 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:37:01,420 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:37:15,659 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:37:59,547 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:38:14,144 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:38:14,158 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:38:14,171 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:38:14,183 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:38:58,731 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:39:12,942 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:39:42,694 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:41:09,261 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:41:38,464 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:41:38,478 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:42:07,607 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:42:07,620 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:44:02,275 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:45:57,317 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:45:57,330 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:45:57,342 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:46:54,576 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:47:37,481 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:48:20,413 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:49:04,121 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:52:52,804 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:52:52,820 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:54:32,260 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:54:46,406 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 17:56:12,731 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - attack_sample_idx=['65ed3a8879f70f3cb5bfbc38', '65ed3a8879f70f3cb5bfbc5a', '65ed3a8879f70f3cb5bfbc5c', '65ed3a8879f70f3cb5bfbc5d', '65ed3a8879f70f3cb5bfbca9', '65ed3a8879f70f3cb5bfbcaa', '65ed3a8879f70f3cb5bfbcab', '65ed3a8879f70f3cb5bfbcac', '65ed3a8879f70f3cb5bfbcad', '65ed3a8879f70f3cb5bfbd19', '65ed3a8879f70f3cb5bfbd1a', '65ed3a8879f70f3cb5bfbd1b', '65ed3a8879f70f3cb5bfbd1c', '65ed3a8879f70f3cb5bfbd1d', '65ed3a8879f70f3cb5bfbd21', '65ed3a8879f70f3cb5bfbd22', '65ed3a8879f70f3cb5bfbd23', '65ed3a8879f70f3cb5bfbd24', '65ed3a8879f70f3cb5bfbd25', '65ed3a8879f70f3cb5bfbd27', '65ed3a8879f70f3cb5bfbe5e', '65ed3a8879f70f3cb5bfbe5f', '65ed3a8879f70f3cb5bfbe60', '65ed3a8879f70f3cb5bfbe61', '65ed3a8879f70f3cb5bfbe62', '65ed3a8879f70f3cb5bfbe63', '65ed3a8879f70f3cb5bfbe64', '65ed3a8879f70f3cb5bfbe65', '65ed3a8879f70f3cb5bfbe66', '65ed3a8879f70f3cb5bfbe67', '65ed3a8879f70f3cb5bfbe68', '65ed3a8879f70f3cb5bfbe69', '65ed3a8879f70f3cb5bfbe6a', '65ed3a8879f70f3cb5bfbe6b', '65ed3a8879f70f3cb5bfbe6e', '65ed3a8879f70f3cb5bfbe6f', '65ed3a8879f70f3cb5bfbe70', '65ed3a8879f70f3cb5bfbe73', '65ed3a8879f70f3cb5bfbe75', '65ed3a8879f70f3cb5bfbe77', '65ed3a8879f70f3cb5bfbfd1', '65ed3a8879f70f3cb5bfbfd2', '65ed3a8879f70f3cb5bfbfd3', '65ed3a8879f70f3cb5bfbfd5', '65ed3a8879f70f3cb5bfbfd7', '65ed3a8879f70f3cb5bfbfda', '65ed3a8879f70f3cb5bfbfdb', '65ed3a8879f70f3cb5bfbfde', '65ed3a8879f70f3cb5bfbfdf', '65ed3a8879f70f3cb5bfbfe1', '65ed3a8879f70f3cb5bfbfe2', '65ed3a8879f70f3cb5bfbfea', '65ed3a8879f70f3cb5bfbfeb', '65ed3a8879f70f3cb5bfbfed', '65ed3a8879f70f3cb5bfbfef', '65ed3a8879f70f3cb5bfbff0', '65ed3a8879f70f3cb5bfbff5', '65ed3a8879f70f3cb5bfbff6', '65ed3a8879f70f3cb5bfbff7', '65ed3a8879f70f3cb5bfbff8', '65ed3a8879f70f3cb5bfbff9', '65ed3a8879f70f3cb5bfbffa', '65ed3a8879f70f3cb5bfbffb', '65ed3a8879f70f3cb5bfc172', '65ed3a8879f70f3cb5bfc174', '65ed3a8879f70f3cb5bfc175', '65ed3a8879f70f3cb5bfc176', '65ed3a8879f70f3cb5bfc178', '65ed3a8879f70f3cb5bfc17a', '65ed3a8879f70f3cb5bfc17b', '65ed3a8879f70f3cb5bfc17c', '65ed3a8879f70f3cb5bfc17e', '65ed3a8879f70f3cb5bfc17f', '65ed3a8879f70f3cb5bfc180', '65ed3a8879f70f3cb5bfc183', '65ed3a8879f70f3cb5bfc184', '65ed3a8879f70f3cb5bfc185', '65ed3a8879f70f3cb5bfc187', '65ed3a8879f70f3cb5bfc188', '65ed3a8879f70f3cb5bfc189', '65ed3a8879f70f3cb5bfc18a', '65ed3a8879f70f3cb5bfc18b', '65ed3a8879f70f3cb5bfc18f', '65ed3a8879f70f3cb5bfc190', '65ed3a8879f70f3cb5bfc193', '65ed3a8879f70f3cb5bfc194', '65ed3a8879f70f3cb5bfc195', '65ed3a8879f70f3cb5bfc196', '65ed3a8879f70f3cb5bfc19c', '65ed3a8879f70f3cb5bfc19d', '65ed3a8879f70f3cb5bfc19e', '65ed3a8879f70f3cb5bfc19f', '65ed3a8879f70f3cb5bfc1a1', '65ed3a8879f70f3cb5bfc1a3', '65ed3a8879f70f3cb5bfc1a4', '65ed3a8979f70f3cb5bfc33a', '65ed3a8979f70f3cb5bfc33d', '65ed3a8979f70f3cb5bfc33e', '65ed3a8979f70f3cb5bfc33f', '65ed3a8979f70f3cb5bfc340', '65ed3a8979f70f3cb5bfc343', '65ed3a8979f70f3cb5bfc346', '65ed3a8979f70f3cb5bfc347', '65ed3a8979f70f3cb5bfc348', '65ed3a8979f70f3cb5bfc34a', '65ed3a8979f70f3cb5bfc34c', '65ed3a8979f70f3cb5bfc34f', '65ed3a8979f70f3cb5bfc350', '65ed3a8979f70f3cb5bfc352', '65ed3a8979f70f3cb5bfc353', '65ed3a8979f70f3cb5bfc356', '65ed3a8979f70f3cb5bfc359', '65ed3a8979f70f3cb5bfc35a', '65ed3a8979f70f3cb5bfc35c', '65ed3a8979f70f3cb5bfc35e', '65ed3a8979f70f3cb5bfc35f', '65ed3a8979f70f3cb5bfc361', '65ed3a8979f70f3cb5bfc362', '65ed3a8979f70f3cb5bfc364', '65ed3a8979f70f3cb5bfc366', '65ed3a8979f70f3cb5bfc369', '65ed3a8979f70f3cb5bfc36b', '65ed3a8979f70f3cb5bfc36d', '65ed3a8979f70f3cb5bfc36f', '65ed3a8979f70f3cb5bfc4e8', '65ed3a8979f70f3cb5bfc4ed', '65ed3a8979f70f3cb5bfc4ee', '65ed3a8979f70f3cb5bfc4ef', '65ed3a8979f70f3cb5bfc4f1', '65ed3a8979f70f3cb5bfc4f3', '65ed3a8979f70f3cb5bfc4f4', '65ed3a8979f70f3cb5bfc4f6', '65ed3a8979f70f3cb5bfc4f7', '65ed3a8979f70f3cb5bfc4f8', '65ed3a8979f70f3cb5bfc4fb', '65ed3a8979f70f3cb5bfc4fc', '65ed3a8979f70f3cb5bfc4fd', '65ed3a8979f70f3cb5bfc4ff', '65ed3a8979f70f3cb5bfc500', '65ed3a8979f70f3cb5bfc503', '65ed3a8979f70f3cb5bfc504', '65ed3a8979f70f3cb5bfc50a', '65ed3a8979f70f3cb5bfc50b', '65ed3a8979f70f3cb5bfc50d', '65ed3a8979f70f3cb5bfc50e', '65ed3a8979f70f3cb5bfc510', '65ed3a8979f70f3cb5bfc511', '65ed3a8979f70f3cb5bfc513', '65ed3a8979f70f3cb5bfc514', '65ed3a8979f70f3cb5bfc517', '65ed3a8979f70f3cb5bfc518', '65ed3a8979f70f3cb5bfc51a', '65ed3a8979f70f3cb5bfc51b', '65ed3a8979f70f3cb5bfc51c', '65ed3a8979f70f3cb5bfc51d', '65ed3a8979f70f3cb5bfc6d2', '65ed3a8979f70f3cb5bfc6d3', '65ed3a8979f70f3cb5bfc6d9', '65ed3a8979f70f3cb5bfc6da', '65ed3a8979f70f3cb5bfc6dc', '65ed3a8979f70f3cb5bfc6dd', '65ed3a8979f70f3cb5bfc6e0', '65ed3a8979f70f3cb5bfc6e1', '65ed3a8979f70f3cb5bfc6e2', '65ed3a8979f70f3cb5bfc6e7', '65ed3a8979f70f3cb5bfc6e9', '65ed3a8979f70f3cb5bfc6ea', '65ed3a8979f70f3cb5bfc6ed', '65ed3a8979f70f3cb5bfc6ef', '65ed3a8979f70f3cb5bfc6f1', '65ed3a8979f70f3cb5bfc6f3', '65ed3a8979f70f3cb5bfc6f5', '65ed3a8979f70f3cb5bfc6f6', '65ed3a8979f70f3cb5bfc6f8', '65ed3a8979f70f3cb5bfc6f9', '65ed3a8979f70f3cb5bfc6fa', '65ed3a8979f70f3cb5bfc6fb', '65ed3a8979f70f3cb5bfc6fc', '65ed3a8979f70f3cb5bfc6fd', '65ed3a8979f70f3cb5bfc6fe', '65ed3a8979f70f3cb5bfc6ff', '65ed3a8979f70f3cb5bfc701', '65ed3a8979f70f3cb5bfc702', '65ed3a8979f70f3cb5bfc703', '65ed3a8979f70f3cb5bfc704', '65ed3a8979f70f3cb5bfc705', '65ed3a8979f70f3cb5bfc708', '65ed3a8979f70f3cb5bfc709', '65ed3a8979f70f3cb5bfc8a1', '65ed3a8979f70f3cb5bfc8a2', '65ed3a8979f70f3cb5bfc8a3', '65ed3a8979f70f3cb5bfc8a5', '65ed3a8979f70f3cb5bfc8a7', '65ed3a8979f70f3cb5bfc8a9', '65ed3a8979f70f3cb5bfc8ad', '65ed3a8979f70f3cb5bfc8ae', '65ed3a8979f70f3cb5bfc8af', '65ed3a8979f70f3cb5bfc8b0', '65ed3a8979f70f3cb5bfc8b1', '65ed3a8979f70f3cb5bfc8b3']
+2024-03-11 17:56:12,731 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - attack_sample_path=['/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000079588.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000378139.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000046497.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000562207.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000254016.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000470121.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000031735.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000538364.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000162092.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000035279.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000058705.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000410456.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000262487.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000274708.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000466125.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000385190.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000182441.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000486046.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000135872.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000568213.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000395388.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000315450.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000014038.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000218439.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000381639.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000007816.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000235836.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000187144.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000338560.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000038576.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000239627.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000215778.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000470779.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000526256.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000553221.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000463527.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000229659.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000036936.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000252716.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000003934.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000331280.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000088040.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000504635.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000546964.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000221291.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000201934.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000245513.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000558558.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000065455.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000298396.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000050380.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000040083.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000565624.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000498747.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000037777.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000109976.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000253742.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000187236.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000490936.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000202339.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000556000.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000577149.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000369310.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511999.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000130699.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000481582.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000369812.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000057760.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000507081.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000439623.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000012120.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000206994.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000248284.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000304180.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000249786.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000300276.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000478393.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000442746.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000269316.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000471023.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000145597.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000140556.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000082986.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000353518.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000474881.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000230993.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000441247.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000285788.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000563653.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000579091.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000431693.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000178028.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000479596.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000467511.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000195842.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000281409.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000053505.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000500270.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000215072.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000532530.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000378453.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000048504.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000205514.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000111207.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000157767.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000210520.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000084031.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000357737.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000147415.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000205105.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000476514.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000155145.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000082085.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000504580.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000484296.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000417632.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000480021.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000378515.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000459662.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000361919.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000565877.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000519569.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000252219.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000241677.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000563648.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000432898.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000148719.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000396729.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000366711.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000523782.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000338219.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000313130.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000414510.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000154004.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000102411.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000311928.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000445602.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000286994.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000347335.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000117492.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000189752.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000289415.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000578236.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000113235.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000142971.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000534664.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000099182.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000050811.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000122927.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000242060.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000367228.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000448263.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000578489.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000482436.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000192716.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000455597.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000281929.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000108503.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000157928.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000219271.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000210032.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000288685.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000440475.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000265816.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000008021.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000497867.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000416885.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000233771.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000128675.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000381587.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000379533.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000081061.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000140987.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000229358.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000109118.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000444142.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000292236.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000405195.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000467848.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000428867.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000345261.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000532481.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000087244.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000470952.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000227511.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000389381.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000078823.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000319935.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000301135.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000365766.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000273198.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000537506.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000079229.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000303863.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000043314.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000281414.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000280918.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000526728.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000304812.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000407646.jpg']
+2024-03-11 17:56:12,731 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - perturb_bboxes_idx=[1, 9, 1, 0, 17, 6, 1, 8, 12, 4, 1, 4, 4, 1, 1, 2, 14, 1, 1, 1, 4, 12, 4, 5, 8, 1, 4, 5, 7, 1, 0, 0, 5, 0, 0, 6, 10, 4, 0, 6, 7, 11, 2, 1, 1, 3, 1, 1, 8, 5, 4, 10, 2, 5, 5, 1, 6, 4, 8, 6, 2, 1, 4, 2, 7, 2, 2, 0, 3, 2, 15, 1, 2, 0, 0, 8, 1, 1, 4, 9, 4, 3, 0, 3, 1, 5, 6, 0, 15, 0, 2, 3, 11, 0, 7, 2, 5, 4, 3, 0, 8, 3, 4, 1, 3, 2, 3, 1, 0, 8, 3, 2, 1, 0, 0, 10, 5, 1, 3, 10, 3, 2, 0, 1, 8, 2, 0, 0, 1, 3, 10, 3, 3, 8, 4, 1, 3, 5, 2, 1, 8, 3, 0, 2, 3, 0, 3, 2, 1, 8, 0, 0, 3, 0, 3, 1, 1, 4, 3, 5, 5, 4, 7, 0, 3, 1, 1, 10, 3, 4, 1, 0, 11, 2, 2, 1, 2, 1, 4, 1, 0, 1, 0, 5, 5, 1, 1, 0, 10, 1, 1, 2, 1, 1, 0, 1, 3, 0, 0, 0]
+2024-03-11 17:56:12,732 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - target_bboxes_idx=[0, 2, 0, 1, 15, 0, 3, 4, 2, 6, 2, 7, 0, 4, 0, 1, 5, 0, 7, 0, 2, 9, 15, 4, 5, 2, 3, 6, 8, 0, 3, 3, 1, 1, 6, 1, 12, 8, 1, 2, 2, 4, 0, 16, 0, 1, 0, 2, 7, 4, 1, 4, 1, 7, 6, 0, 10, 2, 2, 5, 8, 0, 6, 0, 9, 1, 10, 14, 2, 5, 12, 0, 0, 3, 1, 10, 0, 2, 3, 7, 2, 0, 3, 5, 3, 3, 16, 1, 8, 1, 1, 1, 9, 1, 10, 4, 8, 1, 0, 1, 15, 1, 3, 3, 12, 7, 13, 0, 1, 2, 2, 5, 3, 1, 1, 1, 1, 6, 2, 4, 2, 7, 3, 12, 4, 23, 4, 1, 5, 2, 5, 2, 2, 10, 5, 0, 4, 7, 1, 2, 4, 6, 1, 0, 0, 2, 2, 1, 0, 2, 1, 2, 5, 1, 2, 5, 2, 7, 4, 8, 3, 8, 6, 2, 1, 0, 3, 3, 2, 20, 2, 1, 9, 3, 1, 2, 3, 4, 0, 0, 1, 4, 1, 6, 8, 2, 2, 2, 14, 2, 2, 6, 2, 2, 1, 3, 1, 6, 2, 1]
+2024-03-11 17:56:12,732 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Sampled 261
+2024-03-11 17:56:12,732 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Finished attack
+2024-03-11 17:56:12,732 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Dataset:     itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 200
+Sample fields:
+    id:                    fiftyone.core.fields.ObjectIdField
+    filepath:              fiftyone.core.fields.StringField
+    tags:                  fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:              fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:           fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:               fiftyone.core.fields.IntField
+    eval_fp:               fiftyone.core.fields.IntField
+    eval_fn:               fiftyone.core.fields.IntField
+    mislabel_target_class: fiftyone.core.fields.StringField
+    mislabel_target_proba: fiftyone.core.fields.FloatField
+    pgd:                   fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+    2. MatchTags(tags=['attack'], bool=True, all=False)
+2024-03-11 17:56:12,743 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - len(attack_slice)=200
+Evaluating detections...
+   0% ||------|   0/200 [21.7ms elapsed, ? remaining, ? samples/s]                                                                       2% |/------|   4/200 [146.7ms elapsed, 7.2s remaining, 27.3 samples/s]                                                                              2% |-------|   5/200 [338.3ms elapsed, 13.2s remaining, 14.8 samples/s]                                                                               4% |\------|   7/200 [439.2ms elapsed, 12.1s remaining, 15.9 samples/s]                                                                               4% ||------|   9/200 [596.7ms elapsed, 12.7s remaining, 15.1 samples/s]                                                                               6% |/------|  11/200 [752.1ms elapsed, 12.9s remaining, 14.6 samples/s]                                                                               8% |-------|  15/200 [866.7ms elapsed, 10.7s remaining, 17.3 samples/s]                                                                               8% |\------|  17/200 [1.0s elapsed, 11.1s remaining, 16.5 samples/s]                                                                                 10% ||------|  21/200 [1.1s elapsed, 9.7s remaining, 18.4 samples/s]                                                                                  11% |/------|  22/200 [1.3s elapsed, 10.5s remaining, 16.9 samples/s]                                                                                 12% |-------|  23/200 [1.6s elapsed, 12.3s remaining, 13.3 samples/s]                                                                                 13% |\------|  26/200 [1.7s elapsed, 11.7s remaining, 14.9 samples/s]                                                                                 14% |█|-----|  29/200 [1.9s elapsed, 11.2s remaining, 15.2 samples/s]                                                                                 16% |█/-----|  33/200 [2.0s elapsed, 10.3s remaining, 16.6 samples/s]                                                                                 18% |█------|  35/200 [2.2s elapsed, 10.1s remaining, 17.0 samples/s]                                                                                 18% |█\-----|  37/200 [2.4s elapsed, 10.8s remaining, 14.2 samples/s]                                                                                 19% |█|-----|  38/200 [2.6s elapsed, 11.2s remaining, 13.5 samples/s]                                                                                 20% |█/-----|  40/200 [2.7s elapsed, 11.3s remaining, 12.1 samples/s]                                                                                 20% |█------|  41/200 [2.8s elapsed, 11.3s remaining, 12.6 samples/s]                                                                                 22% |█\-----|  44/200 [3.1s elapsed, 11.0s remaining, 14.0 samples/s]                                                                                 24% |█|-----|  48/200 [3.2s elapsed, 10.0s remaining, 15.3 samples/s]                                                                                 25% |█/-----|  50/200 [3.3s elapsed, 10.0s remaining, 14.9 samples/s]                                                                                 26% |█------|  52/200 [3.5s elapsed, 10.2s remaining, 13.3 samples/s]                                                                                 28% |█\-----|  55/200 [3.6s elapsed, 9.8s remaining, 13.8 samples/s]                                                                                  28% |█|-----|  57/200 [3.9s elapsed, 10.0s remaining, 13.5 samples/s]                                                                                 30% |██/----|  59/200 [4.1s elapsed, 9.7s remaining, 14.3 samples/s]                                                                                  30% |██-----|  61/200 [4.2s elapsed, 9.6s remaining, 14.3 samples/s]                                                                                  32% |██\----|  64/200 [4.3s elapsed, 9.1s remaining, 15.3 samples/s]                                                                                  33% |██|----|  66/200 [4.4s elapsed, 8.7s remaining, 16.3 samples/s]                                                                                  34% |██/----|  68/200 [4.6s elapsed, 9.1s remaining, 14.0 samples/s]                                                                                  36% |██-----|  71/200 [4.8s elapsed, 8.9s remaining, 14.0 samples/s]                                                                                  38% |██\----|  75/200 [4.9s elapsed, 8.1s remaining, 15.8 samples/s]                                                                                  38% |██|----|  76/200 [5.2s elapsed, 8.7s remaining, 13.6 samples/s]                                                                                  40% |██/----|  80/200 [5.3s elapsed, 7.6s remaining, 16.6 samples/s]                                                                                  40% |██-----|  81/200 [5.4s elapsed, 7.7s remaining, 16.3 samples/s]                                                                                  42% |██\----|  84/200 [5.5s elapsed, 7.3s remaining, 17.0 samples/s]                                                                                  44% |███|---|  87/200 [5.8s elapsed, 7.3s remaining, 16.0 samples/s]                                                                                  44% |███/---|  89/200 [5.9s elapsed, 7.3s remaining, 15.5 samples/s]                                                                                  46% |███----|  93/200 [6.4s elapsed, 7.5s remaining, 14.0 samples/s]                                                                                  48% |███\---|  96/200 [6.6s elapsed, 7.4s remaining, 13.6 samples/s]                                                                                  49% |███|---|  98/200 [6.8s elapsed, 7.6s remaining, 12.5 samples/s]                                                                                  50% |███/---| 101/200 [7.0s elapsed, 7.0s remaining, 13.9 samples/s]                                                                                  51% |███----| 102/200 [7.1s elapsed, 7.4s remaining, 12.3 samples/s]                                                                                  52% |███\---| 103/200 [7.4s elapsed, 7.9s remaining, 11.1 samples/s]                                                                                  52% |███|---| 105/200 [7.6s elapsed, 8.1s remaining, 10.4 samples/s]                                                                                  54% |███/---| 107/200 [7.7s elapsed, 8.0s remaining, 10.2 samples/s]                                                                                  55% |███----| 110/200 [7.8s elapsed, 7.4s remaining, 11.0 samples/s]                                                                                  56% |███\---| 113/200 [7.9s elapsed, 6.4s remaining, 13.1 samples/s]                                                                                  58% |████|--| 116/200 [8.1s elapsed, 6.0s remaining, 13.7 samples/s]                                                                                  59% |████/--| 118/200 [8.3s elapsed, 6.1s remaining, 13.1 samples/s]                                                                                  60% |████---| 120/200 [8.5s elapsed, 6.2s remaining, 12.3 samples/s]                                                                                  62% |████\--| 123/200 [8.6s elapsed, 5.6s remaining, 13.6 samples/s]                                                                                  62% |████|--| 124/200 [8.7s elapsed, 5.1s remaining, 15.6 samples/s]                                                                                  63% |████/--| 126/200 [9.1s elapsed, 5.4s remaining, 13.7 samples/s]                                                                                  66% |████---| 131/200 [9.3s elapsed, 4.7s remaining, 14.9 samples/s]                                                                                  66% |████\--| 133/200 [9.5s elapsed, 4.8s remaining, 13.8 samples/s]                                                                                  68% |████|--| 135/200 [9.7s elapsed, 5.0s remaining, 12.6 samples/s]                                                                                  68% |████/--| 137/200 [9.8s elapsed, 4.9s remaining, 12.4 samples/s]                                                                                  70% |████---| 140/200 [10.0s elapsed, 4.5s remaining, 13.1 samples/s]                                                                                 70% |████\--| 141/200 [10.1s elapsed, 4.4s remaining, 13.3 samples/s]                                                                                 72% |█████|-| 144/200 [10.2s elapsed, 4.1s remaining, 13.4 samples/s]                                                                                 74% |█████/-| 148/200 [10.3s elapsed, 3.4s remaining, 15.5 samples/s]                                                                                 75% |█████--| 150/200 [10.4s elapsed, 2.9s remaining, 18.5 samples/s]                                                                                 76% |█████\-| 152/200 [10.5s elapsed, 2.9s remaining, 17.5 samples/s]                                                                                 78% |█████|-| 156/200 [10.7s elapsed, 2.4s remaining, 19.6 samples/s]                                                                                 80% |█████/-| 159/200 [10.8s elapsed, 2.1s remaining, 21.4 samples/s]                                                                                 80% |█████--| 161/200 [10.9s elapsed, 2.0s remaining, 21.0 samples/s]                                                                                 81% |█████\-| 162/200 [11.1s elapsed, 2.0s remaining, 20.2 samples/s]                                                                                 84% |█████|-| 167/200 [11.2s elapsed, 1.6s remaining, 22.4 samples/s]                                                                                 85% |█████/-| 170/200 [11.5s elapsed, 1.6s remaining, 19.3 samples/s]                                                                                 86% |██████-| 173/200 [11.6s elapsed, 1.5s remaining, 18.4 samples/s]                                                                                 89% |██████\| 178/200 [12.0s elapsed, 1.3s remaining, 17.1 samples/s]                                                                                 90% |██████|| 181/200 [12.1s elapsed, 1.1s remaining, 17.9 samples/s]                                                                                 92% |██████/| 185/200 [12.3s elapsed, 849.8ms remaining, 17.9 samples/s]                                                                              94% |██████-| 188/200 [12.4s elapsed, 681.5ms remaining, 17.8 samples/s]                                                                              94% |██████\| 189/200 [12.5s elapsed, 640.7ms remaining, 17.3 samples/s]                                                                              97% |██████|| 194/200 [12.7s elapsed, 305.9ms remaining, 19.8 samples/s]                                                                              99% |██████/| 198/200 [12.8s elapsed, 100.8ms remaining, 19.9 samples/s]                                                                             100% |███████| 200/200 [12.9s elapsed, 0s remaining, 21.3 samples/s]      
+2024-03-11 17:56:26,238 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Dataset:     itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 55
+Sample fields:
+    id:                    fiftyone.core.fields.ObjectIdField
+    filepath:              fiftyone.core.fields.StringField
+    tags:                  fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:              fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:           fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:               fiftyone.core.fields.IntField
+    eval_fp:               fiftyone.core.fields.IntField
+    eval_fn:               fiftyone.core.fields.IntField
+    mislabel_target_class: fiftyone.core.fields.StringField
+    mislabel_target_proba: fiftyone.core.fields.FloatField
+    pgd:                   fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    pgd_eval_tp:           fiftyone.core.fields.IntField
+    pgd_eval_fp:           fiftyone.core.fields.IntField
+    pgd_eval_fn:           fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+    2. MatchTags(tags=['attack'], bool=True, all=False)
+    3. FilterLabels(field='pgd', filter={'$gt': ['$$this.confidence', 0.3]}, only_matches=False, trajectories=False)
+    4. MatchLabels(labels=None, ids=None, tags=None, filter={'$and': [{...}, {...}]}, fields=['predictions'], bool=True)
+2024-03-11 17:56:26,285 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Success/Attack: 55/200 (27.50%)
+Evaluating detections...
+   0% ||--------|  0/55 [28.4ms elapsed, ? remaining, ? samples/s]                                                                       4% |/--------|  2/55 [332.8ms elapsed, 8.8s remaining, 6.0 samples/s]                                                                             7% |---------|  4/55 [527.7ms elapsed, 6.7s remaining, 7.6 samples/s]                                                                            13% |█\-------|  7/55 [651.9ms elapsed, 4.5s remaining, 10.7 samples/s]                                                                             16% |█|-------|  9/55 [853.7ms elapsed, 4.4s remaining, 10.5 samples/s]                                                                             22% |█/-------| 12/55 [980.0ms elapsed, 3.5s remaining, 12.2 samples/s]                                                                             27% |██-------| 15/55 [1.1s elapsed, 2.9s remaining, 13.7 samples/s]                                                                                31% |██\------| 17/55 [1.2s elapsed, 2.7s remaining, 14.2 samples/s]                                                                                35% |███|-----| 19/55 [1.3s elapsed, 2.6s remaining, 14.1 samples/s]                                                                                36% |███/-----| 20/55 [1.5s elapsed, 2.6s remaining, 13.2 samples/s]                                                                                44% |███------| 24/55 [1.6s elapsed, 2.0s remaining, 17.0 samples/s]                                                                                45% |████\----| 25/55 [1.7s elapsed, 1.9s remaining, 17.4 samples/s]                                                                                47% |████|----| 26/55 [2.0s elapsed, 2.1s remaining, 14.6 samples/s]                                                                                53% |████/----| 29/55 [2.3s elapsed, 1.9s remaining, 14.3 samples/s]                                                                                60% |█████----| 33/55 [2.5s elapsed, 1.6s remaining, 14.2 samples/s]                                                                                69% |██████\--| 38/55 [2.6s elapsed, 1.1s remaining, 15.2 samples/s]                                                                                76% |██████|--| 42/55 [2.8s elapsed, 817.4ms remaining, 16.1 samples/s]                                                                             80% |███████/-| 44/55 [2.9s elapsed, 699.4ms remaining, 15.9 samples/s]                                                                             85% |███████--| 47/55 [3.0s elapsed, 464.5ms remaining, 17.6 samples/s]                                                                             89% |████████\| 49/55 [3.2s elapsed, 372.5ms remaining, 16.2 samples/s]                                                                             96% |████████|| 53/55 [3.3s elapsed, 112.8ms remaining, 17.8 samples/s]                                                                            100% |█████████| 55/55 [3.5s elapsed, 0s remaining, 18.6 samples/s]      
+2024-03-11 17:56:30,132 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Mislabeled: 31/55
+2024-03-11 17:56:30,260 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Mislabeled to desired class/Mislabeled: 31 / 31 (100.00%)
+2024-03-11 17:56:30,365 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Vanished: 24/55
+2024-03-11 17:56:30,432 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Saving to: ./data/randomized/results/itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3.csv
+2024-03-11 17:56:30,532 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Dumping save_name='./data/randomized/datasets/itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco'...
+Exporting samples...
+   0% ||---------|   0/200 [50.8us elapsed, ? remaining, ? docs/s]                                                                      14% |█/--------|  29/200 [100.8ms elapsed, 594.4ms remaining, 287.7 docs/s]                                                                                 30% |██--------|  59/200 [208.5ms elapsed, 498.3ms remaining, 282.9 docs/s]                                                                                 46% |████\-----|  93/200 [319.9ms elapsed, 368.0ms remaining, 290.7 docs/s]                                                                                 58% |█████|----| 116/200 [422.1ms elapsed, 305.7ms remaining, 274.8 docs/s]                                                                                 72% |███████/--| 144/200 [522.7ms elapsed, 203.3ms remaining, 275.5 docs/s]                                                                                 89% |████████--| 178/200 [624.5ms elapsed, 77.2ms remaining, 285.0 docs/s]                                                                                 100% |██████████| 200/200 [680.6ms elapsed, 0s remaining, 293.8 docs/s]      
+2024-03-11 17:56:31,279 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Name:        itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 4912
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:                    fiftyone.core.fields.ObjectIdField
+    filepath:              fiftyone.core.fields.StringField
+    tags:                  fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:              fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:           fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:               fiftyone.core.fields.IntField
+    eval_fp:               fiftyone.core.fields.IntField
+    eval_fn:               fiftyone.core.fields.IntField
+    mislabel_target_class: fiftyone.core.fields.StringField
+    mislabel_target_proba: fiftyone.core.fields.FloatField
+    pgd:                   fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    pgd_eval_tp:           fiftyone.core.fields.IntField
+    pgd_eval_fp:           fiftyone.core.fields.IntField
+    pgd_eval_fn:           fiftyone.core.fields.IntField
+    pgd_mislabel_eval_tp:  fiftyone.core.fields.IntField
+    pgd_mislabel_eval_fp:  fiftyone.core.fields.IntField
+    pgd_mislabel_eval_fn:  fiftyone.core.fields.IntField
+2024-03-11 17:56:31,294 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3_coco
+2024-03-11 17:56:31,328 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - Sample tags: ['mislabel_intended', 'attack', 'mislabel', 'vanish', 'success']
+2024-03-11 17:56:31,391 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - ground_truth tags: ['target', 'perturb']
+2024-03-11 17:56:31,454 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - predictions tags: ['target', 'perturb']
+2024-03-11 17:56:31,515 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - DEBUG - pgd tags: ['mislabel']
+2024-03-11 17:56:31,534 - itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3 - INFO - Saving to: ./data/randomized/results/itr_200_norm_None_repeat_15_mislabel_bbox_yolo_v3.parquet
+
+Completed and shutting down mongod...
+{"t":{"$date":"2024-03-11T17:56:35.184-04:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"-","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2024-03-11T17:56:35.184-04:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true}}}
+{"t":{"$date":"2024-03-11T17:56:35.184-04:00"},"s":"I",  "c":"NETWORK",  "id":4648602, "ctx":"main","msg":"Implicit TCP FastOpen in use."}
+{"t":{"$date":"2024-03-11T17:56:35.186-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}
+{"t":{"$date":"2024-03-11T17:56:35.186-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}
+{"t":{"$date":"2024-03-11T17:56:35.186-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"ShardSplitDonorService","namespace":"config.tenantSplitDonors"}}
+Killing process with pid: 211866

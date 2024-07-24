@@ -1,0 +1,53 @@
+\begin{table}
+\centering
+\caption{\label{tab:models_table}Detection models and attack losses. Full details are given in Appendix \ref{app:mod_los}.}
+\centering
+\begin{threeparttable}
+\begin{tabular}[t]{llllll}
+\toprule
+\multicolumn{3}{c}{ } & \multicolumn{3}{c}{Attack Losses\textsuperscript{c}} \\
+\cmidrule(l{3pt}r{3pt}){4-6}
+\multicolumn{3}{c}{ } & \multicolumn{2}{c}{Targeted} & \multicolumn{1}{c}{ } \\
+\cmidrule(l{3pt}r{3pt}){4-5}
+Detectors & Stages\textsuperscript{a} & COCO mAP\textsuperscript{b} & Vanishing & Mislabeling & Untargeted\textsuperscript{d}\\
+\midrule
+\cellcolor{gray!10}{YOLOv3} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{33.7} & \cellcolor{gray!10}{Object} & \cellcolor{gray!10}{Class} & \cellcolor{gray!10}{Class, Box, Object}\\
+SSD & 1 & 29.5 & Class & Class & Class, Box\\
+\cellcolor{gray!10}{RetinaNet} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{36.5} & \cellcolor{gray!10}{Class} & \cellcolor{gray!10}{Class} & \cellcolor{gray!10}{Class, Box}\\
+\makecell[l]{Faster\\R-CNN} & 2 & 37.4 & \makecell[l]{RPN: Object;\\Det: Class} & Det: Class & \makecell[l]{RPN: Object, Box;\\Det: Class, Box}\\
+\cellcolor{gray!10}{\makecell[l]{Cascade\\R-CNN}} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{40.3} & \cellcolor{gray!10}{\makecell[l]{RPN 1: Object;\\RPNs 2, 3 + Det: Class}} & \cellcolor{gray!10}{\makecell[l]{RPNs 2, 3: Class;\\Det: Class}} & \cellcolor{gray!10}{\makecell[l]{RPN 1: Object, Box;\\RPNs 2, 3 + Det: Class, Box}}\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[a] In general, 1-stage detectors are quicker whereas 2-stage detectors are more accurate, though the 1-stage RetinaNet aims to be both quick and accurate. In a 2-stage detector, the input image passes through a Region Proposal Network (RPN) stage and a detection (Det) stage.
+\item[b] COCO mean Average Precision (mAP) is the primary metric on the COCO challenge.
+\item[c] The training losses in detectors typically include the box regression loss (Box), the class loss on the 80 COCO labels and/or the background class (Class), and the objectness loss on categorizing an image region as background or object (Object).
+\item[d] Untargeted attack targets all training losses in a model, i.e. the backpropagation loss.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\caption{\label{tab:results_table}Hypothesis testing in the randomized attack (Sections \ref{sec:rand_hp} and \ref{sec:rand_res})}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{1.25in}>{\raggedright\arraybackslash}p{1.5in}}
+\toprule
+Hypotheses (higher success for) & Accepted (across attacks and models)\textsuperscript{a}\\
+\midrule
+\cellcolor{gray!10}{1-stage $>$ 2-stage models (YOLOv3, SSD, RetinaNet $>$ Faster R-CNN, Cascade R-CNN)} & \cellcolor{gray!10}{YOLOv3, SSD $>$ RetinaNet, Faster R-CNN, Cascade R-CNN in vanishing and mislabeling attacks (1-stage RetinaNet is as resilient as 2-stage models)}\\
+Targeted $>$ Untargeted attack & YOLOv3 only\\
+\cellcolor{gray!10}{Vanishing $>$ Mislabeling attack} & \cellcolor{gray!10}{All}\\
+Larger attack iterations & All\\
+\cellcolor{gray!10}{Less confident targets} & \cellcolor{gray!10}{All}\\
+\addlinespace
+Larger perturb boxes & All except mislabeling attack on Faster R-CNN\\
+\cellcolor{gray!10}{Shorter perturb-target distance} & \cellcolor{gray!10}{All}\\
+Less accurate target COCO class & Mixed\\
+\cellcolor{gray!10}{Lower target IOU\textsuperscript{b} (untargeted attack only)} & \cellcolor{gray!10}{All}\\
+More probable intended class (mislabeling attack only) & Mixed\\
+\bottomrule
+\multicolumn{2}{l}{\rule{0pt}{1em}\textsuperscript{a} $p < .05$ for Wald z-test on logistic estimate}\\
+\multicolumn{2}{l}{\rule{0pt}{1em}\textsuperscript{b} intersection-over-union}\\
+\end{tabular}
+\end{table}

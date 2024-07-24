@@ -1,0 +1,1 @@
+/var/lib/slurm/slurmd/job37868019/slurm_script: line 50: mongod: command not found

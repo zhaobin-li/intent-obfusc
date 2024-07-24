@@ -1,0 +1,137 @@
+---
+title: Biased Experiment
+output: 
+  latex_fragment: default
+  pdf_document: default
+params:
+  data: "data" # directory where data is stored
+  simulation: "biased" # simulation name
+  norm: "None" # max norm constraint is None or 0.05
+  fragment: true # pdf: change to `false` 
+---
+
+```{r here, include=FALSE}
+here::i_am("analysis/biased.Rmd")
+library(here)
+```
+
+```{r setup, include=FALSE}
+# echo = FALSE needed to hide code when we set include = TRUE
+knitr::opts_chunk$set(
+  include = !params$fragment, echo = !params$fragment,
+  warning = !params$fragment, message = !params$fragment,
+  fig.align = "center", fig.pos = "tb",
+  root.dir = here(), fig.path = "imgs/"
+)
+```
+
+```{r packages}
+library(conflicted)
+
+library(kableExtra)
+library(knitr)
+library(broom.helpers)
+library(broom)
+library(dtplyr)
+library(furrr)
+library(arrow)
+library(glue)
+library(fs)
+library(tidyverse)
+
+conflict_prefer("filter", "dplyr")
+```
+
+```{r utils}
+source(here("analysis/utils.R"), local = knit_global())
+set_theme()
+```
+
+```{r citations}
+write_bib(.packages(), here("analysis/packages.bib"))
+sessionInfo()
+```
+
+# Analyze attack trends
+```{r biased_trend, cache = TRUE}
+data_dir <- here(glue("{params$data}/{params$simulation}/results"))
+
+success_fnames <-
+  dir_ls(data_dir, glob = glue("*norm_{params$norm}*.csv"))
+
+stopifnot(length(success_fnames) == 240)
+
+# every fname is a simulation
+success_raw_data <- get_data(success_fnames, read_csv) |>
+  glimpse()
+
+# target_max_conf, perturb_min_size, bbox_max_dist are the sampling criteria
+success_raw_data <- success_raw_data |>
+  rowwise() |>
+  mutate(across(target_max_conf:bbox_max_dist, ~ !is.na(.)), # convert to TRUE/FALSE
+    num_cri = sum(across(target_max_conf:bbox_max_dist))
+  ) |>
+  glimpse()
+
+# expand success per simulation into 1 and 0s per row
+success_expanded_data <- success_raw_data |>
+  rowwise() |>
+  mutate(success = list(rep(0:1, times = c(attack_count - success_count, success_count)))) |>
+  unnest_longer(success) |>
+  glimpse()
+```
+
+```{r biased_trend_caption}
+itr_lab <- "Number of Factors"
+
+cap <- glue("{bold_tex('Success factors can be exploited in combination to significantly increase success rates', params$norm)} We sampled target and perturb objects based on three validated success factors in Table \\ref{{tab:results_table}} by targeting objects with low predicted confidence, perturbing large objects and selecting target and perturb objects close to one another. The binned summaries and regression trendlines graph success proportion against {str_to_lower(itr_lab)} in the deliberate attack experiment. {err_cap} and every point aggregates success over 200 images. Success rates significantly increase as the {str_to_lower(itr_lab)} combined increases. Significance is determined at $\\alpha < 0.05$ using a Wald z-test on the logistic estimates. Full details are given in Section \\ref{{sec:del_per}}.")
+
+cap
+```
+
+```{r biased_trend_graph, include = TRUE, fig.cap=cap, out.width="100%"}
+# use linear
+g <- success_expanded_data |>
+  ggplot(aes(num_cri, success, color = loss_target, linetype = loss_target)) +
+  # use stat_summary rather than stat_summary_bin
+  # since num_cri is set experimentally
+  # mean_cl_boot gives 95% bootstrapped CI at 1000 samples
+  # https://rdrr.io/cran/Hmisc/man/smean.sd.html
+  stat_summary(fun.data = "mean_cl_boot") +
+  binomial_smooth(formula = y ~ x) +
+  facet_grid(cols = vars(model_name))
+
+g +
+  labs(x = itr_lab, y = glue("p(Success) {norm_axy(params$norm)}"), color = "Attack", linetype = "Attack") +
+  scale_x_continuous(breaks = unique(success_raw_data$num_cri))
+```
+
+```{r num_cri_reg}
+data <- success_expanded_data |>
+  # avoid ordered regression
+  mutate(
+    model_name = factor(model_name, ordered = FALSE),
+    loss_target = factor(loss_target, ordered = FALSE)
+  ) |>
+  glimpse()
+
+model <- partial(glm_model, predictor = "num_cri")
+
+reg_est <- get_tidied_reg(
+  model, data
+)
+
+ext_sig(reg_est, "pos")
+```
+
+```{r num_cri_table, include = TRUE}
+cap <- table_caption(glue("log({itr_lab})"), "Success rates increase with the number of factors combined to select target and perturb objects for all models and attacks")
+
+print_statistics(reg_est, cap)
+```
+
+```{r}
+success_expanded_data |>
+  group_by(model_name, loss_target, num_cri) |>
+  summarize(mean(success))
+```

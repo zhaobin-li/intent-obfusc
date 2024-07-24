@@ -1,0 +1,3 @@
+Running mongod with env db
+LOG_DIR: /scratch/zl430/fiftyone/arbitrary/37868017_4
+RND_PT: 46782

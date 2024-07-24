@@ -1,0 +1,686 @@
+1637
+Running mongod with env db
+LOG_DIR: /scratch/zl430/fiftyone/randomized/3578135_1637
+RND_PT: 31834
+about to fork child process, waiting until server is ready for connections.
+forked process: 206692
+child process started successfully, parent exiting
+
+Running pytorch with env coco
+Migrating database to v0.23.2
+2024-03-12 04:09:14,576 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Config (path: configs/vanish_bbox_yolo_v3.py): {'model_config': '../mmdetection/configs/yolo/yolov3_d53_mstrain-608_273e_coco.py', 'model_checkpoint': '../mmdetection/checkpoints/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8.pth', 'dataset_name': 'itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco', 'images_path': '../coco/val2017', 'labels_path': '../coco/annotations/instances_val2017.json', 'gt_samples': 5000, 'attack_samples': 200, 'shuffle': True, 'seed': 13937, 'replace_dataset': True, 'compute_map': False, 'cuda': 0, 'launch_app': False, 'itr': 50, 'max_norm': 0.05, 'min_iou': 0.3, 'min_score': 0.3, 'non_overlap': True, 'attack_bbox': 'predictions', 'adversarial_target': 'vanish', 'perturb_fun': 'perturb_inside', 'arbitrary_bbox': False, 'criteria_dt': {'target_max_conf': None, 'perturb_min_size': None, 'bbox_max_dist': None}, 'result_dir': './data/randomized/results', 'dataset_dir': './data/randomized/datasets', 'cache_dir': './data/randomized/caches', 'log_dir': './data/randomized/logs', 'img_dir': './data/randomized/images', 'viz_pgd': False, 'log_level': 'DEBUG', 'backward_loss': 'get_yolo_v3_vanish_loss', 'log_name': 'itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3'}
+2024-03-12 04:09:14,577 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - {
+    "batcher_static_size": 100,
+    "batcher_target_latency": 0.2,
+    "batcher_target_size_bytes": 1048576,
+    "bulk_write_batch_size": 100000,
+    "database_admin": true,
+    "database_dir": "/home/zl430/.fiftyone/var/lib/mongo",
+    "database_name": "fiftyone",
+    "database_uri": "mongodb://127.0.0.1:31834/",
+    "database_validation": true,
+    "dataset_zoo_dir": "/home/zl430/fiftyone",
+    "dataset_zoo_manifest_paths": null,
+    "default_app_address": "localhost",
+    "default_app_port": 5151,
+    "default_batch_size": null,
+    "default_batcher": "latency",
+    "default_dataset_dir": "/home/zl430/fiftyone",
+    "default_image_ext": ".jpg",
+    "default_ml_backend": "torch",
+    "default_sequence_idx": "%06d",
+    "default_video_ext": ".mp4",
+    "desktop_app": false,
+    "do_not_track": false,
+    "logging_level": "INFO",
+    "max_process_pool_workers": null,
+    "max_thread_pool_workers": null,
+    "model_zoo_dir": "/home/zl430/fiftyone/__models__",
+    "model_zoo_manifest_paths": null,
+    "module_path": null,
+    "operator_timeout": 600,
+    "plugins_cache_enabled": false,
+    "plugins_dir": "/home/zl430/fiftyone/__plugins__",
+    "requirement_error_level": 0,
+    "show_progress_bars": true,
+    "timezone": null
+}
+Importing samples...
+   0% ||----|    1/4912 [1.7ms elapsed, 8.1s remaining, 604.0 samples/s]                                                                             5% |/----|  255/4912 [179.9ms elapsed, 3.3s remaining, 1.4K samples/s]                                                                             31% |█----| 1515/4912 [453.6ms elapsed, 1.0s remaining, 3.3K samples/s]                                                                             45% |██\--| 2233/4912 [642.4ms elapsed, 770.7ms remaining, 3.5K samples/s]                                                                                61% |███|-| 2993/4912 [775.4ms elapsed, 497.1ms remaining, 3.9K samples/s]                                                                                84% |████/| 4136/4912 [963.7ms elapsed, 180.8ms remaining, 4.3K samples/s]                                                                               100% |█████| 4912/4912 [1.1s elapsed, 0s remaining, 4.3K samples/s]                                                                                       100% |█████| 4912/4912 [1.1s elapsed, 0s remaining, 4.3K samples/s]         
+Import complete
+2024-03-12 04:09:18,727 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Imported cache_name='./data/randomized/caches/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8'!
+2024-03-12 04:09:18,735 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Name:        itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 4912
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+2024-03-12 04:09:18,745 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - dataset.name='itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco'
+load checkpoint from local path: ../mmdetection/checkpoints/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8.pth
+2024-03-12 04:09:22,811 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - YOLOV3(
+  (backbone): Darknet(
+    (conv1): ConvModule(
+      (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (conv_res_block1): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block2): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block3): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res4): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res5): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res6): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res7): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block4): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res4): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res5): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res6): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res7): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block5): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+  )
+  init_cfg={'type': 'Pretrained', 'checkpoint': 'open-mmlab://darknet53'}
+  (neck): YOLOV3Neck(
+    (detect1): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (conv1): ConvModule(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (detect2): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(768, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (conv2): ConvModule(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (detect3): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+  )
+  (bbox_head): YOLOV3Head(
+    (loss_cls): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_conf): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_xy): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_wh): MSELoss()
+    (convs_bridge): ModuleList(
+      (0): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (1): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (2): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (convs_pred): ModuleList(
+      (0): Conv2d(1024, 255, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(512, 255, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(256, 255, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+  init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'convs_pred'}}
+)
+2024-03-12 04:09:22,818 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - classes=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
+2024-03-12 04:09:22,826 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - lower_bound.squeeze()=tensor([0., 0., 0.], device='cuda:0'), upper_bound.squeeze()=tensor([1., 1., 1.], device='cuda:0'), normalized_range.squeeze()=tensor([1., 1., 1.], device='cuda:0')
+2024-03-12 04:09:22,826 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - eval
+2024-03-12 04:09:22,827 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Dataset:     itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 3790
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+2024-03-12 04:09:22,853 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - len(min_correct_slice)=3790
+2024-03-12 04:09:22,855 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Starting attack itr=50, lr.squeeze()=tensor([0.0200, 0.0200, 0.0200], device='cuda:0')
+2024-03-12 04:09:29,066 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:09:33,854 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:09:43,298 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:10:07,077 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:10:30,598 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:10:58,839 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:12:04,275 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:12:18,324 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:12:32,587 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:12:56,218 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:12:56,241 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:05,627 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:05,656 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:15,300 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:24,765 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:24,801 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:34,366 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:39,068 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:48,532 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:13:48,557 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:14:39,961 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:15:12,925 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:15:50,949 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:15:50,962 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:16:19,365 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:16:38,343 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:16:43,372 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:17:16,779 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:17:21,390 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:17:35,762 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:17:45,231 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:18:08,642 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:18:08,654 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:18:32,091 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:18:51,150 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:18:55,976 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:19:10,099 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:19:14,654 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:19:14,669 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:19:14,680 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:19:14,692 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:19:28,911 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:19:33,469 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:19:43,064 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:20:11,353 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:20:20,553 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:20:20,565 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:20:30,099 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:20:30,112 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:21:07,693 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:21:46,325 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:21:46,346 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:21:46,364 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:22:05,608 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:22:19,928 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:22:34,044 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:22:48,337 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:24:03,917 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:24:03,943 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:24:37,050 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:24:41,865 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-12 04:25:09,858 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - attack_sample_idx=['65ed3a8879f70f3cb5bfbc38', '65ed3a8879f70f3cb5bfbc5a', '65ed3a8879f70f3cb5bfbc5c', '65ed3a8879f70f3cb5bfbc5d', '65ed3a8879f70f3cb5bfbca9', '65ed3a8879f70f3cb5bfbcaa', '65ed3a8879f70f3cb5bfbcab', '65ed3a8879f70f3cb5bfbcac', '65ed3a8879f70f3cb5bfbcad', '65ed3a8879f70f3cb5bfbd19', '65ed3a8879f70f3cb5bfbd1a', '65ed3a8879f70f3cb5bfbd1b', '65ed3a8879f70f3cb5bfbd1c', '65ed3a8879f70f3cb5bfbd1d', '65ed3a8879f70f3cb5bfbd21', '65ed3a8879f70f3cb5bfbd22', '65ed3a8879f70f3cb5bfbd23', '65ed3a8879f70f3cb5bfbd24', '65ed3a8879f70f3cb5bfbd25', '65ed3a8879f70f3cb5bfbd27', '65ed3a8879f70f3cb5bfbe5e', '65ed3a8879f70f3cb5bfbe5f', '65ed3a8879f70f3cb5bfbe60', '65ed3a8879f70f3cb5bfbe61', '65ed3a8879f70f3cb5bfbe62', '65ed3a8879f70f3cb5bfbe63', '65ed3a8879f70f3cb5bfbe64', '65ed3a8879f70f3cb5bfbe65', '65ed3a8879f70f3cb5bfbe66', '65ed3a8879f70f3cb5bfbe67', '65ed3a8879f70f3cb5bfbe68', '65ed3a8879f70f3cb5bfbe69', '65ed3a8879f70f3cb5bfbe6a', '65ed3a8879f70f3cb5bfbe6b', '65ed3a8879f70f3cb5bfbe6e', '65ed3a8879f70f3cb5bfbe6f', '65ed3a8879f70f3cb5bfbe70', '65ed3a8879f70f3cb5bfbe73', '65ed3a8879f70f3cb5bfbe75', '65ed3a8879f70f3cb5bfbe77', '65ed3a8879f70f3cb5bfbfd1', '65ed3a8879f70f3cb5bfbfd2', '65ed3a8879f70f3cb5bfbfd3', '65ed3a8879f70f3cb5bfbfd5', '65ed3a8879f70f3cb5bfbfd7', '65ed3a8879f70f3cb5bfbfda', '65ed3a8879f70f3cb5bfbfdb', '65ed3a8879f70f3cb5bfbfde', '65ed3a8879f70f3cb5bfbfdf', '65ed3a8879f70f3cb5bfbfe1', '65ed3a8879f70f3cb5bfbfe2', '65ed3a8879f70f3cb5bfbfea', '65ed3a8879f70f3cb5bfbfeb', '65ed3a8879f70f3cb5bfbfed', '65ed3a8879f70f3cb5bfbfef', '65ed3a8879f70f3cb5bfbff0', '65ed3a8879f70f3cb5bfbff5', '65ed3a8879f70f3cb5bfbff6', '65ed3a8879f70f3cb5bfbff7', '65ed3a8879f70f3cb5bfbff8', '65ed3a8879f70f3cb5bfbff9', '65ed3a8879f70f3cb5bfbffa', '65ed3a8879f70f3cb5bfbffb', '65ed3a8879f70f3cb5bfc172', '65ed3a8879f70f3cb5bfc174', '65ed3a8879f70f3cb5bfc175', '65ed3a8879f70f3cb5bfc176', '65ed3a8879f70f3cb5bfc178', '65ed3a8879f70f3cb5bfc17a', '65ed3a8879f70f3cb5bfc17b', '65ed3a8879f70f3cb5bfc17c', '65ed3a8879f70f3cb5bfc17e', '65ed3a8879f70f3cb5bfc17f', '65ed3a8879f70f3cb5bfc180', '65ed3a8879f70f3cb5bfc183', '65ed3a8879f70f3cb5bfc184', '65ed3a8879f70f3cb5bfc185', '65ed3a8879f70f3cb5bfc187', '65ed3a8879f70f3cb5bfc188', '65ed3a8879f70f3cb5bfc189', '65ed3a8879f70f3cb5bfc18a', '65ed3a8879f70f3cb5bfc18b', '65ed3a8879f70f3cb5bfc18f', '65ed3a8879f70f3cb5bfc190', '65ed3a8879f70f3cb5bfc193', '65ed3a8879f70f3cb5bfc194', '65ed3a8879f70f3cb5bfc195', '65ed3a8879f70f3cb5bfc196', '65ed3a8879f70f3cb5bfc19c', '65ed3a8879f70f3cb5bfc19d', '65ed3a8879f70f3cb5bfc19e', '65ed3a8879f70f3cb5bfc19f', '65ed3a8879f70f3cb5bfc1a1', '65ed3a8879f70f3cb5bfc1a3', '65ed3a8879f70f3cb5bfc1a4', '65ed3a8979f70f3cb5bfc33a', '65ed3a8979f70f3cb5bfc33d', '65ed3a8979f70f3cb5bfc33e', '65ed3a8979f70f3cb5bfc33f', '65ed3a8979f70f3cb5bfc340', '65ed3a8979f70f3cb5bfc343', '65ed3a8979f70f3cb5bfc346', '65ed3a8979f70f3cb5bfc347', '65ed3a8979f70f3cb5bfc348', '65ed3a8979f70f3cb5bfc34a', '65ed3a8979f70f3cb5bfc34c', '65ed3a8979f70f3cb5bfc34f', '65ed3a8979f70f3cb5bfc350', '65ed3a8979f70f3cb5bfc352', '65ed3a8979f70f3cb5bfc353', '65ed3a8979f70f3cb5bfc356', '65ed3a8979f70f3cb5bfc359', '65ed3a8979f70f3cb5bfc35a', '65ed3a8979f70f3cb5bfc35c', '65ed3a8979f70f3cb5bfc35e', '65ed3a8979f70f3cb5bfc35f', '65ed3a8979f70f3cb5bfc361', '65ed3a8979f70f3cb5bfc362', '65ed3a8979f70f3cb5bfc364', '65ed3a8979f70f3cb5bfc366', '65ed3a8979f70f3cb5bfc369', '65ed3a8979f70f3cb5bfc36b', '65ed3a8979f70f3cb5bfc36d', '65ed3a8979f70f3cb5bfc36f', '65ed3a8979f70f3cb5bfc4e8', '65ed3a8979f70f3cb5bfc4ed', '65ed3a8979f70f3cb5bfc4ee', '65ed3a8979f70f3cb5bfc4ef', '65ed3a8979f70f3cb5bfc4f1', '65ed3a8979f70f3cb5bfc4f3', '65ed3a8979f70f3cb5bfc4f4', '65ed3a8979f70f3cb5bfc4f6', '65ed3a8979f70f3cb5bfc4f7', '65ed3a8979f70f3cb5bfc4f8', '65ed3a8979f70f3cb5bfc4fb', '65ed3a8979f70f3cb5bfc4fc', '65ed3a8979f70f3cb5bfc4fd', '65ed3a8979f70f3cb5bfc4ff', '65ed3a8979f70f3cb5bfc500', '65ed3a8979f70f3cb5bfc503', '65ed3a8979f70f3cb5bfc504', '65ed3a8979f70f3cb5bfc50a', '65ed3a8979f70f3cb5bfc50b', '65ed3a8979f70f3cb5bfc50d', '65ed3a8979f70f3cb5bfc50e', '65ed3a8979f70f3cb5bfc510', '65ed3a8979f70f3cb5bfc511', '65ed3a8979f70f3cb5bfc513', '65ed3a8979f70f3cb5bfc514', '65ed3a8979f70f3cb5bfc517', '65ed3a8979f70f3cb5bfc518', '65ed3a8979f70f3cb5bfc51a', '65ed3a8979f70f3cb5bfc51b', '65ed3a8979f70f3cb5bfc51c', '65ed3a8979f70f3cb5bfc51d', '65ed3a8979f70f3cb5bfc6d2', '65ed3a8979f70f3cb5bfc6d3', '65ed3a8979f70f3cb5bfc6d9', '65ed3a8979f70f3cb5bfc6da', '65ed3a8979f70f3cb5bfc6dc', '65ed3a8979f70f3cb5bfc6dd', '65ed3a8979f70f3cb5bfc6e0', '65ed3a8979f70f3cb5bfc6e1', '65ed3a8979f70f3cb5bfc6e2', '65ed3a8979f70f3cb5bfc6e7', '65ed3a8979f70f3cb5bfc6e9', '65ed3a8979f70f3cb5bfc6ea', '65ed3a8979f70f3cb5bfc6ed', '65ed3a8979f70f3cb5bfc6ef', '65ed3a8979f70f3cb5bfc6f1', '65ed3a8979f70f3cb5bfc6f3', '65ed3a8979f70f3cb5bfc6f5', '65ed3a8979f70f3cb5bfc6f6', '65ed3a8979f70f3cb5bfc6f8', '65ed3a8979f70f3cb5bfc6f9', '65ed3a8979f70f3cb5bfc6fa', '65ed3a8979f70f3cb5bfc6fb', '65ed3a8979f70f3cb5bfc6fc', '65ed3a8979f70f3cb5bfc6fd', '65ed3a8979f70f3cb5bfc6fe', '65ed3a8979f70f3cb5bfc6ff', '65ed3a8979f70f3cb5bfc701', '65ed3a8979f70f3cb5bfc702', '65ed3a8979f70f3cb5bfc703', '65ed3a8979f70f3cb5bfc704', '65ed3a8979f70f3cb5bfc705', '65ed3a8979f70f3cb5bfc708', '65ed3a8979f70f3cb5bfc709', '65ed3a8979f70f3cb5bfc8a1', '65ed3a8979f70f3cb5bfc8a2', '65ed3a8979f70f3cb5bfc8a3', '65ed3a8979f70f3cb5bfc8a5', '65ed3a8979f70f3cb5bfc8a7', '65ed3a8979f70f3cb5bfc8a9', '65ed3a8979f70f3cb5bfc8ad', '65ed3a8979f70f3cb5bfc8ae', '65ed3a8979f70f3cb5bfc8af', '65ed3a8979f70f3cb5bfc8b0', '65ed3a8979f70f3cb5bfc8b1', '65ed3a8979f70f3cb5bfc8b3']
+2024-03-12 04:25:09,858 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - attack_sample_path=['/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000079588.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000378139.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000046497.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000562207.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000254016.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000470121.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000031735.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000538364.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000162092.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000035279.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000058705.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000410456.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000262487.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000274708.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000466125.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000385190.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000182441.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000486046.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000135872.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000568213.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000395388.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000315450.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000014038.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000218439.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000381639.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000007816.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000235836.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000187144.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000338560.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000038576.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000239627.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000215778.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000470779.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000526256.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000553221.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000463527.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000229659.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000036936.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000252716.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000003934.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000331280.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000088040.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000504635.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000546964.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000221291.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000201934.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000245513.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000558558.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000065455.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000298396.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000050380.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000040083.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000565624.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000498747.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000037777.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000109976.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000253742.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000187236.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000490936.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000202339.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000556000.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000577149.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000369310.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511999.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000130699.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000481582.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000369812.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000057760.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000507081.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000439623.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000012120.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000206994.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000248284.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000304180.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000249786.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000300276.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000478393.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000442746.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000269316.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000471023.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000145597.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000140556.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000082986.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000353518.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000474881.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000230993.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000441247.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000285788.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000563653.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000579091.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000431693.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000178028.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000479596.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000467511.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000195842.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000281409.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000053505.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000500270.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000215072.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000532530.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000378453.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000048504.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000205514.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000111207.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000157767.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000210520.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000084031.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000357737.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000147415.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000205105.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000476514.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000155145.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000082085.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000504580.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000484296.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000417632.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000480021.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000378515.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000459662.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000361919.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000565877.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000519569.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000252219.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000241677.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000563648.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000432898.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000148719.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000396729.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000366711.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000523782.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000338219.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000313130.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000414510.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000154004.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000102411.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000311928.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000445602.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000286994.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000347335.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000117492.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000189752.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000289415.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000578236.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000113235.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000142971.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000534664.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000099182.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000050811.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000122927.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000242060.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000367228.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000448263.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000578489.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000482436.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000192716.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000455597.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000281929.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000108503.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000157928.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000219271.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000210032.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000288685.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000440475.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000265816.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000008021.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000497867.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000416885.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000233771.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000128675.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000381587.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000379533.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000081061.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000140987.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000229358.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000109118.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000444142.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000292236.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000405195.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000467848.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000428867.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000345261.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000532481.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000087244.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000470952.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000227511.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000389381.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000078823.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000319935.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000301135.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000365766.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000273198.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000537506.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000079229.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000303863.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000043314.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000281414.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000280918.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000526728.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000304812.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000407646.jpg']
+2024-03-12 04:25:09,858 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - perturb_bboxes_idx=[2, 9, 0, 0, 2, 6, 2, 7, 10, 6, 1, 6, 0, 4, 0, 2, 0, 1, 6, 0, 3, 6, 2, 4, 5, 5, 4, 9, 5, 1, 4, 0, 0, 0, 3, 1, 15, 5, 1, 5, 16, 6, 2, 9, 1, 2, 1, 2, 7, 7, 0, 6, 1, 3, 1, 0, 10, 4, 3, 4, 6, 2, 6, 2, 2, 2, 2, 8, 3, 1, 1, 0, 3, 1, 0, 13, 0, 0, 2, 0, 9, 3, 3, 3, 1, 4, 7, 0, 7, 1, 2, 2, 4, 0, 2, 11, 3, 2, 0, 2, 0, 1, 2, 0, 5, 4, 10, 4, 1, 6, 2, 0, 5, 0, 0, 7, 1, 4, 2, 7, 3, 2, 1, 4, 11, 29, 0, 0, 0, 2, 6, 1, 3, 4, 8, 1, 2, 1, 1, 11, 5, 6, 0, 4, 3, 1, 3, 1, 1, 6, 0, 0, 5, 1, 2, 5, 2, 2, 5, 2, 0, 15, 1, 0, 0, 2, 3, 0, 0, 25, 2, 0, 4, 2, 1, 0, 2, 25, 4, 2, 1, 2, 1, 2, 0, 2, 0, 9, 7, 1, 2, 8, 0, 2, 2, 3, 1, 0, 3, 1]
+2024-03-12 04:25:09,858 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - target_bboxes_idx=[0, 2, 1, 2, 16, 3, 3, 9, 5, 2, 2, 3, 4, 3, 1, 4, 18, 0, 2, 1, 1, 12, 10, 1, 3, 8, 1, 4, 9, 0, 3, 3, 1, 1, 0, 5, 7, 10, 0, 9, 4, 0, 0, 1, 0, 3, 0, 0, 9, 1, 4, 2, 2, 4, 5, 1, 21, 2, 17, 6, 5, 0, 4, 3, 5, 3, 6, 2, 2, 0, 12, 1, 1, 5, 1, 2, 1, 1, 1, 2, 4, 2, 2, 6, 3, 1, 0, 1, 9, 0, 1, 3, 1, 1, 6, 7, 8, 5, 3, 0, 1, 4, 8, 1, 18, 7, 0, 1, 0, 4, 3, 1, 3, 1, 1, 10, 4, 1, 0, 4, 2, 1, 2, 7, 1, 19, 3, 1, 5, 3, 2, 2, 0, 6, 1, 0, 4, 8, 2, 7, 3, 3, 1, 2, 1, 2, 2, 4, 0, 0, 1, 1, 1, 0, 1, 0, 1, 3, 3, 8, 6, 9, 2, 2, 2, 1, 1, 3, 3, 19, 1, 1, 1, 0, 2, 2, 3, 19, 0, 0, 0, 0, 0, 5, 9, 1, 3, 2, 6, 0, 1, 7, 1, 1, 1, 1, 3, 2, 2, 0]
+2024-03-12 04:25:09,858 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Sampled 261
+2024-03-12 04:25:09,858 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Finished attack
+2024-03-12 04:25:09,858 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Dataset:     itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 200
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+    pgd:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+    2. MatchTags(tags=['attack'], bool=True, all=False)
+2024-03-12 04:25:09,873 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - len(attack_slice)=200
+Evaluating detections...
+   0% ||------|   0/200 [26.7ms elapsed, ? remaining, ? samples/s]                                                                       2% |/------|   3/200 [131.1ms elapsed, 8.6s remaining, 22.9 samples/s]                                                                              2% |-------|   5/200 [392.7ms elapsed, 15.3s remaining, 12.7 samples/s]                                                                               4% |\------|   8/200 [536.7ms elapsed, 12.9s remaining, 14.9 samples/s]                                                                               4% ||------|   9/200 [643.4ms elapsed, 13.7s remaining, 14.0 samples/s]                                                                               6% |/------|  12/200 [776.2ms elapsed, 12.2s remaining, 15.5 samples/s]                                                                               8% |-------|  16/200 [899.4ms elapsed, 10.3s remaining, 17.8 samples/s]                                                                               8% |\------|  17/200 [1.1s elapsed, 11.5s remaining, 15.9 samples/s]                                                                                 10% ||------|  21/200 [1.2s elapsed, 10.1s remaining, 17.7 samples/s]                                                                                 12% |/------|  23/200 [1.6s elapsed, 12.1s remaining, 14.6 samples/s]                                                                                 13% |-------|  26/200 [1.7s elapsed, 11.6s remaining, 14.5 samples/s]                                                                                 14% |\------|  28/200 [1.8s elapsed, 11.2s remaining, 15.9 samples/s]                                                                                 16% |█|-----|  31/200 [2.0s elapsed, 10.8s remaining, 15.8 samples/s]                                                                                 18% |█/-----|  35/200 [2.2s elapsed, 10.2s remaining, 16.8 samples/s]                                                                                 18% |█------|  37/200 [2.4s elapsed, 10.6s remaining, 15.3 samples/s]                                                                                 19% |█\-----|  38/200 [2.5s elapsed, 10.9s remaining, 13.6 samples/s]                                                                                 20% |█|-----|  41/200 [2.9s elapsed, 11.3s remaining, 13.4 samples/s]                                                                                 21% |█/-----|  42/200 [3.0s elapsed, 11.9s remaining, 11.4 samples/s]                                                                                 22% |█------|  44/200 [3.2s elapsed, 11.6s remaining, 12.7 samples/s]                                                                                 24% |█\-----|  49/200 [3.4s elapsed, 10.5s remaining, 13.9 samples/s]                                                                                 26% |█|-----|  51/200 [3.5s elapsed, 10.3s remaining, 14.0 samples/s]                                                                                 27% |█/-----|  54/200 [3.6s elapsed, 9.9s remaining, 14.1 samples/s]                                                                                  28% |█------|  57/200 [3.9s elapsed, 10.3s remaining, 12.6 samples/s]                                                                                 30% |██\----|  59/200 [4.2s elapsed, 10.3s remaining, 12.6 samples/s]                                                                                 32% |██|----|  63/200 [4.3s elapsed, 9.5s remaining, 14.0 samples/s]                                                                                  33% |██/----|  66/200 [4.4s elapsed, 8.8s remaining, 16.0 samples/s]                                                                                  34% |██-----|  68/200 [4.7s elapsed, 8.9s remaining, 15.7 samples/s]                                                                                  36% |██\----|  71/200 [5.0s elapsed, 9.0s remaining, 14.9 samples/s]                                                                                  38% |██|----|  75/200 [5.1s elapsed, 8.5s remaining, 14.8 samples/s]                                                                                  38% |██/----|  76/200 [5.3s elapsed, 8.7s remaining, 13.9 samples/s]                                                                                  40% |██-----|  80/200 [5.4s elapsed, 8.2s remaining, 14.3 samples/s]                                                                                  40% |██\----|  81/200 [5.6s elapsed, 8.1s remaining, 14.8 samples/s]                                                                                  42% |██|----|  84/200 [5.7s elapsed, 7.5s remaining, 16.5 samples/s]                                                                                  44% |███/---|  87/200 [5.8s elapsed, 7.5s remaining, 15.5 samples/s]                                                                                  44% |███----|  89/200 [6.0s elapsed, 7.6s remaining, 14.3 samples/s]                                                                                  46% |███\---|  93/200 [6.5s elapsed, 7.7s remaining, 13.4 samples/s]                                                                                  48% |███|---|  96/200 [6.8s elapsed, 7.3s remaining, 14.3 samples/s]                                                                                  48% |███/---|  97/200 [6.9s elapsed, 7.7s remaining, 12.6 samples/s]                                                                                  50% |███----| 100/200 [7.0s elapsed, 7.1s remaining, 14.0 samples/s]                                                                                  50% |███\---| 101/200 [7.1s elapsed, 7.5s remaining, 12.4 samples/s]                                                                                  52% |███|---| 103/200 [7.4s elapsed, 7.6s remaining, 11.8 samples/s]                                                                                  52% |███/---| 105/200 [7.7s elapsed, 8.1s remaining, 10.5 samples/s]                                                                                  54% |███----| 107/200 [7.9s elapsed, 8.4s remaining, 9.6 samples/s]                                                                                   55% |███\---| 110/200 [8.0s elapsed, 7.7s remaining, 10.5 samples/s]                                                                                  57% |████|--| 115/200 [8.1s elapsed, 6.1s remaining, 13.8 samples/s]                                                                                  58% |████/--| 117/200 [8.3s elapsed, 5.9s remaining, 14.0 samples/s]                                                                                  60% |████---| 119/200 [8.4s elapsed, 5.6s remaining, 14.7 samples/s]                                                                                  60% |████\--| 120/200 [8.6s elapsed, 6.1s remaining, 12.6 samples/s]                                                                                  62% |████|--| 123/200 [8.7s elapsed, 5.5s remaining, 14.1 samples/s]                                                                                  62% |████/--| 125/200 [9.0s elapsed, 5.3s remaining, 14.2 samples/s]                                                                                  63% |████---| 126/200 [9.4s elapsed, 5.8s remaining, 12.5 samples/s]                                                                                  65% |████\--| 130/200 [9.5s elapsed, 4.8s remaining, 14.9 samples/s]                                                                                  66% |████|--| 132/200 [9.6s elapsed, 4.8s remaining, 14.3 samples/s]                                                                                  66% |████/--| 133/200 [9.7s elapsed, 5.5s remaining, 11.7 samples/s]                                                                                  68% |████---| 135/200 [9.9s elapsed, 5.4s remaining, 11.4 samples/s]                                                                                  68% |████\--| 137/200 [10.0s elapsed, 5.3s remaining, 11.3 samples/s]                                                                                 70% |████|--| 140/200 [10.2s elapsed, 4.7s remaining, 12.5 samples/s]                                                                                 70% |████/--| 141/200 [10.3s elapsed, 5.1s remaining, 11.0 samples/s]                                                                                 72% |█████--| 144/200 [10.4s elapsed, 4.2s remaining, 13.1 samples/s]                                                                                 74% |█████\-| 149/200 [10.5s elapsed, 2.9s remaining, 19.3 samples/s]                                                                                 76% |█████|-| 152/200 [10.7s elapsed, 2.8s remaining, 18.6 samples/s]                                                                                 78% |█████/-| 156/200 [10.8s elapsed, 2.4s remaining, 19.4 samples/s]                                                                                 80% |█████--| 159/200 [10.9s elapsed, 2.1s remaining, 20.9 samples/s]                                                                                 80% |█████\-| 161/200 [11.1s elapsed, 2.0s remaining, 21.7 samples/s]                                                                                 81% |█████|-| 162/200 [11.2s elapsed, 2.0s remaining, 20.3 samples/s]                                                                                 84% |█████/-| 167/200 [11.3s elapsed, 1.6s remaining, 23.0 samples/s]                                                                                 84% |█████--| 169/200 [11.5s elapsed, 1.4s remaining, 24.5 samples/s]                                                                                 85% |█████\-| 170/200 [11.7s elapsed, 1.6s remaining, 20.4 samples/s]                                                                                 86% |██████|| 173/200 [11.8s elapsed, 1.5s remaining, 18.6 samples/s]                                                                                 89% |██████/| 178/200 [12.3s elapsed, 1.4s remaining, 16.0 samples/s]                                                                                 92% |██████-| 183/200 [12.4s elapsed, 1.0s remaining, 17.1 samples/s]                                                                                 92% |██████\| 185/200 [12.5s elapsed, 916.0ms remaining, 16.5 samples/s]                                                                              94% |██████|| 188/200 [12.7s elapsed, 721.7ms remaining, 16.8 samples/s]                                                                              94% |██████/| 189/200 [12.8s elapsed, 654.2ms remaining, 17.0 samples/s]                                                                              96% |██████-| 192/200 [12.9s elapsed, 507.7ms remaining, 15.8 samples/s]                                                                              98% |██████\| 197/200 [13.0s elapsed, 169.0ms remaining, 17.8 samples/s]                                                                             100% |███████| 200/200 [13.1s elapsed, 0s remaining, 20.8 samples/s]      
+2024-03-12 04:25:23,584 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Dataset:     itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 26
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+    pgd:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    pgd_eval_tp:  fiftyone.core.fields.IntField
+    pgd_eval_fp:  fiftyone.core.fields.IntField
+    pgd_eval_fn:  fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+    2. MatchTags(tags=['attack'], bool=True, all=False)
+    3. FilterLabels(field='pgd', filter={'$gt': ['$$this.confidence', 0.3]}, only_matches=False, trajectories=False)
+    4. MatchLabels(labels=None, ids=None, tags=None, filter={'$and': [{...}, {...}]}, fields=['predictions'], bool=True)
+2024-03-12 04:25:23,640 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Success/Attack: 26/200 (13.00%)
+Evaluating detections...
+   0% ||--------|  0/26 [19.5ms elapsed, ? remaining, ? samples/s]                                                                      15% |█/-------|  4/26 [227.1ms elapsed, 1.2s remaining, 17.6 samples/s]                                                                             23% |██-------|  6/26 [327.3ms elapsed, 1.1s remaining, 18.3 samples/s]                                                                             35% |███\-----|  9/26 [545.9ms elapsed, 1.0s remaining, 16.5 samples/s]                                                                             38% |███|-----| 10/26 [671.2ms elapsed, 1.1s remaining, 14.9 samples/s]                                                                             54% |████/----| 14/26 [790.0ms elapsed, 677.1ms remaining, 17.7 samples/s]                                                                                73% |██████---| 19/26 [909.6ms elapsed, 335.1ms remaining, 20.9 samples/s]                                                                                88% |███████\-| 23/26 [1.0s elapsed, 132.0ms remaining, 22.7 samples/s]                                                                                  100% |█████████| 26/26 [1.1s elapsed, 0s remaining, 24.3 samples/s]         
+2024-03-12 04:25:25,142 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Mislabeled: 0/26
+2024-03-12 04:25:25,190 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Vanished: 26/26
+2024-03-12 04:25:25,255 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Saving to: ./data/randomized/results/itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3.csv
+2024-03-12 04:25:25,320 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Dumping save_name='./data/randomized/datasets/itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco'...
+Exporting samples...
+   0% ||---------|   0/200 [52.6us elapsed, ? remaining, ? docs/s]                                                                      12% |█/--------|  23/200 [103.3ms elapsed, 794.9ms remaining, 222.7 docs/s]                                                                                 22% |██--------|  45/200 [203.8ms elapsed, 701.8ms remaining, 220.9 docs/s]                                                                                 35% |███\------|  70/200 [305.5ms elapsed, 567.3ms remaining, 229.2 docs/s]                                                                                 47% |████|-----|  94/200 [405.5ms elapsed, 457.2ms remaining, 231.8 docs/s]                                                                                 54% |█████/----| 108/200 [505.8ms elapsed, 430.8ms remaining, 213.5 docs/s]                                                                                 66% |██████----| 133/200 [610.3ms elapsed, 307.5ms remaining, 217.9 docs/s]                                                                                 81% |████████\-| 162/200 [718.1ms elapsed, 168.4ms remaining, 225.6 docs/s]                                                                                 94% |█████████|| 189/200 [823.3ms elapsed, 47.9ms remaining, 229.6 docs/s]                                                                                 100% |██████████| 200/200 [852.1ms elapsed, 0s remaining, 234.7 docs/s]      
+2024-03-12 04:25:26,295 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Name:        itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 4912
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:                   fiftyone.core.fields.ObjectIdField
+    filepath:             fiftyone.core.fields.StringField
+    tags:                 fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:             fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth:         fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:              fiftyone.core.fields.IntField
+    eval_fp:              fiftyone.core.fields.IntField
+    eval_fn:              fiftyone.core.fields.IntField
+    pgd:                  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    pgd_eval_tp:          fiftyone.core.fields.IntField
+    pgd_eval_fp:          fiftyone.core.fields.IntField
+    pgd_eval_fn:          fiftyone.core.fields.IntField
+    pgd_mislabel_eval_tp: fiftyone.core.fields.IntField
+    pgd_mislabel_eval_fp: fiftyone.core.fields.IntField
+    pgd_mislabel_eval_fn: fiftyone.core.fields.IntField
+2024-03-12 04:25:26,305 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3_coco
+2024-03-12 04:25:26,340 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - Sample tags: ['success', 'attack', 'vanish']
+2024-03-12 04:25:26,570 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - ground_truth tags: ['perturb', 'target']
+2024-03-12 04:25:26,678 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - predictions tags: ['perturb', 'target']
+2024-03-12 04:25:26,779 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - DEBUG - pgd tags: []
+2024-03-12 04:25:26,801 - itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3 - INFO - Saving to: ./data/randomized/results/itr_50_norm_0.05_repeat_10_vanish_bbox_yolo_v3.parquet
+
+Completed and shutting down mongod...
+{"t":{"$date":"2024-03-12T04:25:28.666-04:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"-","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true}}}
+{"t":{"$date":"2024-03-12T04:25:28.668-04:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"-","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2024-03-12T04:25:28.669-04:00"},"s":"I",  "c":"NETWORK",  "id":4648602, "ctx":"main","msg":"Implicit TCP FastOpen in use."}
+{"t":{"$date":"2024-03-12T04:25:28.670-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}
+{"t":{"$date":"2024-03-12T04:25:28.670-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}
+{"t":{"$date":"2024-03-12T04:25:28.670-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"ShardSplitDonorService","namespace":"config.tenantSplitDonors"}}
+Killing process with pid: 206692

@@ -1,0 +1,394 @@
+Running mongod with env db
+LOG_DIR: /scratch/zl430/fiftyone/randomized/35147728_164
+RND_PT: 9845
+about to fork child process, waiting until server is ready for connections.
+forked process: 242078
+child process started successfully, parent exiting
+
+Running pytorch with env coco
+Migrating database to v0.23.2
+2024-03-11 06:49:20,916 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Config (path: configs/untarget_bbox_ssd_512.py): {'model_config': '../mmdetection/configs/ssd/ssd512_coco.py', 'model_checkpoint': '../mmdetection/checkpoints/ssd512_coco_20210803_022849-0a47a1ca.pth', 'dataset_name': 'itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco', 'images_path': '../coco/val2017', 'labels_path': '../coco/annotations/instances_val2017.json', 'gt_samples': 5000, 'attack_samples': 200, 'shuffle': True, 'seed': 32457, 'replace_dataset': True, 'compute_map': False, 'cuda': 0, 'launch_app': False, 'itr': 200, 'max_norm': None, 'min_iou': 0.3, 'min_score': 0.3, 'non_overlap': True, 'attack_bbox': 'predictions', 'adversarial_target': 'untarget', 'perturb_fun': 'perturb_inside', 'arbitrary_bbox': False, 'criteria_dt': {'target_max_conf': None, 'perturb_min_size': None, 'bbox_max_dist': None}, 'result_dir': './data/randomized/results', 'dataset_dir': './data/randomized/datasets', 'cache_dir': './data/randomized/caches', 'log_dir': './data/randomized/logs', 'img_dir': './data/randomized/images', 'viz_pgd': False, 'log_level': 'DEBUG', 'backward_loss': 'get_ssd_512_untarget_loss', 'log_name': 'itr_200_norm_None_repeat_11_untarget_bbox_ssd_512'}
+2024-03-11 06:49:20,916 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - {
+    "batcher_static_size": 100,
+    "batcher_target_latency": 0.2,
+    "batcher_target_size_bytes": 1048576,
+    "bulk_write_batch_size": 100000,
+    "database_admin": true,
+    "database_dir": "/home/zl430/.fiftyone/var/lib/mongo",
+    "database_name": "fiftyone",
+    "database_uri": "mongodb://127.0.0.1:9845/",
+    "database_validation": true,
+    "dataset_zoo_dir": "/home/zl430/fiftyone",
+    "dataset_zoo_manifest_paths": null,
+    "default_app_address": "localhost",
+    "default_app_port": 5151,
+    "default_batch_size": null,
+    "default_batcher": "latency",
+    "default_dataset_dir": "/home/zl430/fiftyone",
+    "default_image_ext": ".jpg",
+    "default_ml_backend": "torch",
+    "default_sequence_idx": "%06d",
+    "default_video_ext": ".mp4",
+    "desktop_app": false,
+    "do_not_track": false,
+    "logging_level": "INFO",
+    "max_process_pool_workers": null,
+    "max_thread_pool_workers": null,
+    "model_zoo_dir": "/home/zl430/fiftyone/__models__",
+    "model_zoo_manifest_paths": null,
+    "module_path": null,
+    "operator_timeout": 600,
+    "plugins_cache_enabled": false,
+    "plugins_dir": "/home/zl430/fiftyone/__plugins__",
+    "requirement_error_level": 0,
+    "show_progress_bars": true,
+    "timezone": null
+}
+Importing samples...
+   0% ||----|    1/4914 [1.9ms elapsed, 9.4s remaining, 523.6 samples/s]                                                                            10% |/----|  511/4914 [180.1ms elapsed, 1.6s remaining, 2.8K samples/s]                                                                             33% |█----| 1609/4914 [367.5ms elapsed, 754.9ms remaining, 4.4K samples/s]                                                                                55% |██\--| 2727/4914 [552.5ms elapsed, 443.1ms remaining, 4.9K samples/s]                                                                                80% |████|| 3935/4914 [722.8ms elapsed, 179.8ms remaining, 5.4K samples/s]                                                                               100% |█████| 4914/4914 [887.6ms elapsed, 0s remaining, 5.5K samples/s]                                                                                    100% |█████| 4914/4914 [888.1ms elapsed, 0s remaining, 5.5K samples/s]      
+Import complete
+2024-03-11 06:49:23,560 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Imported cache_name='./data/randomized/caches/ssd512_coco_20210803_022849-0a47a1ca'!
+2024-03-11 06:49:23,566 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Name:        itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco
+Media type:  image
+Num samples: 4914
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+2024-03-11 06:49:23,581 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - dataset.name='itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco'
+load checkpoint from local path: ../mmdetection/checkpoints/ssd512_coco_20210803_022849-0a47a1ca.pth
+2024-03-11 06:49:24,725 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - SingleStageDetector(
+  (backbone): SSDVGG(
+    (features): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace=True)
+      (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): ReLU(inplace=True)
+      (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (6): ReLU(inplace=True)
+      (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (8): ReLU(inplace=True)
+      (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace=True)
+      (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (13): ReLU(inplace=True)
+      (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (15): ReLU(inplace=True)
+      (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (18): ReLU(inplace=True)
+      (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): ReLU(inplace=True)
+      (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (22): ReLU(inplace=True)
+      (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (25): ReLU(inplace=True)
+      (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (27): ReLU(inplace=True)
+      (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (29): ReLU(inplace=True)
+      (30): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+      (31): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(6, 6), dilation=(6, 6))
+      (32): ReLU(inplace=True)
+      (33): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1))
+      (34): ReLU(inplace=True)
+    )
+  )
+  init_cfg={'type': 'Pretrained', 'checkpoint': 'open-mmlab://vgg16_caffe'}
+  (neck): SSDNeck(
+    (l2_norm): L2Norm()
+    (extra_layers): ModuleList(
+      (0): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (1): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (2): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (3): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (4): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(4, 4), stride=(1, 1), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+    )
+  )
+  init_cfg=[{'type': 'Xavier', 'distribution': 'uniform', 'layer': 'Conv2d'}, {'type': 'Constant', 'val': 1, 'layer': 'BatchNorm2d'}, {'type': 'Constant', 'val': 20, 'override': {'name': 'l2_norm'}}]
+  (bbox_head): SSDHead(
+    (cls_convs): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(512, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (1): Sequential(
+        (0): Conv2d(1024, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (2): Sequential(
+        (0): Conv2d(512, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (3): Sequential(
+        (0): Conv2d(256, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (4): Sequential(
+        (0): Conv2d(256, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (5): Sequential(
+        (0): Conv2d(256, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (6): Sequential(
+        (0): Conv2d(256, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (reg_convs): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(512, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (1): Sequential(
+        (0): Conv2d(1024, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (2): Sequential(
+        (0): Conv2d(512, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (3): Sequential(
+        (0): Conv2d(256, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (4): Sequential(
+        (0): Conv2d(256, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (5): Sequential(
+        (0): Conv2d(256, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (6): Sequential(
+        (0): Conv2d(256, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  init_cfg={'type': 'Xavier', 'layer': 'Conv2d', 'distribution': 'uniform', 'bias': 0}
+)
+2024-03-11 06:49:24,728 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - classes=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
+2024-03-11 06:49:24,733 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - lower_bound.squeeze()=tensor([-123.6750, -116.2800, -103.5300], device='cuda:0'), upper_bound.squeeze()=tensor([131.3250, 138.7200, 151.4700], device='cuda:0'), normalized_range.squeeze()=tensor([255.0000, 255.0000, 255.0000], device='cuda:0')
+2024-03-11 06:49:24,733 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - eval
+2024-03-11 06:49:24,733 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Dataset:     itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco
+Media type:  image
+Num samples: 3651
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+2024-03-11 06:49:24,765 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - len(min_correct_slice)=3651
+2024-03-11 06:49:24,766 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Starting attack itr=200, lr.squeeze()=tensor([1.2750, 1.2750, 1.2750], device='cuda:0')
+2024-03-11 06:49:24,804 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:49:24,819 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:49:24,834 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:49:24,848 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:49:35,546 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:51:13,628 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:51:43,486 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:51:53,386 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:51:53,398 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:52:22,961 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:52:32,763 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:52:32,775 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:53:02,276 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:53:02,292 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:53:31,923 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:53:31,934 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:54:51,613 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:55:01,504 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:55:01,519 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:56:00,632 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:56:30,240 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:57:29,592 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:57:39,283 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:57:39,295 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 06:59:46,820 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:00:06,497 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:00:55,608 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:01:15,263 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:02:44,003 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:04:22,676 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:04:52,094 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:04:52,106 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:04:52,120 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:05:31,260 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:06:00,872 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:06:00,885 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:06:20,868 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:06:50,412 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:07:19,913 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:07:19,928 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:08:19,078 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:09:47,692 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:10:07,165 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:10:56,328 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:11:35,642 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:11:55,172 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:11:55,186 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:12:24,514 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:12:54,586 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:13:04,328 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:13:04,342 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:13:43,752 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:15:12,095 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:15:51,960 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:15:51,973 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:16:11,723 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:17:20,442 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:17:49,816 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:18:48,483 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:18:48,496 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:19:17,940 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:20:16,775 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:20:36,439 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:21:35,441 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:21:45,384 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:21:55,243 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-11 07:22:14,823 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - attack_sample_idx=['65ed3aa30b95d2abee8cbfb2', '65ed3aa30b95d2abee8cbff9', '65ed3aa30b95d2abee8cbffb', '65ed3aa30b95d2abee8cbffc', '65ed3aa30b95d2abee8cbffe', '65ed3aa30b95d2abee8cbfff', '65ed3aa30b95d2abee8cc0a5', '65ed3aa30b95d2abee8cc0a6', '65ed3aa30b95d2abee8cc0a7', '65ed3aa30b95d2abee8cc0a8', '65ed3aa30b95d2abee8cc0aa', '65ed3aa30b95d2abee8cc0ac', '65ed3aa30b95d2abee8cc0ad', '65ed3aa30b95d2abee8cc0ae', '65ed3aa30b95d2abee8cc0b0', '65ed3aa30b95d2abee8cc0b3', '65ed3aa30b95d2abee8cc0b4', '65ed3aa30b95d2abee8cc17b', '65ed3aa30b95d2abee8cc17d', '65ed3aa30b95d2abee8cc180', '65ed3aa30b95d2abee8cc181', '65ed3aa30b95d2abee8cc182', '65ed3aa30b95d2abee8cc186', '65ed3aa30b95d2abee8cc188', '65ed3aa30b95d2abee8cc189', '65ed3aa30b95d2abee8cc18f', '65ed3aa30b95d2abee8cc192', '65ed3aa30b95d2abee8cc194', '65ed3aa30b95d2abee8cc195', '65ed3aa30b95d2abee8cc197', '65ed3aa30b95d2abee8cc198', '65ed3aa30b95d2abee8cc2f4', '65ed3aa30b95d2abee8cc2f5', '65ed3aa30b95d2abee8cc2f8', '65ed3aa30b95d2abee8cc2fe', '65ed3aa30b95d2abee8cc2ff', '65ed3aa30b95d2abee8cc301', '65ed3aa30b95d2abee8cc304', '65ed3aa30b95d2abee8cc305', '65ed3aa30b95d2abee8cc306', '65ed3aa30b95d2abee8cc309', '65ed3aa30b95d2abee8cc30a', '65ed3aa30b95d2abee8cc30c', '65ed3aa30b95d2abee8cc30e', '65ed3aa30b95d2abee8cc30f', '65ed3aa30b95d2abee8cc311', '65ed3aa30b95d2abee8cc312', '65ed3aa30b95d2abee8cc313', '65ed3aa30b95d2abee8cc315', '65ed3aa30b95d2abee8cc31b', '65ed3aa30b95d2abee8cc320', '65ed3aa30b95d2abee8cc49b', '65ed3aa30b95d2abee8cc49c', '65ed3aa30b95d2abee8cc49d', '65ed3aa30b95d2abee8cc49f', '65ed3aa30b95d2abee8cc4a0', '65ed3aa30b95d2abee8cc4a1', '65ed3aa30b95d2abee8cc4a3', '65ed3aa30b95d2abee8cc4a4', '65ed3aa30b95d2abee8cc4a5', '65ed3aa30b95d2abee8cc4a6', '65ed3aa30b95d2abee8cc4a7', '65ed3aa30b95d2abee8cc4a9', '65ed3aa30b95d2abee8cc4ab', '65ed3aa30b95d2abee8cc4ad', '65ed3aa30b95d2abee8cc4b1', '65ed3aa30b95d2abee8cc4b2', '65ed3aa30b95d2abee8cc4b3', '65ed3aa30b95d2abee8cc4b5', '65ed3aa30b95d2abee8cc4b6', '65ed3aa30b95d2abee8cc4b8', '65ed3aa30b95d2abee8cc4ba', '65ed3aa30b95d2abee8cc4bc', '65ed3aa30b95d2abee8cc4bd', '65ed3aa30b95d2abee8cc4be', '65ed3aa30b95d2abee8cc4bf', '65ed3aa30b95d2abee8cc4c0', '65ed3aa30b95d2abee8cc4c1', '65ed3aa40b95d2abee8cc5ac', '65ed3aa40b95d2abee8cc5ad', '65ed3aa40b95d2abee8cc5b1', '65ed3aa40b95d2abee8cc5b3', '65ed3aa40b95d2abee8cc5b5', '65ed3aa40b95d2abee8cc5b7', '65ed3aa40b95d2abee8cc5b8', '65ed3aa40b95d2abee8cc5b9', '65ed3aa40b95d2abee8cc5ba', '65ed3aa40b95d2abee8cc5bb', '65ed3aa40b95d2abee8cc5bc', '65ed3aa40b95d2abee8cc5bd', '65ed3aa40b95d2abee8cc5be', '65ed3aa40b95d2abee8cc5c0', '65ed3aa40b95d2abee8cc5c1', '65ed3aa40b95d2abee8cc5c3', '65ed3aa40b95d2abee8cc5c8', '65ed3aa40b95d2abee8cc5c9', '65ed3aa40b95d2abee8cc5ca', '65ed3aa40b95d2abee8cc5cb', '65ed3aa40b95d2abee8cc5cd', '65ed3aa40b95d2abee8cc71c', '65ed3aa40b95d2abee8cc71d', '65ed3aa40b95d2abee8cc721', '65ed3aa40b95d2abee8cc724', '65ed3aa40b95d2abee8cc726', '65ed3aa40b95d2abee8cc727', '65ed3aa40b95d2abee8cc728', '65ed3aa40b95d2abee8cc72e', '65ed3aa40b95d2abee8cc733', '65ed3aa40b95d2abee8cc735', '65ed3aa40b95d2abee8cc738', '65ed3aa40b95d2abee8cc739', '65ed3aa40b95d2abee8cc73a', '65ed3aa40b95d2abee8cc73b', '65ed3aa40b95d2abee8cc73c', '65ed3aa40b95d2abee8cc73d', '65ed3aa40b95d2abee8cc73f', '65ed3aa40b95d2abee8cc740', '65ed3aa40b95d2abee8cc741', '65ed3aa40b95d2abee8cc743', '65ed3aa40b95d2abee8cc744', '65ed3aa40b95d2abee8cc745', '65ed3aa40b95d2abee8cc746', '65ed3aa40b95d2abee8cc747', '65ed3aa40b95d2abee8cc873', '65ed3aa40b95d2abee8cc876', '65ed3aa40b95d2abee8cc877', '65ed3aa40b95d2abee8cc87a', '65ed3aa40b95d2abee8cc87b', '65ed3aa40b95d2abee8cc87c', '65ed3aa40b95d2abee8cc87d', '65ed3aa40b95d2abee8cc87f', '65ed3aa40b95d2abee8cc881', '65ed3aa40b95d2abee8cc883', '65ed3aa40b95d2abee8cc884', '65ed3aa40b95d2abee8cc885', '65ed3aa40b95d2abee8cc887', '65ed3aa40b95d2abee8cc88b', '65ed3aa40b95d2abee8cc890', '65ed3aa40b95d2abee8cc891', '65ed3aa40b95d2abee8cc893', '65ed3aa40b95d2abee8cc895', '65ed3aa40b95d2abee8cc896', '65ed3aa40b95d2abee8cc897', '65ed3aa40b95d2abee8cc899', '65ed3aa40b95d2abee8cc97b', '65ed3aa40b95d2abee8cc97c', '65ed3aa40b95d2abee8cc97e', '65ed3aa40b95d2abee8cc97f', '65ed3aa40b95d2abee8cc981', '65ed3aa40b95d2abee8cc982', '65ed3aa40b95d2abee8cc983', '65ed3aa40b95d2abee8cc984', '65ed3aa40b95d2abee8cc989', '65ed3aa40b95d2abee8cc98a', '65ed3aa40b95d2abee8cc98b', '65ed3aa40b95d2abee8cc98c', '65ed3aa40b95d2abee8cc98d', '65ed3aa40b95d2abee8cc992', '65ed3aa40b95d2abee8cc993', '65ed3aa40b95d2abee8ccad4', '65ed3aa40b95d2abee8ccad7', '65ed3aa40b95d2abee8ccada', '65ed3aa40b95d2abee8ccadb', '65ed3aa40b95d2abee8ccae0', '65ed3aa40b95d2abee8ccae1', '65ed3aa40b95d2abee8ccae2', '65ed3aa40b95d2abee8ccae3', '65ed3aa40b95d2abee8ccae4', '65ed3aa40b95d2abee8ccae5', '65ed3aa40b95d2abee8ccae6', '65ed3aa40b95d2abee8ccae8', '65ed3aa40b95d2abee8ccae9', '65ed3aa40b95d2abee8ccaea', '65ed3aa40b95d2abee8ccaec', '65ed3aa40b95d2abee8ccaee', '65ed3aa40b95d2abee8ccaf0', '65ed3aa40b95d2abee8ccaf1', '65ed3aa40b95d2abee8ccaf2', '65ed3aa40b95d2abee8ccaf3', '65ed3aa40b95d2abee8ccaf6', '65ed3aa40b95d2abee8ccaf7', '65ed3aa40b95d2abee8ccaf9', '65ed3aa50b95d2abee8ccc33', '65ed3aa50b95d2abee8ccc36', '65ed3aa50b95d2abee8ccc37', '65ed3aa50b95d2abee8ccc38', '65ed3aa50b95d2abee8ccc39', '65ed3aa50b95d2abee8ccc3b', '65ed3aa50b95d2abee8ccc3d', '65ed3aa50b95d2abee8ccc3e', '65ed3aa50b95d2abee8ccc40', '65ed3aa50b95d2abee8ccc41', '65ed3aa50b95d2abee8ccc44', '65ed3aa50b95d2abee8ccc45', '65ed3aa50b95d2abee8ccc47', '65ed3aa50b95d2abee8ccc48', '65ed3aa50b95d2abee8ccc4b', '65ed3aa50b95d2abee8ccc4f', '65ed3aa50b95d2abee8ccc51', '65ed3aa50b95d2abee8ccc52']
+2024-03-11 07:22:14,823 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - attack_sample_path=['/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000024567.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000265518.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000102411.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000356531.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000011149.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511760.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000315450.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000557916.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000468965.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000008629.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000309467.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000173371.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000067616.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000272566.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000256192.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000195918.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000578489.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000303499.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000233238.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000215072.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000365387.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000509451.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000032901.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000564336.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000297084.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000129492.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000572900.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000442836.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000336658.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000282296.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000343496.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000317433.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000182923.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000179898.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000440475.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000289938.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000188465.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000059635.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000146155.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000132544.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000194875.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000571313.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000163640.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000176901.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000426268.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000223090.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000384670.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000492284.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000479448.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000200162.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000140286.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000250282.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000110042.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000212453.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000326082.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000385029.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000264535.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000447088.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000540414.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000361142.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000276720.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000094871.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000084170.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000135890.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000004134.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000253452.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000416343.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000360951.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000302990.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000015517.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000377486.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000416451.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000386912.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000294695.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000426241.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000285894.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000172571.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000527215.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000020553.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000102707.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000271402.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000097337.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000547502.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000412531.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000330818.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000417285.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000554579.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000133233.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000570688.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000394611.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000481386.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511321.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000146358.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000413689.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000370042.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000127987.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000480842.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000515982.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000494759.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000113354.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000010977.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000314182.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000570756.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000580197.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000169996.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000031322.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000393226.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000199771.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000579655.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000388215.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000284445.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000534394.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000311303.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000012748.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000258793.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000247917.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000506310.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000194724.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000280918.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000240023.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000210388.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000338560.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000222735.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000026941.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000139684.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000243867.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000516804.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000324818.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000568814.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000349184.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000242724.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000055167.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000011699.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000240250.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000215778.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000061171.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000502168.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000518770.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000182805.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000315187.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000568981.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000062353.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000304404.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511599.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000401862.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511076.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000285788.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000451308.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000458663.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000369771.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000465718.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000380706.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000351810.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000523241.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000193162.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000361147.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000274272.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000125072.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000039477.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000435081.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000054593.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000159684.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000314034.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000231822.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000300276.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000401446.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000364557.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000445846.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000073533.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000435208.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000400367.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000231508.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000371529.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000306437.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000446206.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000106235.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000017115.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000308631.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000409867.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000462629.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000477955.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000088269.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000057760.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000105912.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000350054.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000288430.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000533816.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000406129.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000015338.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000227985.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000432553.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000476787.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000266768.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000447314.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000451879.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000169169.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000417632.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000368212.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000012120.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000292060.jpg']
+2024-03-11 07:22:14,823 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - perturb_bboxes_idx=[2, 2, 6, 0, 0, 0, 5, 4, 1, 1, 4, 7, 1, 7, 6, 0, 5, 3, 3, 3, 2, 5, 8, 1, 10, 7, 0, 3, 1, 0, 2, 1, 2, 10, 1, 1, 4, 5, 7, 5, 3, 2, 0, 1, 1, 1, 2, 2, 0, 1, 0, 2, 0, 0, 6, 4, 3, 4, 8, 2, 2, 5, 3, 1, 9, 0, 3, 1, 0, 0, 2, 4, 8, 0, 4, 0, 3, 3, 4, 0, 2, 2, 3, 2, 0, 2, 1, 0, 11, 1, 0, 1, 2, 3, 3, 3, 0, 2, 0, 2, 0, 1, 1, 2, 7, 7, 2, 1, 2, 1, 7, 3, 1, 0, 0, 12, 1, 8, 2, 4, 2, 2, 0, 2, 4, 1, 1, 0, 1, 4, 1, 0, 2, 10, 2, 2, 3, 3, 1, 1, 2, 4, 20, 5, 2, 1, 2, 5, 4, 1, 5, 2, 5, 1, 2, 3, 2, 0, 1, 6, 4, 1, 9, 0, 0, 3, 0, 0, 3, 0, 2, 0, 1, 1, 0, 3, 1, 2, 1, 2, 1, 3, 2, 10, 5, 2, 12, 0, 2, 0, 0, 0, 8, 1, 1, 6, 1, 5, 1, 2]
+2024-03-11 07:22:14,823 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - target_bboxes_idx=[0, 0, 3, 1, 3, 1, 3, 0, 3, 4, 5, 3, 5, 4, 9, 1, 6, 2, 9, 2, 0, 0, 11, 2, 3, 0, 2, 2, 0, 1, 0, 0, 11, 6, 3, 2, 3, 11, 6, 6, 16, 3, 1, 2, 0, 0, 1, 1, 4, 3, 1, 8, 1, 2, 0, 2, 2, 2, 7, 8, 1, 6, 2, 0, 5, 4, 1, 3, 1, 1, 1, 2, 0, 3, 3, 2, 0, 1, 0, 1, 1, 1, 2, 3, 3, 5, 2, 1, 10, 0, 2, 0, 0, 4, 2, 2, 1, 3, 1, 1, 1, 5, 6, 0, 2, 1, 3, 8, 1, 0, 5, 8, 3, 2, 1, 11, 3, 0, 4, 2, 0, 0, 1, 0, 3, 0, 0, 1, 0, 3, 0, 2, 4, 3, 3, 5, 4, 4, 2, 2, 0, 1, 18, 4, 0, 4, 1, 9, 0, 0, 1, 1, 4, 3, 4, 1, 0, 1, 5, 5, 3, 0, 8, 1, 9, 5, 1, 1, 4, 4, 3, 4, 2, 2, 1, 2, 0, 4, 0, 0, 0, 1, 1, 9, 1, 1, 3, 1, 0, 2, 1, 3, 5, 2, 4, 8, 3, 2, 5, 1]
+2024-03-11 07:22:14,823 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Sampled 266
+2024-03-11 07:22:14,823 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Finished attack
+2024-03-11 07:22:14,823 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Dataset:     itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco
+Media type:  image
+Num samples: 200
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+    pgd:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+    2. MatchTags(tags=['attack'], bool=True, all=False)
+2024-03-11 07:22:14,835 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - len(attack_slice)=200
+Evaluating detections...
+   0% ||------|   0/200 [27.7ms elapsed, ? remaining, ? samples/s]                                                                       2% |/------|   3/200 [139.4ms elapsed, 9.2s remaining, 21.5 samples/s]                                                                              2% |-------|   4/200 [447.8ms elapsed, 21.9s remaining, 8.9 samples/s]                                                                              4% |\------|   7/200 [549.4ms elapsed, 15.1s remaining, 12.7 samples/s]                                                                               4% ||------|   9/200 [977.3ms elapsed, 20.7s remaining, 9.2 samples/s]                                                                                6% |/------|  12/200 [1.4s elapsed, 22.6s remaining, 8.3 samples/s]                                                                                   7% |-------|  14/200 [1.6s elapsed, 21.3s remaining, 8.7 samples/s]                                                                                   8% |\------|  16/200 [1.8s elapsed, 20.4s remaining, 9.0 samples/s]                                                                                   9% ||------|  18/200 [2.0s elapsed, 20.2s remaining, 9.0 samples/s]                                                                                  10% |/------|  19/200 [2.2s elapsed, 20.7s remaining, 8.7 samples/s]                                                                                  10% |-------|  21/200 [2.3s elapsed, 19.8s remaining, 8.3 samples/s]                                                                                  11% |\------|  22/200 [2.5s elapsed, 19.9s remaining, 8.9 samples/s]                                                                                  12% ||------|  25/200 [2.6s elapsed, 18.8s remaining, 8.6 samples/s]                                                                                  14% |/------|  27/200 [2.8s elapsed, 17.7s remaining, 10.1 samples/s]                                                                                 16% |█------|  32/200 [2.9s elapsed, 15.0s remaining, 13.4 samples/s]                                                                                 16% |█\-----|  33/200 [3.1s elapsed, 15.5s remaining, 12.4 samples/s]                                                                                 18% |█|-----|  35/200 [3.3s elapsed, 15.0s remaining, 12.8 samples/s]                                                                                 19% |█/-----|  38/200 [3.5s elapsed, 14.2s remaining, 13.7 samples/s]                                                                                 20% |█------|  41/200 [3.7s elapsed, 13.7s remaining, 14.4 samples/s]                                                                                 21% |█\-----|  42/200 [3.9s elapsed, 13.9s remaining, 13.6 samples/s]                                                                                 22% |█|-----|  45/200 [4.0s elapsed, 12.8s remaining, 15.4 samples/s]                                                                                 24% |█/-----|  48/200 [4.1s elapsed, 12.0s remaining, 16.3 samples/s]                                                                                 24% |█------|  49/200 [4.3s elapsed, 12.6s remaining, 14.3 samples/s]                                                                                 26% |█\-----|  52/200 [4.4s elapsed, 12.2s remaining, 13.4 samples/s]                                                                                 28% |█|-----|  56/200 [4.6s elapsed, 10.9s remaining, 16.3 samples/s]                                                                                 28% |█/-----|  57/200 [4.9s elapsed, 12.0s remaining, 13.1 samples/s]                                                                                 30% |██-----|  59/200 [5.1s elapsed, 11.8s remaining, 12.9 samples/s]                                                                                 30% |██\----|  61/200 [5.2s elapsed, 11.4s remaining, 13.2 samples/s]                                                                                 31% |██|----|  62/200 [5.4s elapsed, 11.5s remaining, 13.1 samples/s]                                                                                 32% |██/----|  63/200 [5.7s elapsed, 12.8s remaining, 10.2 samples/s]                                                                                 33% |██-----|  66/200 [5.9s elapsed, 12.6s remaining, 9.7 samples/s]                                                                                  34% |██\----|  68/200 [6.0s elapsed, 11.8s remaining, 11.0 samples/s]                                                                                 35% |██|----|  70/200 [6.1s elapsed, 11.7s remaining, 10.6 samples/s]                                                                                 36% |██/----|  72/200 [6.3s elapsed, 12.0s remaining, 9.4 samples/s]                                                                                  36% |██-----|  73/200 [6.4s elapsed, 11.2s remaining, 11.2 samples/s]                                                                                 38% |██\----|  77/200 [6.7s elapsed, 10.8s remaining, 11.3 samples/s]                                                                                 40% |██|----|  81/200 [6.9s elapsed, 10.1s remaining, 11.9 samples/s]                                                                                 42% |██/----|  85/200 [7.3s elapsed, 9.8s remaining, 11.8 samples/s]                                                                                  44% |███----|  87/200 [7.7s elapsed, 9.6s remaining, 12.3 samples/s]                                                                                  44% |███\---|  89/200 [7.9s elapsed, 9.7s remaining, 11.7 samples/s]                                                                                  46% |███|---|  91/200 [8.1s elapsed, 9.8s remaining, 11.0 samples/s]                                                                                  47% |███/---|  94/200 [8.2s elapsed, 9.3s remaining, 11.5 samples/s]                                                                                  48% |███----|  97/200 [8.4s elapsed, 8.8s remaining, 11.9 samples/s]                                                                                  50% |███\---| 101/200 [8.5s elapsed, 7.9s remaining, 13.2 samples/s]                                                                                  51% |███|---| 102/200 [9.0s elapsed, 9.0s remaining, 10.6 samples/s]                                                                                  52% |███/---| 104/200 [9.2s elapsed, 9.0s remaining, 10.1 samples/s]                                                                                  53% |███----| 106/200 [9.4s elapsed, 8.7s remaining, 10.3 samples/s]                                                                                  54% |███\---| 108/200 [9.7s elapsed, 8.6s remaining, 10.4 samples/s]                                                                                  56% |███|---| 111/200 [9.8s elapsed, 7.8s remaining, 11.4 samples/s]                                                                                  56% |███/---| 112/200 [9.9s elapsed, 7.6s remaining, 11.7 samples/s]                                                                                  56% |███----| 113/200 [10.2s elapsed, 8.6s remaining, 9.5 samples/s]                                                                                  57% |███\---| 114/200 [10.4s elapsed, 9.2s remaining, 8.4 samples/s]                                                                                  58% |████|--| 117/200 [10.5s elapsed, 9.3s remaining, 7.8 samples/s]                                                                                  59% |████/--| 118/200 [10.9s elapsed, 8.8s remaining, 8.4 samples/s]                                                                                  60% |████---| 119/200 [11.4s elapsed, 10.4s remaining, 6.6 samples/s]                                                                                 62% |████\--| 123/200 [11.7s elapsed, 9.3s remaining, 7.3 samples/s]                                                                                  62% |████|--| 125/200 [11.8s elapsed, 8.5s remaining, 8.0 samples/s]                                                                                  64% |████/--| 128/200 [12.0s elapsed, 8.3s remaining, 7.8 samples/s]                                                                                  65% |████---| 130/200 [12.2s elapsed, 8.1s remaining, 7.8 samples/s]                                                                                  66% |████\--| 133/200 [12.3s elapsed, 6.7s remaining, 9.6 samples/s]                                                                                  67% |████|--| 134/200 [12.6s elapsed, 6.9s remaining, 9.1 samples/s]                                                                                  68% |████/--| 135/200 [12.9s elapsed, 7.7s remaining, 7.7 samples/s]                                                                                  69% |████---| 138/200 [13.2s elapsed, 6.6s remaining, 9.0 samples/s]                                                                                  70% |████\--| 141/200 [13.3s elapsed, 5.2s remaining, 11.8 samples/s]                                                                                 72% |█████|-| 143/200 [13.5s elapsed, 5.2s remaining, 11.1 samples/s]                                                                                 72% |█████/-| 145/200 [13.6s elapsed, 5.0s remaining, 11.2 samples/s]                                                                                 73% |█████--| 146/200 [13.9s elapsed, 5.5s remaining, 9.6 samples/s]                                                                                  74% |█████\-| 149/200 [14.0s elapsed, 4.7s remaining, 10.8 samples/s]                                                                                 75% |█████|-| 150/200 [14.2s elapsed, 5.3s remaining, 9.1 samples/s]                                                                                  76% |█████/-| 153/200 [14.3s elapsed, 4.3s remaining, 11.0 samples/s]                                                                                 78% |█████--| 155/200 [14.4s elapsed, 3.6s remaining, 13.0 samples/s]                                                                                 80% |█████\-| 159/200 [14.5s elapsed, 2.9s remaining, 15.2 samples/s]                                                                                 80% |█████|-| 160/200 [14.7s elapsed, 3.1s remaining, 13.8 samples/s]                                                                                 82% |█████/-| 163/200 [14.8s elapsed, 2.6s remaining, 14.9 samples/s]                                                                                 82% |█████--| 165/200 [15.1s elapsed, 2.7s remaining, 13.6 samples/s]                                                                                 84% |█████\-| 169/200 [15.2s elapsed, 2.0s remaining, 17.1 samples/s]                                                                                 85% |█████|-| 170/200 [15.4s elapsed, 2.1s remaining, 15.2 samples/s]                                                                                 86% |██████/| 172/200 [15.5s elapsed, 1.8s remaining, 16.3 samples/s]                                                                                 86% |██████-| 173/200 [15.8s elapsed, 2.1s remaining, 13.2 samples/s]                                                                                 88% |██████\| 176/200 [15.9s elapsed, 1.8s remaining, 13.9 samples/s]                                                                                 88% |██████|| 177/200 [16.1s elapsed, 2.0s remaining, 11.3 samples/s]                                                                                 90% |██████/| 181/200 [16.2s elapsed, 1.5s remaining, 13.3 samples/s]                                                                                 91% |██████-| 182/200 [16.3s elapsed, 1.4s remaining, 12.6 samples/s]                                                                                 92% |██████\| 184/200 [16.6s elapsed, 1.3s remaining, 12.5 samples/s]                                                                                 94% |██████|| 187/200 [17.0s elapsed, 1.3s remaining, 10.3 samples/s]                                                                                 94% |██████/| 188/200 [17.1s elapsed, 1.2s remaining, 10.3 samples/s]                                                                                 96% |██████-| 191/200 [17.3s elapsed, 827.3ms remaining, 10.9 samples/s]                                                                              97% |██████\| 194/200 [17.4s elapsed, 458.7ms remaining, 13.2 samples/s]                                                                              98% |██████|| 196/200 [17.6s elapsed, 330.1ms remaining, 12.1 samples/s]                                                                              98% |██████/| 197/200 [17.9s elapsed, 271.1ms remaining, 11.1 samples/s]                                                                             100% |███████| 200/200 [18.1s elapsed, 0s remaining, 10.1 samples/s]      
+2024-03-11 07:22:33,572 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Dataset:     itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco
+Media type:  image
+Num samples: 41
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+    pgd:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    pgd_eval_tp:  fiftyone.core.fields.IntField
+    pgd_eval_fp:  fiftyone.core.fields.IntField
+    pgd_eval_fn:  fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+    2. MatchTags(tags=['attack'], bool=True, all=False)
+    3. FilterLabels(field='pgd', filter={'$gt': ['$$this.confidence', 0.3]}, only_matches=False, trajectories=False)
+    4. MatchLabels(labels=None, ids=None, tags=None, filter={'$and': [{...}, {...}]}, fields=['predictions'], bool=True)
+2024-03-11 07:22:33,623 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Success/Attack: 41/200 (20.50%)
+Evaluating detections...
+   0% ||--------|  0/41 [36.2ms elapsed, ? remaining, ? samples/s]                                                                       2% |/--------|  1/41 [341.2ms elapsed, 13.6s remaining, 2.9 samples/s]                                                                             10% |---------|  4/41 [767.2ms elapsed, 7.1s remaining, 5.2 samples/s]                                                                              20% |█\-------|  8/41 [898.4ms elapsed, 3.7s remaining, 8.9 samples/s]                                                                              24% |██|------| 10/41 [1.3s elapsed, 4.1s remaining, 7.5 samples/s]                                                                                 27% |██/------| 11/41 [1.7s elapsed, 4.6s remaining, 6.5 samples/s]                                                                                 29% |██-------| 12/41 [2.1s elapsed, 5.0s remaining, 5.8 samples/s]                                                                                 32% |██\------| 13/41 [2.2s elapsed, 4.8s remaining, 5.9 samples/s]                                                                                 39% |███|-----| 16/41 [2.6s elapsed, 4.1s remaining, 6.1 samples/s]                                                                                 44% |███/-----| 18/41 [2.7s elapsed, 3.5s remaining, 6.6 samples/s]                                                                                 51% |████-----| 21/41 [2.9s elapsed, 2.6s remaining, 8.0 samples/s]                                                                                 54% |████\----| 22/41 [3.1s elapsed, 2.5s remaining, 7.8 samples/s]                                                                                 56% |█████|---| 23/41 [3.4s elapsed, 2.8s remaining, 6.1 samples/s]                                                                                 59% |█████/---| 24/41 [3.5s elapsed, 2.6s remaining, 6.5 samples/s]                                                                                 61% |█████----| 25/41 [3.8s elapsed, 2.4s remaining, 6.7 samples/s]                                                                                 66% |█████\---| 27/41 [4.1s elapsed, 2.0s remaining, 7.5 samples/s]                                                                                 73% |██████|--| 30/41 [4.5s elapsed, 1.5s remaining, 7.6 samples/s]                                                                                 78% |███████/-| 32/41 [4.6s elapsed, 1.2s remaining, 8.1 samples/s]                                                                                 88% |███████--| 36/41 [5.0s elapsed, 634.2ms remaining, 8.0 samples/s]                                                                              93% |████████\| 38/41 [5.2s elapsed, 418.3ms remaining, 7.2 samples/s]                                                                              98% |████████|| 40/41 [5.7s elapsed, 144.1ms remaining, 6.9 samples/s]                                                                             100% |█████████| 41/41 [5.7s elapsed, 0s remaining, 7.7 samples/s]       
+2024-03-11 07:22:39,680 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Mislabeled: 8/41
+2024-03-11 07:22:39,760 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Vanished: 33/41
+2024-03-11 07:22:39,818 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Saving to: ./data/randomized/results/itr_200_norm_None_repeat_11_untarget_bbox_ssd_512.csv
+2024-03-11 07:22:39,950 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Dumping save_name='./data/randomized/datasets/itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco'...
+Exporting samples...
+   0% ||---------|   0/200 [49.5us elapsed, ? remaining, ? docs/s]                                                                      16% |█/--------|  33/200 [104.2ms elapsed, 527.5ms remaining, 316.6 docs/s]                                                                                 32% |███-------|  63/200 [206.6ms elapsed, 449.2ms remaining, 305.0 docs/s]                                                                                 50% |█████\----| 101/200 [471.0ms elapsed, 461.7ms remaining, 214.4 docs/s]                                                                                 66% |██████|---| 132/200 [571.5ms elapsed, 294.4ms remaining, 231.0 docs/s]                                                                                 82% |████████/-| 163/200 [675.2ms elapsed, 153.3ms remaining, 241.4 docs/s]                                                                                 99% |█████████-| 198/200 [777.1ms elapsed, 7.8ms remaining, 254.8 docs/s]                                                                                  100% |██████████| 200/200 [782.8ms elapsed, 0s remaining, 255.5 docs/s]      
+2024-03-11 07:22:40,787 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Name:        itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco
+Media type:  image
+Num samples: 4914
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:                   fiftyone.core.fields.ObjectIdField
+    filepath:             fiftyone.core.fields.StringField
+    tags:                 fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:             fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth:         fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:              fiftyone.core.fields.IntField
+    eval_fp:              fiftyone.core.fields.IntField
+    eval_fn:              fiftyone.core.fields.IntField
+    pgd:                  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    pgd_eval_tp:          fiftyone.core.fields.IntField
+    pgd_eval_fp:          fiftyone.core.fields.IntField
+    pgd_eval_fn:          fiftyone.core.fields.IntField
+    pgd_mislabel_eval_tp: fiftyone.core.fields.IntField
+    pgd_mislabel_eval_fp: fiftyone.core.fields.IntField
+    pgd_mislabel_eval_fn: fiftyone.core.fields.IntField
+2024-03-11 07:22:40,802 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512_coco
+2024-03-11 07:22:40,828 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - Sample tags: ['vanish', 'mislabel', 'success', 'attack']
+2024-03-11 07:22:40,894 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - ground_truth tags: ['target', 'perturb']
+2024-03-11 07:22:40,952 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - predictions tags: ['target', 'perturb']
+2024-03-11 07:22:41,038 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - DEBUG - pgd tags: ['mislabel']
+2024-03-11 07:22:41,060 - itr_200_norm_None_repeat_11_untarget_bbox_ssd_512 - INFO - Saving to: ./data/randomized/results/itr_200_norm_None_repeat_11_untarget_bbox_ssd_512.parquet
+
+Completed and shutting down mongod...
+{"t":{"$date":"2024-03-11T07:22:43.030-04:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"-","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2024-03-11T07:22:43.031-04:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true}}}
+{"t":{"$date":"2024-03-11T07:22:43.032-04:00"},"s":"I",  "c":"NETWORK",  "id":4648602, "ctx":"main","msg":"Implicit TCP FastOpen in use."}
+{"t":{"$date":"2024-03-11T07:22:43.033-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}
+{"t":{"$date":"2024-03-11T07:22:43.033-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}
+{"t":{"$date":"2024-03-11T07:22:43.033-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"ShardSplitDonorService","namespace":"config.tenantSplitDonors"}}
+Killing process with pid: 242078

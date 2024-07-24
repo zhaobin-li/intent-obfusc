@@ -1,0 +1,563 @@
+Running mongod with env db
+LOG_DIR: /scratch/zl430/fiftyone/randomized/35147728_397
+RND_PT: 60247
+about to fork child process, waiting until server is ready for connections.
+forked process: 184185
+child process started successfully, parent exiting
+
+Running pytorch with env coco
+Migrating database to v0.23.2
+2024-03-13 02:47:28,684 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - INFO - Config (path: configs/mislabel_bbox_yolo_v3.py): {'model_config': '../mmdetection/configs/yolo/yolov3_d53_mstrain-608_273e_coco.py', 'model_checkpoint': '../mmdetection/checkpoints/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8.pth', 'dataset_name': 'itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3_coco', 'images_path': '../coco/val2017', 'labels_path': '../coco/annotations/instances_val2017.json', 'gt_samples': 5000, 'attack_samples': 200, 'shuffle': True, 'seed': 31148, 'replace_dataset': True, 'compute_map': False, 'cuda': 0, 'launch_app': False, 'itr': 200, 'max_norm': 0.05, 'min_iou': 0.3, 'min_score': 0.3, 'non_overlap': True, 'attack_bbox': 'predictions', 'adversarial_target': 'mislabel', 'perturb_fun': 'perturb_inside', 'arbitrary_bbox': False, 'criteria_dt': {'target_max_conf': None, 'perturb_min_size': None, 'bbox_max_dist': None}, 'result_dir': './data/randomized/results', 'dataset_dir': './data/randomized/datasets', 'cache_dir': './data/randomized/caches', 'log_dir': './data/randomized/logs', 'img_dir': './data/randomized/images', 'viz_pgd': False, 'log_level': 'DEBUG', 'backward_loss': 'get_yolo_v3_mislabel_loss', 'log_name': 'itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3'}
+2024-03-13 02:47:28,685 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - {
+    "batcher_static_size": 100,
+    "batcher_target_latency": 0.2,
+    "batcher_target_size_bytes": 1048576,
+    "bulk_write_batch_size": 100000,
+    "database_admin": true,
+    "database_dir": "/home/zl430/.fiftyone/var/lib/mongo",
+    "database_name": "fiftyone",
+    "database_uri": "mongodb://127.0.0.1:60247/",
+    "database_validation": true,
+    "dataset_zoo_dir": "/home/zl430/fiftyone",
+    "dataset_zoo_manifest_paths": null,
+    "default_app_address": "localhost",
+    "default_app_port": 5151,
+    "default_batch_size": null,
+    "default_batcher": "latency",
+    "default_dataset_dir": "/home/zl430/fiftyone",
+    "default_image_ext": ".jpg",
+    "default_ml_backend": "torch",
+    "default_sequence_idx": "%06d",
+    "default_video_ext": ".mp4",
+    "desktop_app": false,
+    "do_not_track": false,
+    "logging_level": "INFO",
+    "max_process_pool_workers": null,
+    "max_thread_pool_workers": null,
+    "model_zoo_dir": "/home/zl430/fiftyone/__models__",
+    "model_zoo_manifest_paths": null,
+    "module_path": null,
+    "operator_timeout": 600,
+    "plugins_cache_enabled": false,
+    "plugins_dir": "/home/zl430/fiftyone/__plugins__",
+    "requirement_error_level": 0,
+    "show_progress_bars": true,
+    "timezone": null
+}
+Importing samples...
+   0% ||----|    1/4912 [1.6ms elapsed, 8.1s remaining, 606.9 samples/s]                                                                             5% |/----|  255/4912 [125.4ms elapsed, 2.3s remaining, 2.0K samples/s]                                                                             10% |-----|  511/4912 [251.8ms elapsed, 2.2s remaining, 2.0K samples/s]                                                                             19% |\----|  916/4912 [478.1ms elapsed, 2.1s remaining, 1.9K samples/s]                                                                             26% |█|---| 1274/4912 [684.3ms elapsed, 2.0s remaining, 1.9K samples/s]                                                                             47% |██/--| 2315/4912 [942.5ms elapsed, 1.1s remaining, 2.5K samples/s]                                                                             62% |███--| 3068/4912 [1.1s elapsed, 683.6ms remaining, 2.7K samples/s]                                                                             78% |███\-| 3841/4912 [1.3s elapsed, 371.3ms remaining, 2.9K samples/s]                                                                             94% |████|| 4633/4912 [1.5s elapsed, 90.1ms remaining, 3.1K samples/s]                                                                             100% |█████| 4912/4912 [1.6s elapsed, 0s remaining, 3.1K samples/s]      
+Import complete
+2024-03-13 02:47:32,814 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - INFO - Imported cache_name='./data/randomized/caches/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8'!
+2024-03-13 02:47:32,821 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Name:        itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 4912
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+2024-03-13 02:47:32,838 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - INFO - dataset.name='itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3_coco'
+load checkpoint from local path: ../mmdetection/checkpoints/yolov3_d53_mstrain-608_273e_coco_20210518_115020-a2c3acb8.pth
+2024-03-13 02:47:34,977 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - YOLOV3(
+  (backbone): Darknet(
+    (conv1): ConvModule(
+      (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (conv_res_block1): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block2): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block3): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res4): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res5): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res6): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res7): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block4): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res4): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res5): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res6): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res7): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+    (conv_res_block5): Sequential(
+      (conv): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (res0): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res1): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res2): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (res3): ResBlock(
+        (conv1): ConvModule(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): ConvModule(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+  )
+  init_cfg={'type': 'Pretrained', 'checkpoint': 'open-mmlab://darknet53'}
+  (neck): YOLOV3Neck(
+    (detect1): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (conv1): ConvModule(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (detect2): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(768, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (conv2): ConvModule(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (detect3): DetectionBlock(
+      (conv1): ConvModule(
+        (conv): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv2): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv3): ConvModule(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv4): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (conv5): ConvModule(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+  )
+  (bbox_head): YOLOV3Head(
+    (loss_cls): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_conf): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_xy): CrossEntropyLoss(avg_non_ignore=False)
+    (loss_wh): MSELoss()
+    (convs_bridge): ModuleList(
+      (0): ConvModule(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (1): ConvModule(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+      (2): ConvModule(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): LeakyReLU(negative_slope=0.1, inplace=True)
+      )
+    )
+    (convs_pred): ModuleList(
+      (0): Conv2d(1024, 255, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(512, 255, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(256, 255, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+  init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'convs_pred'}}
+)
+2024-03-13 02:47:34,983 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - INFO - classes=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
+2024-03-13 02:47:34,989 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - lower_bound.squeeze()=tensor([0., 0., 0.], device='cuda:0'), upper_bound.squeeze()=tensor([1., 1., 1.], device='cuda:0'), normalized_range.squeeze()=tensor([1., 1., 1.], device='cuda:0')
+2024-03-13 02:47:34,989 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - INFO - eval
+2024-03-13 02:47:34,989 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Dataset:     itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3_coco
+Media type:  image
+Num samples: 3790
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+2024-03-13 02:47:35,029 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - INFO - len(min_correct_slice)=3790
+2024-03-13 02:47:35,031 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - INFO - Starting attack itr=200, lr.squeeze()=tensor([0.0050, 0.0050, 0.0050], device='cuda:0')
+2024-03-13 02:47:59,503 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 02:48:23,074 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 02:49:10,045 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 02:51:07,832 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 02:53:05,332 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 02:55:26,012 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:00:54,530 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:02:04,991 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:03:15,112 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:05:12,235 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:05:12,248 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:05:58,955 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:05:58,971 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:06:45,762 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:07:32,562 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:07:32,587 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:08:19,399 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:08:42,758 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:09:29,514 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:09:29,531 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:13:47,267 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:16:31,136 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:19:38,999 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:19:39,014 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:22:00,557 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:23:34,815 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:23:58,492 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:26:43,615 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:27:07,237 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:28:18,092 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:29:05,477 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:31:03,380 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-13 03:31:03,392 - itr_200_norm_0.05_repeat_7_mislabel_bbox_yolo_v3 - DEBUG - Ignoring sample since no bbox pairs are eligible

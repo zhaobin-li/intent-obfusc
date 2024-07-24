@@ -1,0 +1,401 @@
+Running mongod with env db
+LOG_DIR: /scratch/zl430/fiftyone/randomized/35147728_114
+RND_PT: 57648
+about to fork child process, waiting until server is ready for connections.
+forked process: 176771
+child process started successfully, parent exiting
+
+Running pytorch with env coco
+Migrating database to v0.23.2
+2024-03-10 21:36:09,873 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Config (path: configs/mislabel_bbox_ssd_512.py): {'model_config': '../mmdetection/configs/ssd/ssd512_coco.py', 'model_checkpoint': '../mmdetection/checkpoints/ssd512_coco_20210803_022849-0a47a1ca.pth', 'dataset_name': 'itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco', 'images_path': '../coco/val2017', 'labels_path': '../coco/annotations/instances_val2017.json', 'gt_samples': 5000, 'attack_samples': 200, 'shuffle': True, 'seed': 5667, 'replace_dataset': True, 'compute_map': False, 'cuda': 0, 'launch_app': False, 'itr': 200, 'max_norm': None, 'min_iou': 0.3, 'min_score': 0.3, 'non_overlap': True, 'attack_bbox': 'predictions', 'adversarial_target': 'mislabel', 'perturb_fun': 'perturb_inside', 'arbitrary_bbox': False, 'criteria_dt': {'target_max_conf': None, 'perturb_min_size': None, 'bbox_max_dist': None}, 'result_dir': './data/randomized/results', 'dataset_dir': './data/randomized/datasets', 'cache_dir': './data/randomized/caches', 'log_dir': './data/randomized/logs', 'img_dir': './data/randomized/images', 'viz_pgd': False, 'log_level': 'DEBUG', 'backward_loss': 'get_ssd_512_mislabel_loss', 'log_name': 'itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512'}
+2024-03-10 21:36:09,874 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - {
+    "batcher_static_size": 100,
+    "batcher_target_latency": 0.2,
+    "batcher_target_size_bytes": 1048576,
+    "bulk_write_batch_size": 100000,
+    "database_admin": true,
+    "database_dir": "/home/zl430/.fiftyone/var/lib/mongo",
+    "database_name": "fiftyone",
+    "database_uri": "mongodb://127.0.0.1:57648/",
+    "database_validation": true,
+    "dataset_zoo_dir": "/home/zl430/fiftyone",
+    "dataset_zoo_manifest_paths": null,
+    "default_app_address": "localhost",
+    "default_app_port": 5151,
+    "default_batch_size": null,
+    "default_batcher": "latency",
+    "default_dataset_dir": "/home/zl430/fiftyone",
+    "default_image_ext": ".jpg",
+    "default_ml_backend": "torch",
+    "default_sequence_idx": "%06d",
+    "default_video_ext": ".mp4",
+    "desktop_app": false,
+    "do_not_track": false,
+    "logging_level": "INFO",
+    "max_process_pool_workers": null,
+    "max_thread_pool_workers": null,
+    "model_zoo_dir": "/home/zl430/fiftyone/__models__",
+    "model_zoo_manifest_paths": null,
+    "module_path": null,
+    "operator_timeout": 600,
+    "plugins_cache_enabled": false,
+    "plugins_dir": "/home/zl430/fiftyone/__plugins__",
+    "requirement_error_level": 0,
+    "show_progress_bars": true,
+    "timezone": null
+}
+Importing samples...
+   0% ||----|    1/4914 [2.4ms elapsed, 11.6s remaining, 423.4 samples/s]                                                                             10% |/----|  511/4914 [199.0ms elapsed, 1.7s remaining, 2.6K samples/s]                                                                             19% |-----|  910/4914 [369.3ms elapsed, 1.6s remaining, 2.5K samples/s]                                                                             47% |██\--| 2317/4914 [591.6ms elapsed, 663.1ms remaining, 3.9K samples/s]                                                                                75% |███|-| 3690/4914 [771.5ms elapsed, 255.9ms remaining, 4.8K samples/s]                                                                               100% |█████| 4914/4914 [936.9ms elapsed, 0s remaining, 5.2K samples/s]                                                                                    100% |█████| 4914/4914 [937.3ms elapsed, 0s remaining, 5.2K samples/s]      
+Import complete
+2024-03-10 21:36:13,051 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Imported cache_name='./data/randomized/caches/ssd512_coco_20210803_022849-0a47a1ca'!
+2024-03-10 21:36:13,059 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Name:        itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco
+Media type:  image
+Num samples: 4914
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+2024-03-10 21:36:13,077 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - dataset.name='itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco'
+load checkpoint from local path: ../mmdetection/checkpoints/ssd512_coco_20210803_022849-0a47a1ca.pth
+2024-03-10 21:36:14,415 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - SingleStageDetector(
+  (backbone): SSDVGG(
+    (features): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace=True)
+      (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): ReLU(inplace=True)
+      (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (6): ReLU(inplace=True)
+      (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (8): ReLU(inplace=True)
+      (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace=True)
+      (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (13): ReLU(inplace=True)
+      (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (15): ReLU(inplace=True)
+      (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (18): ReLU(inplace=True)
+      (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): ReLU(inplace=True)
+      (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (22): ReLU(inplace=True)
+      (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (25): ReLU(inplace=True)
+      (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (27): ReLU(inplace=True)
+      (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (29): ReLU(inplace=True)
+      (30): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+      (31): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(6, 6), dilation=(6, 6))
+      (32): ReLU(inplace=True)
+      (33): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1))
+      (34): ReLU(inplace=True)
+    )
+  )
+  init_cfg={'type': 'Pretrained', 'checkpoint': 'open-mmlab://vgg16_caffe'}
+  (neck): SSDNeck(
+    (l2_norm): L2Norm()
+    (extra_layers): ModuleList(
+      (0): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (1): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (2): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (3): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (4): Sequential(
+        (0): ConvModule(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+        (1): ConvModule(
+          (conv): Conv2d(128, 256, kernel_size=(4, 4), stride=(1, 1), padding=(1, 1))
+          (activate): ReLU(inplace=True)
+        )
+      )
+    )
+  )
+  init_cfg=[{'type': 'Xavier', 'distribution': 'uniform', 'layer': 'Conv2d'}, {'type': 'Constant', 'val': 1, 'layer': 'BatchNorm2d'}, {'type': 'Constant', 'val': 20, 'override': {'name': 'l2_norm'}}]
+  (bbox_head): SSDHead(
+    (cls_convs): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(512, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (1): Sequential(
+        (0): Conv2d(1024, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (2): Sequential(
+        (0): Conv2d(512, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (3): Sequential(
+        (0): Conv2d(256, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (4): Sequential(
+        (0): Conv2d(256, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (5): Sequential(
+        (0): Conv2d(256, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (6): Sequential(
+        (0): Conv2d(256, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (reg_convs): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(512, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (1): Sequential(
+        (0): Conv2d(1024, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (2): Sequential(
+        (0): Conv2d(512, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (3): Sequential(
+        (0): Conv2d(256, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (4): Sequential(
+        (0): Conv2d(256, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (5): Sequential(
+        (0): Conv2d(256, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (6): Sequential(
+        (0): Conv2d(256, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  init_cfg={'type': 'Xavier', 'layer': 'Conv2d', 'distribution': 'uniform', 'bias': 0}
+)
+2024-03-10 21:36:14,418 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - classes=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
+2024-03-10 21:36:14,424 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - lower_bound.squeeze()=tensor([-123.6750, -116.2800, -103.5300], device='cuda:0'), upper_bound.squeeze()=tensor([131.3250, 138.7200, 151.4700], device='cuda:0'), normalized_range.squeeze()=tensor([255.0000, 255.0000, 255.0000], device='cuda:0')
+2024-03-10 21:36:14,424 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - eval
+2024-03-10 21:36:14,424 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Dataset:     itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco
+Media type:  image
+Num samples: 3651
+Sample fields:
+    id:           fiftyone.core.fields.ObjectIdField
+    filepath:     fiftyone.core.fields.StringField
+    tags:         fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth: fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:  fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:      fiftyone.core.fields.IntField
+    eval_fp:      fiftyone.core.fields.IntField
+    eval_fn:      fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+2024-03-10 21:36:14,462 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - len(min_correct_slice)=3651
+2024-03-10 21:36:14,464 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Starting attack itr=200, lr.squeeze()=tensor([1.2750, 1.2750, 1.2750], device='cuda:0')
+2024-03-10 21:36:14,514 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:36:14,534 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:36:14,550 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:36:14,563 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:36:26,579 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:38:17,285 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:38:50,643 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:39:01,749 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:39:01,761 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:39:35,082 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:39:46,360 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:39:46,373 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:40:19,531 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:40:19,548 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:40:52,810 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:40:52,824 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:42:20,961 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:42:32,185 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:42:32,204 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:43:38,862 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:44:12,289 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:45:18,581 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:45:29,617 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:45:29,631 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:47:53,037 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:48:15,063 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:49:10,006 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:49:32,007 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:51:11,812 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:53:02,475 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:53:35,804 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:53:35,818 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:53:35,834 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:54:20,067 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:54:53,101 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:54:53,134 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:55:15,582 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:55:48,827 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:56:21,914 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:56:21,950 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:57:28,283 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:59:07,840 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 21:59:29,800 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:00:24,444 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:01:08,828 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:01:30,833 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:01:30,846 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:02:03,882 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:02:37,421 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:02:48,433 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:02:48,453 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:03:32,701 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:05:12,058 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:05:56,249 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:05:56,264 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:06:18,203 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:07:35,336 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:08:08,401 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:09:14,147 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:09:14,161 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:09:46,915 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:10:52,748 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:11:14,494 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:12:20,216 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:12:31,293 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:12:42,284 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Ignoring sample since no bbox pairs are eligible
+2024-03-10 22:13:04,064 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - attack_sample_idx=['65ed3aa30b95d2abee8cbfb2', '65ed3aa30b95d2abee8cbff9', '65ed3aa30b95d2abee8cbffb', '65ed3aa30b95d2abee8cbffc', '65ed3aa30b95d2abee8cbffe', '65ed3aa30b95d2abee8cbfff', '65ed3aa30b95d2abee8cc0a5', '65ed3aa30b95d2abee8cc0a6', '65ed3aa30b95d2abee8cc0a7', '65ed3aa30b95d2abee8cc0a8', '65ed3aa30b95d2abee8cc0aa', '65ed3aa30b95d2abee8cc0ac', '65ed3aa30b95d2abee8cc0ad', '65ed3aa30b95d2abee8cc0ae', '65ed3aa30b95d2abee8cc0b0', '65ed3aa30b95d2abee8cc0b3', '65ed3aa30b95d2abee8cc0b4', '65ed3aa30b95d2abee8cc17b', '65ed3aa30b95d2abee8cc17d', '65ed3aa30b95d2abee8cc180', '65ed3aa30b95d2abee8cc181', '65ed3aa30b95d2abee8cc182', '65ed3aa30b95d2abee8cc186', '65ed3aa30b95d2abee8cc188', '65ed3aa30b95d2abee8cc189', '65ed3aa30b95d2abee8cc18f', '65ed3aa30b95d2abee8cc192', '65ed3aa30b95d2abee8cc194', '65ed3aa30b95d2abee8cc195', '65ed3aa30b95d2abee8cc197', '65ed3aa30b95d2abee8cc198', '65ed3aa30b95d2abee8cc2f4', '65ed3aa30b95d2abee8cc2f5', '65ed3aa30b95d2abee8cc2f8', '65ed3aa30b95d2abee8cc2fe', '65ed3aa30b95d2abee8cc2ff', '65ed3aa30b95d2abee8cc301', '65ed3aa30b95d2abee8cc304', '65ed3aa30b95d2abee8cc305', '65ed3aa30b95d2abee8cc306', '65ed3aa30b95d2abee8cc309', '65ed3aa30b95d2abee8cc30a', '65ed3aa30b95d2abee8cc30c', '65ed3aa30b95d2abee8cc30e', '65ed3aa30b95d2abee8cc30f', '65ed3aa30b95d2abee8cc311', '65ed3aa30b95d2abee8cc312', '65ed3aa30b95d2abee8cc313', '65ed3aa30b95d2abee8cc315', '65ed3aa30b95d2abee8cc31b', '65ed3aa30b95d2abee8cc320', '65ed3aa30b95d2abee8cc49b', '65ed3aa30b95d2abee8cc49c', '65ed3aa30b95d2abee8cc49d', '65ed3aa30b95d2abee8cc49f', '65ed3aa30b95d2abee8cc4a0', '65ed3aa30b95d2abee8cc4a1', '65ed3aa30b95d2abee8cc4a3', '65ed3aa30b95d2abee8cc4a4', '65ed3aa30b95d2abee8cc4a5', '65ed3aa30b95d2abee8cc4a6', '65ed3aa30b95d2abee8cc4a7', '65ed3aa30b95d2abee8cc4a9', '65ed3aa30b95d2abee8cc4ab', '65ed3aa30b95d2abee8cc4ad', '65ed3aa30b95d2abee8cc4b1', '65ed3aa30b95d2abee8cc4b2', '65ed3aa30b95d2abee8cc4b3', '65ed3aa30b95d2abee8cc4b5', '65ed3aa30b95d2abee8cc4b6', '65ed3aa30b95d2abee8cc4b8', '65ed3aa30b95d2abee8cc4ba', '65ed3aa30b95d2abee8cc4bc', '65ed3aa30b95d2abee8cc4bd', '65ed3aa30b95d2abee8cc4be', '65ed3aa30b95d2abee8cc4bf', '65ed3aa30b95d2abee8cc4c0', '65ed3aa30b95d2abee8cc4c1', '65ed3aa40b95d2abee8cc5ac', '65ed3aa40b95d2abee8cc5ad', '65ed3aa40b95d2abee8cc5b1', '65ed3aa40b95d2abee8cc5b3', '65ed3aa40b95d2abee8cc5b5', '65ed3aa40b95d2abee8cc5b7', '65ed3aa40b95d2abee8cc5b8', '65ed3aa40b95d2abee8cc5b9', '65ed3aa40b95d2abee8cc5ba', '65ed3aa40b95d2abee8cc5bb', '65ed3aa40b95d2abee8cc5bc', '65ed3aa40b95d2abee8cc5bd', '65ed3aa40b95d2abee8cc5be', '65ed3aa40b95d2abee8cc5c0', '65ed3aa40b95d2abee8cc5c1', '65ed3aa40b95d2abee8cc5c3', '65ed3aa40b95d2abee8cc5c8', '65ed3aa40b95d2abee8cc5c9', '65ed3aa40b95d2abee8cc5ca', '65ed3aa40b95d2abee8cc5cb', '65ed3aa40b95d2abee8cc5cd', '65ed3aa40b95d2abee8cc71c', '65ed3aa40b95d2abee8cc71d', '65ed3aa40b95d2abee8cc721', '65ed3aa40b95d2abee8cc724', '65ed3aa40b95d2abee8cc726', '65ed3aa40b95d2abee8cc727', '65ed3aa40b95d2abee8cc728', '65ed3aa40b95d2abee8cc72e', '65ed3aa40b95d2abee8cc733', '65ed3aa40b95d2abee8cc735', '65ed3aa40b95d2abee8cc738', '65ed3aa40b95d2abee8cc739', '65ed3aa40b95d2abee8cc73a', '65ed3aa40b95d2abee8cc73b', '65ed3aa40b95d2abee8cc73c', '65ed3aa40b95d2abee8cc73d', '65ed3aa40b95d2abee8cc73f', '65ed3aa40b95d2abee8cc740', '65ed3aa40b95d2abee8cc741', '65ed3aa40b95d2abee8cc743', '65ed3aa40b95d2abee8cc744', '65ed3aa40b95d2abee8cc745', '65ed3aa40b95d2abee8cc746', '65ed3aa40b95d2abee8cc747', '65ed3aa40b95d2abee8cc873', '65ed3aa40b95d2abee8cc876', '65ed3aa40b95d2abee8cc877', '65ed3aa40b95d2abee8cc87a', '65ed3aa40b95d2abee8cc87b', '65ed3aa40b95d2abee8cc87c', '65ed3aa40b95d2abee8cc87d', '65ed3aa40b95d2abee8cc87f', '65ed3aa40b95d2abee8cc881', '65ed3aa40b95d2abee8cc883', '65ed3aa40b95d2abee8cc884', '65ed3aa40b95d2abee8cc885', '65ed3aa40b95d2abee8cc887', '65ed3aa40b95d2abee8cc88b', '65ed3aa40b95d2abee8cc890', '65ed3aa40b95d2abee8cc891', '65ed3aa40b95d2abee8cc893', '65ed3aa40b95d2abee8cc895', '65ed3aa40b95d2abee8cc896', '65ed3aa40b95d2abee8cc897', '65ed3aa40b95d2abee8cc899', '65ed3aa40b95d2abee8cc97b', '65ed3aa40b95d2abee8cc97c', '65ed3aa40b95d2abee8cc97e', '65ed3aa40b95d2abee8cc97f', '65ed3aa40b95d2abee8cc981', '65ed3aa40b95d2abee8cc982', '65ed3aa40b95d2abee8cc983', '65ed3aa40b95d2abee8cc984', '65ed3aa40b95d2abee8cc989', '65ed3aa40b95d2abee8cc98a', '65ed3aa40b95d2abee8cc98b', '65ed3aa40b95d2abee8cc98c', '65ed3aa40b95d2abee8cc98d', '65ed3aa40b95d2abee8cc992', '65ed3aa40b95d2abee8cc993', '65ed3aa40b95d2abee8ccad4', '65ed3aa40b95d2abee8ccad7', '65ed3aa40b95d2abee8ccada', '65ed3aa40b95d2abee8ccadb', '65ed3aa40b95d2abee8ccae0', '65ed3aa40b95d2abee8ccae1', '65ed3aa40b95d2abee8ccae2', '65ed3aa40b95d2abee8ccae3', '65ed3aa40b95d2abee8ccae4', '65ed3aa40b95d2abee8ccae5', '65ed3aa40b95d2abee8ccae6', '65ed3aa40b95d2abee8ccae8', '65ed3aa40b95d2abee8ccae9', '65ed3aa40b95d2abee8ccaea', '65ed3aa40b95d2abee8ccaec', '65ed3aa40b95d2abee8ccaee', '65ed3aa40b95d2abee8ccaf0', '65ed3aa40b95d2abee8ccaf1', '65ed3aa40b95d2abee8ccaf2', '65ed3aa40b95d2abee8ccaf3', '65ed3aa40b95d2abee8ccaf6', '65ed3aa40b95d2abee8ccaf7', '65ed3aa40b95d2abee8ccaf9', '65ed3aa50b95d2abee8ccc33', '65ed3aa50b95d2abee8ccc36', '65ed3aa50b95d2abee8ccc37', '65ed3aa50b95d2abee8ccc38', '65ed3aa50b95d2abee8ccc39', '65ed3aa50b95d2abee8ccc3b', '65ed3aa50b95d2abee8ccc3d', '65ed3aa50b95d2abee8ccc3e', '65ed3aa50b95d2abee8ccc40', '65ed3aa50b95d2abee8ccc41', '65ed3aa50b95d2abee8ccc44', '65ed3aa50b95d2abee8ccc45', '65ed3aa50b95d2abee8ccc47', '65ed3aa50b95d2abee8ccc48', '65ed3aa50b95d2abee8ccc4b', '65ed3aa50b95d2abee8ccc4f', '65ed3aa50b95d2abee8ccc51', '65ed3aa50b95d2abee8ccc52']
+2024-03-10 22:13:04,064 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - attack_sample_path=['/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000024567.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000265518.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000102411.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000356531.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000011149.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511760.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000315450.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000557916.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000468965.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000008629.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000309467.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000173371.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000067616.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000272566.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000256192.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000195918.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000578489.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000303499.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000233238.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000215072.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000365387.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000509451.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000032901.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000564336.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000297084.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000129492.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000572900.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000442836.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000336658.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000282296.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000343496.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000317433.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000182923.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000179898.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000440475.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000289938.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000188465.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000059635.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000146155.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000132544.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000194875.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000571313.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000163640.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000176901.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000426268.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000223090.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000384670.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000492284.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000479448.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000200162.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000140286.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000250282.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000110042.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000212453.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000326082.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000385029.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000264535.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000447088.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000540414.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000361142.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000276720.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000094871.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000084170.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000135890.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000004134.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000253452.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000416343.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000360951.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000302990.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000015517.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000377486.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000416451.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000386912.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000294695.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000426241.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000285894.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000172571.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000527215.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000020553.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000102707.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000271402.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000097337.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000547502.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000412531.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000330818.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000417285.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000554579.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000133233.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000570688.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000394611.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000481386.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511321.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000146358.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000413689.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000370042.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000127987.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000480842.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000515982.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000494759.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000113354.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000010977.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000314182.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000570756.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000580197.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000169996.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000031322.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000393226.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000199771.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000579655.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000388215.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000284445.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000534394.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000311303.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000012748.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000258793.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000247917.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000506310.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000194724.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000280918.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000240023.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000210388.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000338560.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000222735.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000026941.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000139684.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000243867.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000516804.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000324818.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000568814.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000349184.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000242724.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000055167.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000011699.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000240250.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000215778.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000061171.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000502168.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000518770.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000182805.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000315187.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000568981.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000062353.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000304404.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511599.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000401862.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000511076.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000285788.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000451308.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000458663.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000369771.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000465718.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000380706.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000351810.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000523241.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000193162.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000361147.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000274272.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000125072.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000039477.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000435081.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000054593.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000159684.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000314034.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000231822.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000300276.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000401446.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000364557.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000445846.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000073533.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000435208.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000400367.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000231508.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000371529.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000306437.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000446206.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000106235.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000017115.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000308631.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000409867.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000462629.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000477955.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000088269.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000057760.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000105912.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000350054.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000288430.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000533816.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000406129.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000015338.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000227985.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000432553.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000476787.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000266768.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000447314.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000451879.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000169169.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000417632.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000368212.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000012120.jpg', '/projectsp/f_ps848_1/zhaobin/adversarial/coco/val2017/000000292060.jpg']
+2024-03-10 22:13:04,064 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - perturb_bboxes_idx=[4, 0, 1, 1, 5, 1, 2, 4, 2, 5, 4, 2, 4, 6, 10, 1, 4, 2, 1, 3, 0, 5, 0, 2, 11, 0, 2, 0, 1, 1, 1, 2, 12, 6, 3, 5, 7, 2, 5, 1, 12, 3, 0, 0, 1, 1, 2, 2, 0, 0, 1, 0, 0, 2, 0, 2, 3, 1, 16, 3, 2, 2, 3, 1, 6, 0, 0, 1, 2, 1, 2, 4, 9, 3, 3, 2, 3, 2, 0, 1, 2, 1, 0, 3, 5, 5, 1, 1, 24, 1, 1, 0, 1, 1, 2, 3, 1, 2, 0, 1, 1, 4, 12, 2, 3, 11, 0, 3, 2, 0, 5, 6, 2, 2, 1, 2, 1, 7, 2, 0, 0, 4, 1, 1, 2, 0, 1, 0, 0, 1, 1, 4, 4, 4, 3, 3, 7, 3, 1, 0, 0, 0, 18, 5, 4, 6, 1, 7, 4, 2, 7, 3, 4, 4, 0, 8, 2, 0, 1, 5, 8, 0, 9, 2, 6, 5, 1, 1, 3, 3, 1, 10, 2, 1, 1, 2, 1, 0, 1, 2, 1, 1, 5, 12, 5, 3, 8, 0, 1, 0, 0, 2, 3, 0, 4, 9, 3, 2, 1, 0]
+2024-03-10 22:13:04,064 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - target_bboxes_idx=[1, 2, 0, 0, 0, 0, 4, 0, 6, 3, 5, 6, 2, 0, 5, 0, 1, 0, 6, 0, 2, 0, 4, 1, 7, 7, 0, 2, 2, 0, 2, 0, 3, 12, 2, 0, 4, 4, 7, 5, 4, 4, 3, 3, 2, 0, 1, 1, 18, 3, 0, 4, 4, 0, 6, 7, 2, 3, 13, 0, 0, 5, 2, 0, 9, 4, 3, 2, 1, 0, 1, 1, 11, 0, 4, 1, 0, 1, 1, 0, 1, 2, 2, 1, 2, 2, 2, 0, 23, 0, 2, 1, 2, 2, 7, 2, 0, 3, 1, 2, 0, 1, 6, 0, 2, 3, 3, 1, 1, 1, 1, 1, 0, 0, 0, 1, 3, 3, 4, 1, 2, 0, 0, 4, 4, 1, 0, 1, 1, 3, 3, 0, 2, 8, 7, 0, 6, 5, 2, 1, 2, 3, 19, 0, 0, 1, 2, 0, 0, 0, 2, 5, 0, 6, 2, 4, 0, 1, 2, 6, 2, 1, 3, 4, 8, 3, 0, 0, 4, 4, 2, 0, 1, 0, 0, 3, 0, 5, 0, 0, 0, 3, 10, 3, 1, 2, 0, 1, 0, 2, 1, 7, 0, 1, 2, 2, 1, 5, 4, 2]
+2024-03-10 22:13:04,064 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Sampled 266
+2024-03-10 22:13:04,064 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Finished attack
+2024-03-10 22:13:04,064 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Dataset:     itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco
+Media type:  image
+Num samples: 200
+Sample fields:
+    id:                    fiftyone.core.fields.ObjectIdField
+    filepath:              fiftyone.core.fields.StringField
+    tags:                  fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:              fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:           fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:               fiftyone.core.fields.IntField
+    eval_fp:               fiftyone.core.fields.IntField
+    eval_fn:               fiftyone.core.fields.IntField
+    mislabel_target_class: fiftyone.core.fields.StringField
+    mislabel_target_proba: fiftyone.core.fields.FloatField
+    pgd:                   fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+    2. MatchTags(tags=['attack'], bool=True, all=False)
+2024-03-10 22:13:04,077 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - len(attack_slice)=200
+Evaluating detections...
+   0% ||------|   0/200 [39.0ms elapsed, ? remaining, ? samples/s]                                                                       1% |/------|   2/200 [145.0ms elapsed, 14.4s remaining, 13.8 samples/s]                                                                               2% |-------|   3/200 [274.0ms elapsed, 18.0s remaining, 10.9 samples/s]                                                                               4% |\------|   7/200 [405.6ms elapsed, 11.2s remaining, 17.3 samples/s]                                                                               5% ||------|  10/200 [527.5ms elapsed, 10.0s remaining, 19.0 samples/s]                                                                               6% |/------|  12/200 [632.7ms elapsed, 9.9s remaining, 19.0 samples/s]                                                                                6% |-------|  13/200 [763.5ms elapsed, 11.0s remaining, 17.0 samples/s]                                                                               8% |\------|  15/200 [909.1ms elapsed, 11.2s remaining, 16.5 samples/s]                                                                               8% ||------|  17/200 [1.0s elapsed, 11.2s remaining, 16.3 samples/s]                                                                                 10% |/------|  19/200 [1.3s elapsed, 12.2s remaining, 14.8 samples/s]                                                                                 11% |-------|  22/200 [1.4s elapsed, 11.7s remaining, 15.4 samples/s]                                                                                 12% |\------|  23/200 [1.6s elapsed, 12.4s remaining, 14.9 samples/s]                                                                                 12% ||------|  25/200 [1.8s elapsed, 12.9s remaining, 12.7 samples/s]                                                                                 13% |/------|  26/200 [2.0s elapsed, 13.8s remaining, 10.8 samples/s]                                                                                 16% |█------|  32/200 [2.1s elapsed, 11.4s remaining, 13.3 samples/s]                                                                                 16% |█\-----|  33/200 [2.3s elapsed, 11.9s remaining, 12.9 samples/s]                                                                                 17% |█|-----|  34/200 [2.4s elapsed, 12.1s remaining, 12.4 samples/s]                                                                                 18% |█/-----|  35/200 [2.6s elapsed, 12.5s remaining, 11.7 samples/s]                                                                                 18% |█------|  37/200 [2.7s elapsed, 12.1s remaining, 12.6 samples/s]                                                                                 19% |█\-----|  38/200 [3.0s elapsed, 13.1s remaining, 10.6 samples/s]                                                                                 20% |█|-----|  39/200 [3.1s elapsed, 13.0s remaining, 11.0 samples/s]                                                                                 20% |█/-----|  41/200 [3.4s elapsed, 13.5s remaining, 10.4 samples/s]                                                                                 22% |█------|  45/200 [3.5s elapsed, 11.9s remaining, 13.1 samples/s]                                                                                 24% |█\-----|  49/200 [3.7s elapsed, 12.2s remaining, 10.6 samples/s]                                                                                 26% |█|-----|  52/200 [3.9s elapsed, 11.3s remaining, 12.3 samples/s]                                                                                 28% |█/-----|  56/200 [4.1s elapsed, 10.5s remaining, 13.5 samples/s]                                                                                 30% |██-----|  59/200 [4.4s elapsed, 10.4s remaining, 13.6 samples/s]                                                                                 31% |██\----|  62/200 [4.5s elapsed, 10.0s remaining, 14.0 samples/s]                                                                                 32% |██|----|  65/200 [4.7s elapsed, 9.3s remaining, 15.8 samples/s]                                                                                  34% |██/----|  68/200 [4.8s elapsed, 8.8s remaining, 16.9 samples/s]                                                                                  36% |██-----|  72/200 [4.9s elapsed, 7.8s remaining, 20.4 samples/s]                                                                                  37% |██\----|  74/200 [5.0s elapsed, 7.9s remaining, 18.8 samples/s]                                                                                  38% |██|----|  76/200 [5.1s elapsed, 7.6s remaining, 19.6 samples/s]                                                                                  40% |██/----|  80/200 [5.2s elapsed, 7.0s remaining, 20.6 samples/s]                                                                                  42% |██-----|  84/200 [5.3s elapsed, 6.5s remaining, 22.2 samples/s]                                                                                  44% |███\---|  87/200 [5.4s elapsed, 5.9s remaining, 25.8 samples/s]                                                                                  44% |███|---|  89/200 [5.7s elapsed, 6.2s remaining, 21.7 samples/s]                                                                                  47% |███/---|  94/200 [5.9s elapsed, 5.6s remaining, 24.2 samples/s]                                                                                  48% |███----|  95/200 [6.0s elapsed, 5.7s remaining, 22.7 samples/s]                                                                                  50% |███\---| 101/200 [6.1s elapsed, 5.0s remaining, 24.1 samples/s]                                                                                  52% |███|---| 103/200 [6.3s elapsed, 5.1s remaining, 22.3 samples/s]                                                                                  52% |███/---| 105/200 [6.5s elapsed, 5.1s remaining, 21.7 samples/s]                                                                                  53% |███----| 106/200 [6.6s elapsed, 5.5s remaining, 18.4 samples/s]                                                                                  54% |███\---| 108/200 [6.7s elapsed, 5.6s remaining, 17.0 samples/s]                                                                                  56% |███|---| 111/200 [6.9s elapsed, 5.5s remaining, 16.2 samples/s]                                                                                  56% |███/---| 113/200 [7.1s elapsed, 5.1s remaining, 18.3 samples/s]                                                                                  58% |████---| 116/200 [7.2s elapsed, 5.2s remaining, 16.2 samples/s]                                                                                  60% |████\--| 119/200 [7.4s elapsed, 4.9s remaining, 17.0 samples/s]                                                                                  62% |████|--| 124/200 [7.5s elapsed, 4.7s remaining, 16.0 samples/s]                                                                                  65% |████/--| 130/200 [7.6s elapsed, 3.7s remaining, 20.5 samples/s]                                                                                  66% |████---| 132/200 [7.7s elapsed, 3.5s remaining, 20.9 samples/s]                                                                                  67% |████\--| 134/200 [8.0s elapsed, 3.4s remaining, 21.3 samples/s]                                                                                  68% |████|--| 135/200 [8.1s elapsed, 3.4s remaining, 20.3 samples/s]                                                                                  68% |████/--| 137/200 [8.2s elapsed, 3.3s remaining, 20.3 samples/s]                                                                                  71% |████---| 142/200 [8.3s elapsed, 2.8s remaining, 22.7 samples/s]                                                                                  72% |█████\-| 143/200 [8.7s elapsed, 3.3s remaining, 17.9 samples/s]                                                                                  72% |█████|-| 144/200 [8.8s elapsed, 3.3s remaining, 17.2 samples/s]                                                                                  73% |█████/-| 146/200 [8.9s elapsed, 3.4s remaining, 15.5 samples/s]                                                                                  74% |█████--| 149/200 [9.1s elapsed, 3.7s remaining, 13.3 samples/s]                                                                                  76% |█████\-| 151/200 [9.2s elapsed, 3.5s remaining, 13.3 samples/s]                                                                                  76% |█████|-| 153/200 [9.3s elapsed, 3.3s remaining, 13.9 samples/s]                                                                                  78% |█████/-| 156/200 [9.5s elapsed, 2.9s remaining, 14.7 samples/s]                                                                                  80% |█████--| 159/200 [9.6s elapsed, 2.6s remaining, 15.5 samples/s]                                                                                  80% |█████\-| 161/200 [9.8s elapsed, 2.9s remaining, 13.0 samples/s]                                                                                  82% |█████|-| 163/200 [10.0s elapsed, 2.3s remaining, 16.1 samples/s]                                                                                 82% |█████/-| 164/200 [10.1s elapsed, 2.2s remaining, 16.0 samples/s]                                                                                 83% |█████--| 166/200 [10.2s elapsed, 2.1s remaining, 15.8 samples/s]                                                                                 86% |█████\-| 171/200 [10.3s elapsed, 1.7s remaining, 17.4 samples/s]                                                                                 86% |██████|| 172/200 [10.5s elapsed, 1.7s remaining, 16.2 samples/s]                                                                                 89% |██████/| 178/200 [10.6s elapsed, 1.2s remaining, 19.2 samples/s]                                                                                 91% |██████-| 182/200 [10.7s elapsed, 867.4ms remaining, 21.2 samples/s]                                                                              92% |██████\| 184/200 [10.9s elapsed, 850.7ms remaining, 19.0 samples/s]                                                                              94% |██████|| 187/200 [11.2s elapsed, 696.7ms remaining, 18.8 samples/s]                                                                              96% |██████/| 192/200 [11.3s elapsed, 372.9ms remaining, 21.7 samples/s]                                                                              98% |██████-| 195/200 [11.5s elapsed, 223.0ms remaining, 22.6 samples/s]                                                                              98% |██████\| 196/200 [11.7s elapsed, 194.6ms remaining, 20.7 samples/s]                                                                              98% |██████|| 197/200 [11.8s elapsed, 166.7ms remaining, 18.0 samples/s]                                                                             100% |███████| 200/200 [11.9s elapsed, 0s remaining, 20.2 samples/s]      
+2024-03-10 22:13:16,570 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Dataset:     itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco
+Media type:  image
+Num samples: 48
+Sample fields:
+    id:                    fiftyone.core.fields.ObjectIdField
+    filepath:              fiftyone.core.fields.StringField
+    tags:                  fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:              fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:           fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:               fiftyone.core.fields.IntField
+    eval_fp:               fiftyone.core.fields.IntField
+    eval_fn:               fiftyone.core.fields.IntField
+    mislabel_target_class: fiftyone.core.fields.StringField
+    mislabel_target_proba: fiftyone.core.fields.FloatField
+    pgd:                   fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    pgd_eval_tp:           fiftyone.core.fields.IntField
+    pgd_eval_fp:           fiftyone.core.fields.IntField
+    pgd_eval_fn:           fiftyone.core.fields.IntField
+View stages:
+    1. Match(filter={'$expr': {'$gte': [...]}})
+    2. MatchTags(tags=['attack'], bool=True, all=False)
+    3. FilterLabels(field='pgd', filter={'$gt': ['$$this.confidence', 0.3]}, only_matches=False, trajectories=False)
+    4. MatchLabels(labels=None, ids=None, tags=None, filter={'$and': [{...}, {...}]}, fields=['predictions'], bool=True)
+2024-03-10 22:13:16,637 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Success/Attack: 48/200 (24.00%)
+Evaluating detections...
+   0% ||--------|  0/48 [36.4ms elapsed, ? remaining, ? samples/s]                                                                       6% |/--------|  3/48 [173.6ms elapsed, 2.6s remaining, 17.3 samples/s]                                                                             10% |---------|  5/48 [305.8ms elapsed, 2.6s remaining, 16.3 samples/s]                                                                             17% |█\-------|  8/48 [456.1ms elapsed, 2.3s remaining, 17.5 samples/s]                                                                             27% |██|------| 13/48 [558.4ms elapsed, 1.5s remaining, 23.3 samples/s]                                                                             33% |███/-----| 16/48 [662.2ms elapsed, 1.3s remaining, 24.2 samples/s]                                                                             38% |███------| 18/48 [789.4ms elapsed, 1.3s remaining, 22.8 samples/s]                                                                             46% |████\----| 22/48 [903.3ms elapsed, 1.1s remaining, 24.4 samples/s]                                                                             54% |████|----| 26/48 [1.1s elapsed, 919.1ms remaining, 23.9 samples/s]                                                                             60% |█████/---| 29/48 [1.2s elapsed, 783.7ms remaining, 24.2 samples/s]                                                                             67% |██████---| 32/48 [1.3s elapsed, 636.3ms remaining, 25.5 samples/s]                                                                             75% |██████\--| 36/48 [1.4s elapsed, 449.5ms remaining, 27.3 samples/s]                                                                             81% |███████|-| 39/48 [1.8s elapsed, 381.4ms remaining, 23.9 samples/s]                                                                             88% |███████/-| 42/48 [1.9s elapsed, 269.9ms remaining, 22.2 samples/s]                                                                             92% |████████-| 44/48 [2.0s elapsed, 188.8ms remaining, 21.1 samples/s]                                                                            100% |█████████| 48/48 [2.1s elapsed, 0s remaining, 23.0 samples/s]      
+2024-03-10 22:13:19,165 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Mislabeled: 40/48
+2024-03-10 22:13:19,412 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Mislabeled to desired class/Mislabeled: 40 / 40 (100.00%)
+2024-03-10 22:13:19,456 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Vanished: 8/48
+2024-03-10 22:13:19,544 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Saving to: ./data/randomized/results/itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512.csv
+2024-03-10 22:13:19,674 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Dumping save_name='./data/randomized/datasets/itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco'...
+Exporting samples...
+   0% ||---------|   0/200 [151.1us elapsed, ? remaining, ? docs/s]                                                                       10% |█/--------|  21/200 [101.8ms elapsed, 867.4ms remaining, 206.4 docs/s]                                                                                 21% |██--------|  42/200 [204.0ms elapsed, 767.5ms remaining, 205.9 docs/s]                                                                                 36% |███\------|  72/200 [304.5ms elapsed, 541.3ms remaining, 236.5 docs/s]                                                                                 50% |█████|----| 101/200 [415.1ms elapsed, 406.9ms remaining, 243.3 docs/s]                                                                                 65% |██████/---| 130/200 [517.1ms elapsed, 278.5ms remaining, 251.4 docs/s]                                                                                 78% |███████---| 156/200 [621.8ms elapsed, 175.4ms remaining, 250.9 docs/s]                                                                                 93% |█████████\| 186/200 [724.0ms elapsed, 54.5ms remaining, 256.9 docs/s]                                                                                 100% |██████████| 200/200 [777.2ms elapsed, 0s remaining, 257.3 docs/s]      
+2024-03-10 22:13:20,624 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Name:        itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco
+Media type:  image
+Num samples: 4914
+Persistent:  False
+Tags:        []
+Sample fields:
+    id:                    fiftyone.core.fields.ObjectIdField
+    filepath:              fiftyone.core.fields.StringField
+    tags:                  fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:              fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    ground_truth:          fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    predictions:           fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    eval_tp:               fiftyone.core.fields.IntField
+    eval_fp:               fiftyone.core.fields.IntField
+    eval_fn:               fiftyone.core.fields.IntField
+    mislabel_target_class: fiftyone.core.fields.StringField
+    mislabel_target_proba: fiftyone.core.fields.FloatField
+    pgd:                   fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    pgd_eval_tp:           fiftyone.core.fields.IntField
+    pgd_eval_fp:           fiftyone.core.fields.IntField
+    pgd_eval_fn:           fiftyone.core.fields.IntField
+    pgd_mislabel_eval_tp:  fiftyone.core.fields.IntField
+    pgd_mislabel_eval_fp:  fiftyone.core.fields.IntField
+    pgd_mislabel_eval_fn:  fiftyone.core.fields.IntField
+2024-03-10 22:13:20,641 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512_coco
+2024-03-10 22:13:20,712 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - Sample tags: ['attack', 'success', 'vanish', 'mislabel', 'mislabel_intended']
+2024-03-10 22:13:20,899 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - ground_truth tags: ['perturb', 'target']
+2024-03-10 22:13:21,068 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - predictions tags: ['perturb', 'target']
+2024-03-10 22:13:21,230 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - DEBUG - pgd tags: ['mislabel']
+2024-03-10 22:13:21,263 - itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512 - INFO - Saving to: ./data/randomized/results/itr_200_norm_None_repeat_8_mislabel_bbox_ssd_512.parquet
+
+Completed and shutting down mongod...
+{"t":{"$date":"2024-03-10T22:13:23.730-04:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"-","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2024-03-10T22:13:23.730-04:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true}}}
+{"t":{"$date":"2024-03-10T22:13:23.730-04:00"},"s":"I",  "c":"NETWORK",  "id":4648602, "ctx":"main","msg":"Implicit TCP FastOpen in use."}
+{"t":{"$date":"2024-03-10T22:13:23.732-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}
+{"t":{"$date":"2024-03-10T22:13:23.732-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}
+{"t":{"$date":"2024-03-10T22:13:23.732-04:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"ShardSplitDonorService","namespace":"config.tenantSplitDonors"}}
+Killing process with pid: 176771
