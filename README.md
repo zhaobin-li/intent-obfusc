@@ -1,6 +1,6 @@
 # Technical appendix:
 
-Download on [github](paper_appendix.pdf). Arxiv submission is still on hold.
+Download on [github](appendix.pdf). Arxiv submission is still on hold.
 
 # For reviewers:
 
