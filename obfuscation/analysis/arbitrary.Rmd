@@ -1,13 +1,13 @@
 ---
 title: Arbitrary Experiment
 output: 
-  pdf_document: default
   latex_fragment: default
+  pdf_document: default
 params:
   data: "data" # directory where data is stored
   simulation: "arbitrary" # simulation name
-  norm: "None" # max norm constraint is None or 0.05
-  fragment: false # pdf: change to `false` 
+  norm: "0.05" # max norm constraint is None or 0.05
+  fragment: true # pdf: change to `false` 
 ---
 
 ```{r here, include=FALSE}
