@@ -1,8 +1,8 @@
 ---
 title: Randomized Experiment
 output: 
-  latex_fragment: default
   pdf_document: default
+  latex_fragment: default
 params:
   data: "data" # directory where data is stored
   simulation: "randomized" # simulation name
@@ -69,7 +69,7 @@ success_raw_data <- get_data(success_fnames, read_csv) |>
 ```{r success_trend_caption}
 itr_lab <- "Attack Iterations"
 
-cap <- glue("{bold_tex('Intent obfuscating attack is feasible for all models and attacks', params$norm)} We conduct a randomized experiment by resampling COCO images, and within those images randomly sampling correctly predicted target and perturb objects. Then we distort the perturb objects to disrupt the target objects varying the attack iterations. The binned summaries and regression trendlines graph success proportion against {str_to_lower(itr_lab)} in the randomized attack experiment. {err_cap} and every point aggregates success over 4,000 images. Targeted vanishing and mislabeling attacks obtain significantly greater success on the 1-stage YOLOv3 and SSD than the 2-stage Faster R-CNN and Cascade R-CNN detectors. However, the 1-stage RetinaNet is as resilient as the 2-stage detectors. Moreover, success rates significantly increase with larger attack iterations. Significance is determined at $\\alpha < 0.05$ using a Wald z-test on the logistic estimates. Full details are given in Section \\ref{{sec:rand_att}}.")
+cap <- glue("{emp_tex('Intent obfuscating attack is feasible for all models and attacks', params$norm)} We conduct a randomized experiment by resampling COCO images, and within those images randomly sampling correctly predicted target and perturb objects. Then we distort the perturb objects to disrupt the target objects varying the attack iterations. The binned summaries and regression trendlines graph success proportion against {str_to_lower(itr_lab)} in the randomized attack experiment. {err_cap} and every point aggregates success over 4,000 images. Targeted vanishing and mislabeling attacks obtain significantly greater success on the 1-stage YOLOv3 and SSD than the 2-stage Faster R-CNN and Cascade R-CNN detectors. However, the 1-stage RetinaNet is as resilient as the 2-stage detectors. Moreover, success rates significantly increase with larger attack iterations. Significance is determined at $\\alpha < 0.05$ using a Wald z-test on the logistic estimates. Full details are given in Section \\ref{{sec:rand_att}}.")
 
 cap
 ```
@@ -105,6 +105,10 @@ g <- success_expanded_data |>
 g +
   labs(x = itr_lab, y = glue("p(Success) {norm_axy(params$norm)}"), color = "Attack", linetype = "Attack") +
   scale_x_continuous(breaks = unique(success_raw_data$num_iteration))
+```
+
+```{r}
+knitr::knit_exit()
 ```
 
 ```{r model_stage_reg}
@@ -291,7 +295,7 @@ pred_name <- glue("{dist_lab} and {size_lab}")
 main_pt <- "Larger perturb objects significantly increase success rates for all models and attacks, except for mislabeling attack on Faster R-CNN, after controlling for perturb-target distances. Shorter perturb-target distances significantly increase success rates for all models and attacks, after controlling for perturb object sizes"
 
 cap <- glue(
-  "{bold_tex(main_pt, params$norm)} The binned summaries",
+  "{emp_tex(main_pt, params$norm)} The binned summaries",
   " graph success proportion against {str_to_lower(pred_name)} in the",
   " randomized attack experiment."
 )

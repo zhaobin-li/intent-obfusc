@@ -1,8 +1,8 @@
 ---
 title: Biased Experiment
 output: 
-  latex_fragment: default
   pdf_document: default
+  latex_fragment: default
 params:
   data: "data" # directory where data is stored
   simulation: "biased" # simulation name
@@ -84,7 +84,7 @@ success_expanded_data <- success_raw_data |>
 ```{r biased_trend_caption}
 itr_lab <- "Number of Factors"
 
-cap <- glue("{bold_tex('Success factors can be exploited in combination to significantly increase success rates', params$norm)} We sampled target and perturb objects based on three validated success factors in Table \\ref{{tab:results_table}} by targeting objects with low predicted confidence, perturbing large objects and selecting target and perturb objects close to one another. The binned summaries and regression trendlines graph success proportion against {str_to_lower(itr_lab)} in the deliberate attack experiment. {err_cap} and every point aggregates success over 200 images. Success rates significantly increase as the {str_to_lower(itr_lab)} combined increases. Significance is determined at $\\alpha < 0.05$ using a Wald z-test on the logistic estimates. Full details are given in Section \\ref{{sec:del_per}}.")
+cap <- glue("{emp_tex('Success factors can be exploited in combination to significantly increase success rates', params$norm)} We sampled target and perturb objects based on three validated success factors in Table \\ref{{tab:results_table}} by targeting objects with low predicted confidence, perturbing large objects and selecting target and perturb objects close to one another. The binned summaries and regression trendlines graph success proportion against {str_to_lower(itr_lab)} in the deliberate attack experiment. {err_cap} and every point aggregates success over 200 images. Success rates significantly increase as the {str_to_lower(itr_lab)} combined increases. Significance is determined at $\\alpha < 0.05$ using a Wald z-test on the logistic estimates. Full details are given in Section \\ref{{sec:del_per}}.")
 
 cap
 ```

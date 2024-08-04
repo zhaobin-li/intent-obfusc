@@ -156,7 +156,8 @@ wrangle_success <- function(data_, max_iterations = TRUE) {
 set_theme <- function(base = theme_minimal) {
   theme_set(base())
   theme_update(
-    text = element_text(size = 10),
+    text = element_text(size = 12),
+    axis.text = element_text(size = 8),
     legend.position = "top",
     panel.grid.major.x = element_blank(),
     panel.grid.minor.x = element_blank(),
@@ -222,11 +223,11 @@ graph_attr <- function(data, variable, x_label, gg_options = NULL) {
   }
 }
 
-bold_tex <- function(text, norm) {
+emp_tex <- function(text, norm) {
   if (!is.na(as.double(norm))) {
     text <- glue("{text} even with {norm} max-norm")
   }
-  glue("\\textbf{{{text}:}} ")
+  glue("{text}: ")
 }
 
 err_cap <- "Errors are 95\\% confidence intervals"
@@ -235,7 +236,7 @@ bin_sum <- "Bins are split into quantiles. "
 
 graph_caption <- function(pred_name, main_pt, norm = "None", exp_name = "randomized") {
   retain_upper(glue(
-    "{bold_tex(str_to_sentence(main_pt), norm)} The binned summaries and regression trendlines",
+    "{emp_tex(str_to_sentence(main_pt), norm)} The binned summaries and regression trendlines",
     " graph success proportion against {str_to_lower(pred_name)} in the",
     " {exp_name} attack experiment. ", bin_sum, err_cap
   ))

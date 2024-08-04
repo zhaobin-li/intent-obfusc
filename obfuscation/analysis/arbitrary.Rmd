@@ -1,13 +1,13 @@
 ---
 title: Arbitrary Experiment
 output: 
-  latex_fragment: default
   pdf_document: default
+  latex_fragment: default
 params:
   data: "data" # directory where data is stored
   simulation: "arbitrary" # simulation name
   norm: "None" # max norm constraint is None or 0.05
-  fragment: true # pdf: change to `false` 
+  fragment: false # pdf: change to `false` 
 ---
 
 ```{r here, include=FALSE}
@@ -119,7 +119,7 @@ reg_pred <- reg_mod |>
 ```
 
 ```{r arbitrary_trend_caption}
-arb_cap <- glue("{bold_tex('Perturbing an arbitrary region obfuscates intent with increased success for all models and attacks', params$norm)} We implement intent obfuscating attack by perturbing an arbitrary non-overlapping square region to disrupt a randomly selected target object at various lengths and distances. The binned summaries and regression trendlines graph success proportion against {str_to_lower(pred_name)} in the deliberate attack experiment. {err_cap} and every point aggregates success over 200 images. The deliberate attack multiplies success as compared to the randomized attack (Figure \\ref{{fig:success_trend_graph}}), especially at close {str_to_lower(dist_lab)} and large {str_to_lower(len_lab)}, both relative to image width or height. Full details are given in Section \\ref{{sec:del_arb}}.")
+arb_cap <- glue("{emp_tex('Perturbing an arbitrary region obfuscates intent with increased success for all models and attacks', params$norm)} We implement intent obfuscating attack by perturbing an arbitrary non-overlapping square region to disrupt a randomly selected target object at various lengths and distances. The binned summaries and regression trendlines graph success proportion against {str_to_lower(pred_name)} in the deliberate attack experiment. {err_cap} and every point aggregates success over 200 images. The deliberate attack multiplies success as compared to the randomized attack (Figure \\ref{{fig:success_trend_graph}}), especially at close {str_to_lower(dist_lab)} and large {str_to_lower(len_lab)}. Full details are given in Section \\ref{{sec:del_arb}}.")
 
 arb_cap
 ```
@@ -137,9 +137,9 @@ g <- g + geom_ribbon(
 ) +
   geom_line(data = reg_pred)
 
-g + labs(x = dist_lab, y = glue("p(Success) {norm_axy(params$norm)}")) +
-  scale_x_continuous(breaks = unique(success_expanded_data$bbox_dist), labels = scales::label_percent()) +
-  scale_color_viridis_c(name = len_lab, breaks = unique(success_expanded_data$bbox_len), labels = scales::label_percent())
+g + labs(x = glue("{dist_lab} (%)"), y = glue("p(Success) {norm_axy(params$norm)}")) +
+  scale_x_continuous(breaks = unique(success_expanded_data$bbox_dist), labels = scales::label_percent(suffix="")) +
+  scale_color_viridis_c(name = glue("{len_lab} (%)"), breaks = unique(success_expanded_data$bbox_len), labels = scales::label_percent(suffix=""))
 ```
 
 ```{r rand_arb_compare}

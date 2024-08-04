@@ -1,8 +1,8 @@
 ---
 title: Models and Hypotheses
 output: 
-  latex_fragment: default
   pdf_document: default
+  latex_fragment: default
 params:
   fragment: true # pdf: change to `false` 
 ---
