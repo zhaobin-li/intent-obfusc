@@ -8,6 +8,7 @@ params:
   simulation: "arbitrary" # simulation name
   norm: "None" # max norm constraint is None or 0.05
   fragment: true # pdf: change to `false` 
+  img_dir: "imgs/" # path to save imgs
 ---
 
 ```{r here, include=FALSE}
@@ -21,7 +22,7 @@ knitr::opts_chunk$set(
   include = !params$fragment, echo = !params$fragment,
   warning = !params$fragment, message = !params$fragment,
   fig.align = "center", fig.pos = "tb",
-  root.dir = here(), fig.path = "imgs/"
+  fig.path = params$img_dir, root.dir = here()
 )
 ```
 
@@ -138,8 +139,8 @@ g <- g + geom_ribbon(
   geom_line(data = reg_pred)
 
 g + labs(x = glue("{dist_lab} (%)"), y = glue("p(Success) {norm_axy(params$norm)}")) +
-  scale_x_continuous(breaks = unique(success_expanded_data$bbox_dist), labels = scales::label_percent(suffix="")) +
-  scale_color_viridis_c(name = glue("{len_lab} (%)"), breaks = unique(success_expanded_data$bbox_len), labels = scales::label_percent(suffix=""))
+  scale_x_continuous(breaks = unique(success_expanded_data$bbox_dist), labels = scales::label_percent(suffix = "")) +
+  scale_color_viridis_c(name = glue("{len_lab} (%)"), breaks = unique(success_expanded_data$bbox_len), labels = scales::label_percent(suffix = ""))
 ```
 
 ```{r rand_arb_compare}

@@ -8,6 +8,7 @@ params:
   simulation: "biased" # simulation name
   norm: "None" # max norm constraint is None or 0.05
   fragment: true # pdf: change to `false` 
+  img_dir: "imgs/" # path to save imgs
 ---
 
 ```{r here, include=FALSE}
@@ -21,7 +22,7 @@ knitr::opts_chunk$set(
   include = !params$fragment, echo = !params$fragment,
   warning = !params$fragment, message = !params$fragment,
   fig.align = "center", fig.pos = "tb",
-  root.dir = here(), fig.path = "imgs/"
+  fig.path = params$img_dir, root.dir = here()
 )
 ```
 

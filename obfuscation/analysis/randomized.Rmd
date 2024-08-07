@@ -8,6 +8,7 @@ params:
   simulation: "randomized" # simulation name
   norm: "None" # max norm constraint is None or 0.05
   fragment: true # pdf: change to `false` 
+  img_dir: "imgs/" # path to save imgs
 ---
 
 ```{r here, include=FALSE}
@@ -21,7 +22,7 @@ knitr::opts_chunk$set(
   include = !params$fragment, echo = !params$fragment,
   warning = !params$fragment, message = !params$fragment,
   fig.align = "center", fig.pos = "tb",
-  fig.path = "imgs/", root.dir = here()
+  fig.path = params$img_dir, root.dir = here()
 )
 ```
 
@@ -105,10 +106,6 @@ g <- success_expanded_data |>
 g +
   labs(x = itr_lab, y = glue("p(Success) {norm_axy(params$norm)}"), color = "Attack", linetype = "Attack") +
   scale_x_continuous(breaks = unique(success_raw_data$num_iteration))
-```
-
-```{r}
-knitr::knit_exit()
 ```
 
 ```{r model_stage_reg}
