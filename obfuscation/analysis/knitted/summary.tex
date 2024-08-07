@@ -1,0 +1,210 @@
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(conflicted)}
+
+\FunctionTok{library}\NormalTok{(kableExtra)}
+\FunctionTok{library}\NormalTok{(glue)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\FunctionTok{conflict\_prefer}\NormalTok{(}\StringTok{"filter"}\NormalTok{, }\StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [conflicted] Removing existing preference.
+## [conflicted] Will prefer dplyr::filter over any other package.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{models }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+  \SpecialCharTok{\textasciitilde{}}\NormalTok{Detectors, }\SpecialCharTok{\textasciitilde{}}\NormalTok{Stages, }\SpecialCharTok{\textasciitilde{}}\NormalTok{mAP, }\SpecialCharTok{\textasciitilde{}}\NormalTok{Vanishing, }\SpecialCharTok{\textasciitilde{}}\NormalTok{Mislabeling, }\SpecialCharTok{\textasciitilde{}}\NormalTok{Untargeted,}
+  \StringTok{"YOLOv3"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{33.7}\NormalTok{, }\StringTok{"Object"}\NormalTok{, }\StringTok{"Class"}\NormalTok{, }\StringTok{"Class, Box, Object"}\NormalTok{,}
+  \StringTok{"SSD"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{29.5}\NormalTok{, }\StringTok{"Class"}\NormalTok{, }\StringTok{"Class"}\NormalTok{, }\StringTok{"Class, Box"}\NormalTok{,}
+  \StringTok{"RetinaNet"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{36.5}\NormalTok{, }\StringTok{"Class"}\NormalTok{, }\StringTok{"Class"}\NormalTok{, }\StringTok{"Class, Box"}\NormalTok{,}
+  \StringTok{"Faster R{-}CNN"}\NormalTok{, }\DecValTok{2}\NormalTok{, }\FloatTok{37.4}\NormalTok{, }\StringTok{"RPN: Object; Det: Class"}\NormalTok{, }\StringTok{"Det: Class"}\NormalTok{, }\StringTok{"RPN: Object, Box; Det: Class, Box"}\NormalTok{,}
+  \StringTok{"Cascade R{-}CNN"}\NormalTok{, }\DecValTok{2}\NormalTok{, }\FloatTok{40.3}\NormalTok{, }\StringTok{"RPN 1: Object; RPNs 2, 3 + Det: Class"}\NormalTok{, }\StringTok{"RPNs 2, 3: Class; Det: Class"}\NormalTok{, }\StringTok{"RPN 1: Object, Box; RPNs 2, 3 + Det: Class, Box"}\NormalTok{,}
+\NormalTok{)}
+
+\NormalTok{models}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 6
+##   Detectors     Stages   mAP Vanishing                    Mislabeling Untargeted
+##   <chr>          <dbl> <dbl> <chr>                        <chr>       <chr>     
+## 1 YOLOv3             1  33.7 Object                       Class       Class, Bo~
+## 2 SSD                1  29.5 Class                        Class       Class, Box
+## 3 RetinaNet          1  36.5 Class                        Class       Class, Box
+## 4 Faster R-CNN       2  37.4 RPN: Object; Det: Class      Det: Class  RPN: Obje~
+## 5 Cascade R-CNN      2  40.3 RPN 1: Object; RPNs 2, 3 + ~ RPNs 2, 3:~ RPN 1: Ob~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{note\_alpha }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(txt, num, }\AttributeTok{double\_escape =} \ConstantTok{FALSE}\NormalTok{) \{}
+  \FunctionTok{glue}\NormalTok{(}\StringTok{"\{txt\}\{footnote\_marker\_alphabet(num, double\_escape = double\_escape)\}"}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{add\_linebreak }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(data) \{}
+\NormalTok{  data }\SpecialCharTok{|\textgreater{}} \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), linebreak))}
+\NormalTok{\}}
+
+\NormalTok{break\_models }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(col) \{}
+  \FunctionTok{str\_replace\_all}\NormalTok{(col, }\FunctionTok{coll}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"; "} \OtherTok{=} \StringTok{";}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{" R{-}CNN"} \OtherTok{=} \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{R{-}CNN"}\NormalTok{)))}
+\NormalTok{\}}
+
+\NormalTok{models }\OtherTok{\textless{}{-}}\NormalTok{ models }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{rename}\NormalTok{(}\StringTok{\textquotesingle{}\{note\_alpha("Stages", 1)\}\textquotesingle{}} \SpecialCharTok{:=}\NormalTok{ Stages, }\StringTok{\textquotesingle{}\{note\_alpha("COCO mAP", 2)\}\textquotesingle{}} \SpecialCharTok{:=}\NormalTok{ mAP, }\StringTok{\textquotesingle{}\{note\_alpha("Untargeted", 4)\}\textquotesingle{}} \SpecialCharTok{:=}\NormalTok{ Untargeted) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), break\_models)) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{add\_linebreak}\NormalTok{()}
+
+\NormalTok{models}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 6
+##   Detectors  Stages\\textsuperscr~1 COCO mAP\\textsupers~2 Vanishing Mislabeling
+##   <chr>      <chr>                  <chr>                  <chr>     <chr>      
+## 1 "YOLOv3"   1                      33.7                   "Object"  "Class"    
+## 2 "SSD"      1                      29.5                   "Class"   "Class"    
+## 3 "RetinaNe~ 1                      36.5                   "Class"   "Class"    
+## 4 "\\makece~ 2                      37.4                   "\\makec~ "Det: Clas~
+## 5 "\\makece~ 2                      40.3                   "\\makec~ "\\makecel~
+## # i abbreviated names: 1: `Stages\\textsuperscript{a}`,
+## #   2: `COCO mAP\\textsuperscript{b}`
+## # i 1 more variable: `Untargeted\\textsuperscript{d}` <chr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{attack\_header }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\FunctionTok{names}\NormalTok{(attack\_header) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{" "}\NormalTok{, }\FunctionTok{note\_alpha}\NormalTok{(}\StringTok{"Attack Losses"}\NormalTok{, }\DecValTok{3}\NormalTok{, }\AttributeTok{double\_escape =} \ConstantTok{TRUE}\NormalTok{))}
+
+\NormalTok{models }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{kbl}\NormalTok{(}
+    \AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{,}
+    \AttributeTok{escape =} \ConstantTok{FALSE}\NormalTok{,}
+    \AttributeTok{caption =} \StringTok{"Detection models and attack losses. Full details are given in Appendix }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{ref\{app:mod\_los\}."}\NormalTok{,}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{kable\_styling}\NormalTok{(}
+    \AttributeTok{position =} \StringTok{"center"}\NormalTok{,}
+    \AttributeTok{latex\_options =} \StringTok{"striped"}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{add\_header\_above}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{" "} \OtherTok{=} \DecValTok{3}\NormalTok{, }\StringTok{"Targeted"} \OtherTok{=} \DecValTok{2}\NormalTok{, }\StringTok{" "} \OtherTok{=} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{add\_header\_above}\NormalTok{(attack\_header, }\AttributeTok{escape =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{footnote}\NormalTok{(}
+    \AttributeTok{alphabet =} \FunctionTok{c}\NormalTok{(}
+      \StringTok{"In general, 1{-}stage detectors are quicker whereas 2{-}stage detectors are more accurate, though the 1{-}stage RetinaNet aims to be both quick and accurate. In a 2{-}stage detector, the input image passes through a Region Proposal Network (RPN) stage and a detection (Det) stage."}\NormalTok{,}
+      \StringTok{"COCO mean Average Precision (mAP) is the primary metric on the COCO challenge."}\NormalTok{,}
+      \StringTok{"The training losses in detectors typically include the box regression loss (Box), the class loss on the 80 COCO labels and/or the background class (Class), and the objectness loss on categorizing an image region as background or object (Object)."}\NormalTok{,}
+      \StringTok{"Untargeted attack targets all training losses in a model, i.e.\textbackslash{} the backpropagation loss."}
+\NormalTok{    ),}
+    \AttributeTok{threeparttable =} \ConstantTok{TRUE}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\caption{\label{tab:models_table}Detection models and attack losses. Full details are given in Appendix \ref{app:mod_los}.}
+\centering
+\begin{threeparttable}
+\begin{tabular}[t]{llllll}
+\toprule
+\multicolumn{3}{c}{ } & \multicolumn{3}{c}{Attack Losses\textsuperscript{c}} \\
+\cmidrule(l{3pt}r{3pt}){4-6}
+\multicolumn{3}{c}{ } & \multicolumn{2}{c}{Targeted} & \multicolumn{1}{c}{ } \\
+\cmidrule(l{3pt}r{3pt}){4-5}
+Detectors & Stages\textsuperscript{a} & COCO mAP\textsuperscript{b} & Vanishing & Mislabeling & Untargeted\textsuperscript{d}\\
+\midrule
+\cellcolor{gray!10}{YOLOv3} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{33.7} & \cellcolor{gray!10}{Object} & \cellcolor{gray!10}{Class} & \cellcolor{gray!10}{Class, Box, Object}\\
+SSD & 1 & 29.5 & Class & Class & Class, Box\\
+\cellcolor{gray!10}{RetinaNet} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{36.5} & \cellcolor{gray!10}{Class} & \cellcolor{gray!10}{Class} & \cellcolor{gray!10}{Class, Box}\\
+\makecell[l]{Faster\\R-CNN} & 2 & 37.4 & \makecell[l]{RPN: Object;\\Det: Class} & Det: Class & \makecell[l]{RPN: Object, Box;\\Det: Class, Box}\\
+\cellcolor{gray!10}{\makecell[l]{Cascade\\R-CNN}} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{40.3} & \cellcolor{gray!10}{\makecell[l]{RPN 1: Object;\\RPNs 2, 3 + Det: Class}} & \cellcolor{gray!10}{\makecell[l]{RPNs 2, 3: Class;\\Det: Class}} & \cellcolor{gray!10}{\makecell[l]{RPN 1: Object, Box;\\RPNs 2, 3 + Det: Class, Box}}\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[a] In general, 1-stage detectors are quicker whereas 2-stage detectors are more accurate, though the 1-stage RetinaNet aims to be both quick and accurate. In a 2-stage detector, the input image passes through a Region Proposal Network (RPN) stage and a detection (Det) stage.
+\item[b] COCO mean Average Precision (mAP) is the primary metric on the COCO challenge.
+\item[c] The training losses in detectors typically include the box regression loss (Box), the class loss on the 80 COCO labels and/or the background class (Class), and the objectness loss on categorizing an image region as background or object (Object).
+\item[d] Untargeted attack targets all training losses in a model, i.e. the backpropagation loss.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sub\_results }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(col) \{}
+  \FunctionTok{str\_replace\_all}\NormalTok{(col, }\FunctionTok{coll}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"\textgreater{}"} \OtherTok{=} \StringTok{"$\textgreater{}$"}\NormalTok{)))}
+\NormalTok{\}}
+
+\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+  \SpecialCharTok{\textasciitilde{}}\NormalTok{hp, }\SpecialCharTok{\textasciitilde{}}\NormalTok{sig,}
+  \StringTok{"1{-}stage \textgreater{} 2{-}stage models (YOLOv3, SSD, RetinaNet \textgreater{} Faster R{-}CNN, Cascade R{-}CNN)"}\NormalTok{, }\StringTok{"YOLOv3, SSD \textgreater{} RetinaNet, Faster R{-}CNN, Cascade R{-}CNN in vanishing and mislabeling attacks (1{-}stage RetinaNet is as resilient as 2{-}stage models)"}\NormalTok{,}
+  \StringTok{"Targeted \textgreater{} Untargeted attack"}\NormalTok{, }\StringTok{"YOLOv3 only"}\NormalTok{,}
+  \StringTok{"Vanishing \textgreater{} Mislabeling attack"}\NormalTok{, }\StringTok{"All"}\NormalTok{,}
+  \StringTok{"Larger attack iterations"}\NormalTok{, }\StringTok{"All"}\NormalTok{,}
+  \StringTok{"Less confident targets"}\NormalTok{, }\StringTok{"All"}\NormalTok{,}
+  \StringTok{"Larger perturb boxes"}\NormalTok{, }\StringTok{"All except mislabeling attack on Faster R{-}CNN"}\NormalTok{,}
+  \StringTok{"Shorter perturb{-}target distance"}\NormalTok{, }\StringTok{"All"}\NormalTok{,}
+  \StringTok{"Less accurate target COCO class"}\NormalTok{, }\StringTok{"Mixed"}\NormalTok{,}
+  \FunctionTok{glue}\NormalTok{(}\StringTok{"Lower target \{note\_alpha(\textquotesingle{}IOU\textquotesingle{}, 2)\} (untargeted attack only)"}\NormalTok{), }\StringTok{"All"}\NormalTok{,}
+  \StringTok{"More probable intended class (mislabeling attack only)"}\NormalTok{, }\StringTok{"Mixed"}\NormalTok{,}
+\NormalTok{)}
+
+\NormalTok{results }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{rename}\NormalTok{(}\StringTok{"Hypotheses (higher success for)"} \SpecialCharTok{:=}\NormalTok{ hp, }\StringTok{\textquotesingle{}\{note\_alpha("Accepted (across attacks and models)", 1)\}\textquotesingle{}} \SpecialCharTok{:=}\NormalTok{ sig) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), sub\_results)) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{add\_linebreak}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{kbl}\NormalTok{(}
+    \AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{,}
+    \AttributeTok{escape =} \ConstantTok{FALSE}\NormalTok{,}
+    \AttributeTok{caption =} \StringTok{"Hypothesis testing in the randomized attack (Sections }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{ref\{sec:rand\_hp\} and }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{ref\{sec:rand\_res\})"}\NormalTok{,}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{kable\_styling}\NormalTok{(}
+    \AttributeTok{position =} \StringTok{"center"}\NormalTok{,}
+    \AttributeTok{latex\_options =} \FunctionTok{c}\NormalTok{(}
+      \StringTok{"striped"}\NormalTok{,}
+      \StringTok{"hold\_position"}
+\NormalTok{    ),}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{column\_spec}\NormalTok{(}\DecValTok{2}\NormalTok{, }\AttributeTok{width =} \StringTok{"1.5in"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{column\_spec}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{width =} \StringTok{"1.25in"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{footnote}\NormalTok{(}
+    \AttributeTok{alphabet =} \FunctionTok{c}\NormalTok{(}
+      \StringTok{"$p \textless{} .05$ for Wald z{-}test on logistic estimate"}\NormalTok{,}
+      \StringTok{"intersection{-}over{-}union"}
+\NormalTok{    ),}
+    \AttributeTok{escape =} \ConstantTok{FALSE}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!h]
+\centering
+\caption{\label{tab:results_table}Hypothesis testing in the randomized attack (Sections \ref{sec:rand_hp} and \ref{sec:rand_res})}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{1.25in}>{\raggedright\arraybackslash}p{1.5in}}
+\toprule
+Hypotheses (higher success for) & Accepted (across attacks and models)\textsuperscript{a}\\
+\midrule
+\cellcolor{gray!10}{1-stage $>$ 2-stage models (YOLOv3, SSD, RetinaNet $>$ Faster R-CNN, Cascade R-CNN)} & \cellcolor{gray!10}{YOLOv3, SSD $>$ RetinaNet, Faster R-CNN, Cascade R-CNN in vanishing and mislabeling attacks (1-stage RetinaNet is as resilient as 2-stage models)}\\
+Targeted $>$ Untargeted attack & YOLOv3 only\\
+\cellcolor{gray!10}{Vanishing $>$ Mislabeling attack} & \cellcolor{gray!10}{All}\\
+Larger attack iterations & All\\
+\cellcolor{gray!10}{Less confident targets} & \cellcolor{gray!10}{All}\\
+\addlinespace
+Larger perturb boxes & All except mislabeling attack on Faster R-CNN\\
+\cellcolor{gray!10}{Shorter perturb-target distance} & \cellcolor{gray!10}{All}\\
+Less accurate target COCO class & Mixed\\
+\cellcolor{gray!10}{Lower target IOU\textsuperscript{b} (untargeted attack only)} & \cellcolor{gray!10}{All}\\
+More probable intended class (mislabeling attack only) & Mixed\\
+\bottomrule
+\multicolumn{2}{l}{\rule{0pt}{1em}\textsuperscript{a} $p < .05$ for Wald z-test on logistic estimate}\\
+\multicolumn{2}{l}{\rule{0pt}{1em}\textsuperscript{b} intersection-over-union}\\
+\end{tabular}
+\end{table}
