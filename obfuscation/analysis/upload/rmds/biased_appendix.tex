@@ -1,0 +1,61 @@
+\begingroup\fontsize{9}{11}\selectfont
+
+\begin{longtable}[t]{llllrrrrrr}
+\caption{\label{tab:num_cri_table}We run a logistic model regressing success against log(number of factors) in the randomized attack experiment. Success rates increase with the number of factors combined to select target and perturb objects for all models and attacks. Table headers are explained in Appendix \ref{app:tab_hdr}.}\\
+\toprule
+\multicolumn{2}{c}{Group} & \multicolumn{8}{c}{Regression} \\
+\cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-10}
+ & Attack & term & sig & estimate & std.error & statistic & p.value & conf.low & conf.high\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{YOLOv3}}\\
+\hspace{1em} & Vanishing & num\_cri & * & 1.144 & 0.077 & 14.871 & 0 & 0.996 & 1.298\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Mislabeling & num\_cri & * & 1.179 & 0.078 & 15.094 & 0 & 1.029 & 1.335\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Untargeted & num\_cri & * & 1.007 & 0.073 & 13.700 & 0 & 0.865 & 1.153\\
+\cmidrule{1-10}\pagebreak[0]
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{SSD}}\\
+\hspace{1em} & Vanishing & num\_cri & * & 0.749 & 0.065 & 11.549 & 0 & 0.624 & 0.878\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Mislabeling & num\_cri & * & 0.684 & 0.064 & 10.752 & 0 & 0.561 & 0.810\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Untargeted & num\_cri & * & 0.678 & 0.065 & 10.497 & 0 & 0.552 & 0.806\\
+\cmidrule{1-10}\pagebreak[0]
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{RetinaNet}}\\
+\hspace{1em} & Vanishing & num\_cri & * & 0.546 & 0.086 & 6.315 & 0 & 0.378 & 0.717\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Mislabeling & num\_cri & * & 0.586 & 0.126 & 4.657 & 0 & 0.342 & 0.836\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Untargeted & num\_cri & * & 0.951 & 0.071 & 13.302 & 0 & 0.813 & 1.093\\
+\cmidrule{1-10}\pagebreak[0]
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{Faster R-CNN}}\\
+\hspace{1em} & Vanishing & num\_cri & * & 0.558 & 0.088 & 6.319 & 0 & 0.387 & 0.733\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Mislabeling & num\_cri & * & 0.771 & 0.107 & 7.202 & 0 & 0.564 & 0.984\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Untargeted & num\_cri & * & 1.228 & 0.077 & 16.021 & 0 & 1.080 & 1.381\\
+\cmidrule{1-10}\pagebreak[0]
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{Cascade R-CNN}}\\
+\hspace{1em} & Vanishing & num\_cri & * & 0.694 & 0.078 & 8.847 & 0 & 0.542 & 0.849\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Mislabeling & num\_cri & * & 0.765 & 0.089 & 8.623 & 0 & 0.594 & 0.942\\
+\cmidrule{2-10}\nopagebreak
+\hspace{1em} & Untargeted & num\_cri & * & 0.948 & 0.075 & 12.714 & 0 & 0.804 & 1.096\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begin{figure}[tb]
+
+{\centering \includegraphics[width=1\linewidth]{imgs/biased_trend_graph-normed} 
+
+}
+
+\caption{Success factors can be exploited in combination to significantly increase success rates even with 0.05 max-norm:  We sampled target and perturb objects based on three validated success factors in Table \ref{tab:results_table} by targeting objects with low predicted confidence, perturbing large objects and selecting target and perturb objects close to one another. The binned summaries and regression trendlines graph success proportion against number of factors in the deliberate attack experiment. Errors are 95\% confidence intervals and every point aggregates success over 200 images. Success rates significantly increase as the number of factors combined increases. Significance is determined at $\alpha < 0.05$ using a Wald z-test on the logistic estimates. Full details are given in Section \ref{sec:del_per}.}\label{fig:biased_trend_graph_normed}
+\end{figure}
+

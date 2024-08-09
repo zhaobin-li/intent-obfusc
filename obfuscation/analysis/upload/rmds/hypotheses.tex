@@ -1,0 +1,24 @@
+\begin{table}[!h]
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{1.25in}>{\raggedright\arraybackslash}p{1.5in}}
+\toprule
+Hypotheses (higher success for) & Accepted (across attacks and models)\textsuperscript{a}\\
+\midrule
+\cellcolor{gray!10}{1-stage $>$ 2-stage models (YOLOv3, SSD, RetinaNet $>$ Faster R-CNN, Cascade R-CNN)} & \cellcolor{gray!10}{YOLOv3, SSD $>$ RetinaNet, Faster R-CNN, Cascade R-CNN in vanishing and mislabeling attacks (1-stage RetinaNet is as resilient as 2-stage models)}\\
+Targeted $>$ Untargeted attack & YOLOv3 only\\
+\cellcolor{gray!10}{Vanishing $>$ Mislabeling attack} & \cellcolor{gray!10}{All}\\
+Larger attack iterations & All\\
+\cellcolor{gray!10}{Less confident targets} & \cellcolor{gray!10}{All}\\
+\addlinespace
+Larger perturb boxes & All except mislabeling attack on Faster R-CNN\\
+\cellcolor{gray!10}{Shorter perturb-target distance} & \cellcolor{gray!10}{All}\\
+Less accurate target COCO class & Mixed\\
+\cellcolor{gray!10}{Lower target IOU\textsuperscript{b} (untargeted attack only)} & \cellcolor{gray!10}{All}\\
+More probable intended class (mislabeling attack only) & Mixed\\
+\bottomrule
+\multicolumn{2}{l}{\rule{0pt}{1em}\textsuperscript{a} $p < .05$ for Wald z-test on logistic estimate}\\
+\multicolumn{2}{l}{\rule{0pt}{1em}\textsuperscript{b} intersection-over-union}\\
+\end{tabular}
+\centering
+\caption{\label{tab:results_table}Hypothesis testing in the randomized attack (Sections \ref{sec:rand_hp} and \ref{sec:rand_res})}
+\end{table}
