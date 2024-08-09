@@ -1,4 +1,8 @@
 # Render all rmds
+# 
+# Use knitr on randomized.Rmd, biased.Rmd, arbitrary.Rmd, and summary.Rmd to 
+# produce graphs in imgs/ and tables in knitted/. 
+# It will also generate the normed graphs and tables
 
 library(glue)
 here::i_am("analysis/render.R")

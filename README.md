@@ -17,17 +17,9 @@ these stand-in names with your own directories to run the commands.
 ## Reproduce graphs and tables
 
 The code store the general trends as `*.csv` and individual results as `*.parquet`
-in `./data/randomized/results`, `./data/biased/results` and `./data/arbitrary/results`.
-
-Use knitr on `./analysis/randomized.Rmd`, `./analysis/biased.Rmd`  and `./analysis/arbitrary.Rmd` to produce
-graphs in `./analysis/imgs/` and tables in `./analysis/randomized.tex`, `./analysis/biased.tex`,
-and `./analysis/arbitrary.tex`. You get either generate a latex or pdf document and change the `norm` parameter
-to `0.05` to analyze experiments with max norm.
-
-Knitting `./analysis/summary.Rmd` to `./analysis/summary.tex` produce the hypothesis
-and model summaries.
-
-I use R 4.4.0 together with renv to install the required packages. You can use `renv::restore()` to
+in `./data/randomized/results`, `./data/biased/results` and `./data/arbitrary/results`. Run the script render.R to
+generate the table and graphs. I use R 4.4.0 together with renv to install the required packages. You can
+use `renv::restore()` to
 [reproduce](https://rstudio.github.io/renv/articles/renv.html) the R environment.
 
 ## Download images and results
