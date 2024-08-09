@@ -149,7 +149,7 @@ get_reg_vars <- function(data) {
 }
 
 # run random.Rmd 1st
-rand_dist_size <- readRDS(here("analysis/rand_dist_size.RDS")) |>
+rand_dist_size <- readRDS(here(glue("analysis/rand_dist_size_norm_{params$norm}.RDS"))) |>
   mutate(object = 1) |>
   get_reg_vars() |>
   glimpse()

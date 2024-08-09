@@ -279,7 +279,7 @@ bbox_dist_data |>
 ```
 
 ```{r save_to_compare_with_arbitrary}
-saveRDS(bbox_dist_data, here("analysis/rand_dist_size.RDS"))
+saveRDS(bbox_dist_data, here(glue("analysis/rand_dist_size_norm_{params$norm}.RDS")))
 ```
 
 ```{r perturb_bbox_and_object_dist_graph, include=TRUE, fig.cap=cap}
