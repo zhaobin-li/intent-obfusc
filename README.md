@@ -1,7 +1,7 @@
 # Technical appendix:
 
-If you are reading the AAAI/ACM version, please download the technical appendix on arXiv at
-https://arxiv.org/abs/2408.02674
+If you are reading the AAAI/ACM version, please download the technical appendix on arXiv
+at https://arxiv.org/abs/2408.02674
 
 # For reviewers:
 
