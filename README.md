@@ -1,6 +1,7 @@
 # Technical appendix:
 
-Download on [github](appendix.pdf). Arxiv submission is still on hold.
+If you are reading the AAAI/ACM version, please download the technical appendix on arXiv at
+https://arxiv.org/abs/2408.02674
 
 # For reviewers:
 
